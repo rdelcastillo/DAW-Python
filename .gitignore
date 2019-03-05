@@ -1,0 +1,10 @@
+/.metadata/
+/.recommenders/
+.project
+.classpath
+.pydevproject
+.idea
+.settings
+__pycache__
+*.class
+bin/

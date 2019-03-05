@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module funciones_tresenraya</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>funciones_tresenraya</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/rafa/Documentos/Instituto/M%C3%B3dulos/DAW1-Programaci%C3%B3n/src/Python/TresEnRaya/funciones_tresenraya.py">/home/rafa/Documentos/Instituto/Módulos/DAW1-Programación/src/Python/TresEnRaya/funciones_tresenraya.py</a></font></td></tr></table>
+    <p><tt>FUNCIONES&nbsp;para&nbsp;el&nbsp;programa&nbsp;tresenraya<br>
+&nbsp;<br>
+Autor:&nbsp;Rafael&nbsp;del&nbsp;Castillo&nbsp;Gomariz</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="random.html">random</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-borra_pantalla"><strong>borra_pantalla</strong></a>()</dt><dd><tt>Borra&nbsp;la&nbsp;pantalla&nbsp;teniendo&nbsp;en&nbsp;cuenta&nbsp;el&nbsp;sistema&nbsp;operativo.<br>
+&nbsp;<br>
+Usada&nbsp;por&nbsp;<a href="#-dibuja">dibuja</a>()</tt></dd></dl>
+ <dl><dt><a name="-dibuja"><strong>dibuja</strong></a>(tablero)</dt><dd><tt>Dibuja&nbsp;el&nbsp;tablero&nbsp;de&nbsp;3x3&nbsp;en&nbsp;pantalla.<br>
+&nbsp;<br>
+Parámetros:<br>
+tablero&nbsp;-&nbsp;lista&nbsp;de&nbsp;3x3&nbsp;casillas&nbsp;donde:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;es&nbsp;una&nbsp;casilla&nbsp;vacía&nbsp;(aparece&nbsp;blanco)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;jugador<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;ordenador</tt></dd></dl>
+ <dl><dt><a name="-dosenraya"><strong>dosenraya</strong></a>(tablero, jugador)</dt><dd><tt>Comprueba&nbsp;si&nbsp;hay&nbsp;alguna&nbsp;jugada&nbsp;que&nbsp;puede&nbsp;hacer&nbsp;ganar&nbsp;a&nbsp;"jugador".<br>
+&nbsp;<br>
+Usada&nbsp;por&nbsp;<a href="#-juega_ordenador">juega_ordenador</a>()<br>
+&nbsp;<br>
+Valores&nbsp;devueltos:&nbsp;Fila&nbsp;y&nbsp;Columna&nbsp;(entre&nbsp;1&nbsp;y&nbsp;3),&nbsp;si&nbsp;no&nbsp;hay&nbsp;jugada&nbsp;devuelve&nbsp;0,0<br>
+&nbsp;<br>
+Parámetros:<br>
+tablero&nbsp;-&nbsp;lista&nbsp;de&nbsp;3x3&nbsp;casillas&nbsp;donde:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;es&nbsp;una&nbsp;casilla&nbsp;vacía&nbsp;(aparece&nbsp;blanco)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;jugador<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;ordenador<br>
+jugador&nbsp;-&nbsp;1&nbsp;si&nbsp;es&nbsp;la&nbsp;persona&nbsp;y&nbsp;2&nbsp;si&nbsp;es&nbsp;el&nbsp;ordenador<br>
+&nbsp;<br>
+La&nbsp;manera&nbsp;de&nbsp;proceder&nbsp;será:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;crear&nbsp;una&nbsp;copia&nbsp;del&nbsp;tablero<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;comprobar&nbsp;cada&nbsp;fila,&nbsp;si&nbsp;hay&nbsp;un&nbsp;cero&nbsp;lo&nbsp;cambiamos&nbsp;por&nbsp;'jugador'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;si&nbsp;hay&nbsp;tres&nbsp;en&nbsp;raya&nbsp;en&nbsp;esa&nbsp;fila&nbsp;acabamos<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;lo&nbsp;mismo&nbsp;para&nbsp;las&nbsp;columnas&nbsp;y&nbsp;diagonales</tt></dd></dl>
+ <dl><dt><a name="-ganador"><strong>ganador</strong></a>(tablero)</dt><dd><tt>Devuelve&nbsp;el&nbsp;ganador,&nbsp;en&nbsp;caso&nbsp;de&nbsp;que&nbsp;lo&nbsp;haya.<br>
+&nbsp;<br>
+Valores&nbsp;devueltos:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;-&nbsp;no&nbsp;hay&nbsp;ganador<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;-&nbsp;gana&nbsp;el&nbsp;jugador<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;-&nbsp;gana&nbsp;el&nbsp;ordenador<br>
+&nbsp;<br>
+Parámetros:<br>
+tablero&nbsp;-&nbsp;lista&nbsp;de&nbsp;3x3&nbsp;casillas&nbsp;donde:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;es&nbsp;una&nbsp;casilla&nbsp;vacía&nbsp;(aparece&nbsp;blanco)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;jugador<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;ordenador</tt></dd></dl>
+ <dl><dt><a name="-incorrecta"><strong>incorrecta</strong></a>(f, c, tablero)</dt><dd><tt>Indica&nbsp;si&nbsp;la&nbsp;jugada&nbsp;es&nbsp;incorrecta.<br>
+&nbsp;<br>
+Usada&nbsp;por&nbsp;<a href="#-juega_persona">juega_persona</a>()&nbsp;y&nbsp;<a href="#-juega_ordenador">juega_ordenador</a>()<br>
+&nbsp;<br>
+Valores&nbsp;devueltos:&nbsp;True&nbsp;ó&nbsp;False<br>
+&nbsp;<br>
+Parámetros:<br>
+f&nbsp;-&nbsp;fila&nbsp;de&nbsp;la&nbsp;casilla&nbsp;escogida<br>
+c&nbsp;-&nbsp;columna&nbsp;de&nbsp;la&nbsp;casilla&nbsp;escogida<br>
+tablero&nbsp;-&nbsp;lista&nbsp;de&nbsp;3x3&nbsp;casillas&nbsp;donde:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;es&nbsp;una&nbsp;casilla&nbsp;vacía&nbsp;(aparece&nbsp;blanco)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;jugador<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;ordenador</tt></dd></dl>
+ <dl><dt><a name="-juega_ordenador"><strong>juega_ordenador</strong></a>(tablero)</dt><dd><tt>Realiza&nbsp;la&nbsp;jugada&nbsp;del&nbsp;jugador&nbsp;'ordenador'.<br>
+&nbsp;<br>
+Usada&nbsp;por&nbsp;<a href="#-jugada">jugada</a>()<br>
+&nbsp;<br>
+Parámetros:<br>
+tablero&nbsp;-&nbsp;lista&nbsp;de&nbsp;3x3&nbsp;casillas&nbsp;donde:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;es&nbsp;una&nbsp;casilla&nbsp;vacía&nbsp;(aparece&nbsp;blanco)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;jugador<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;ordenador</tt></dd></dl>
+ <dl><dt><a name="-juega_persona"><strong>juega_persona</strong></a>(tablero)</dt><dd><tt>Realiza&nbsp;la&nbsp;jugada&nbsp;del&nbsp;jugador&nbsp;'persona'.<br>
+&nbsp;<br>
+Usada&nbsp;por&nbsp;<a href="#-jugada">jugada</a>()<br>
+&nbsp;<br>
+Parámetros:<br>
+tablero&nbsp;-&nbsp;lista&nbsp;de&nbsp;3x3&nbsp;casillas&nbsp;donde:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;es&nbsp;una&nbsp;casilla&nbsp;vacía&nbsp;(aparece&nbsp;blanco)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;jugador<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;ordenador</tt></dd></dl>
+ <dl><dt><a name="-jugada"><strong>jugada</strong></a>(turno, tablero)</dt><dd><tt>Realiza&nbsp;la&nbsp;jugada&nbsp;del&nbsp;jugador&nbsp;o&nbsp;del&nbsp;ordenador.<br>
+&nbsp;<br>
+Parámetros:<br>
+turno&nbsp;-<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;si&nbsp;es&nbsp;el&nbsp;turno&nbsp;del&nbsp;jugador<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;si&nbsp;es&nbsp;el&nbsp;turno&nbsp;del&nbsp;ordenador<br>
+tablero&nbsp;-&nbsp;lista&nbsp;de&nbsp;3x3&nbsp;casillas&nbsp;donde:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;es&nbsp;una&nbsp;casilla&nbsp;vacía&nbsp;(aparece&nbsp;blanco)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;jugador<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;ordenador</tt></dd></dl>
+ <dl><dt><a name="-siguiente_turno"><strong>siguiente_turno</strong></a>(turno)</dt><dd><tt>Devuelve&nbsp;el&nbsp;jugador&nbsp;que&nbsp;juega&nbsp;el&nbsp;siguiente&nbsp;turno.<br>
+&nbsp;<br>
+Valores&nbsp;devueltos:&nbsp;1&nbsp;ó&nbsp;2<br>
+&nbsp;<br>
+Parámetros:<br>
+turno&nbsp;-<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;si&nbsp;es&nbsp;el&nbsp;turno&nbsp;del&nbsp;jugador<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;si&nbsp;es&nbsp;el&nbsp;turno&nbsp;del&nbsp;ordenador</tt></dd></dl>
+ <dl><dt><a name="-tresenraya_columna"><strong>tresenraya_columna</strong></a>(j, tablero)</dt><dd><tt>Comprueba&nbsp;si&nbsp;hay&nbsp;tres&nbsp;en&nbsp;raya&nbsp;en&nbsp;la&nbsp;columna&nbsp;indicada.<br>
+&nbsp;<br>
+Usada&nbsp;por&nbsp;<a href="#-ganador">ganador</a>()&nbsp;y&nbsp;<a href="#-dosenraya">dosenraya</a>()<br>
+&nbsp;<br>
+Valores&nbsp;devueltos:&nbsp;True&nbsp;ó&nbsp;False<br>
+&nbsp;<br>
+Parámetros:<br>
+j&nbsp;-&nbsp;columna<br>
+tablero&nbsp;-&nbsp;lista&nbsp;de&nbsp;3x3&nbsp;casillas&nbsp;donde:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;es&nbsp;una&nbsp;casilla&nbsp;vacía&nbsp;(aparece&nbsp;blanco)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;jugador<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;ordenador</tt></dd></dl>
+ <dl><dt><a name="-tresenraya_diagonal1"><strong>tresenraya_diagonal1</strong></a>(tablero)</dt><dd><tt>Comprueba&nbsp;si&nbsp;hay&nbsp;tres&nbsp;en&nbsp;raya&nbsp;en&nbsp;la&nbsp;diagonal&nbsp;de&nbsp;izquierda&nbsp;a&nbsp;derecha.<br>
+&nbsp;<br>
+Usada&nbsp;por&nbsp;<a href="#-ganador">ganador</a>()&nbsp;y&nbsp;<a href="#-dosenraya">dosenraya</a>()<br>
+&nbsp;<br>
+Valores&nbsp;devueltos:&nbsp;True&nbsp;ó&nbsp;False<br>
+&nbsp;<br>
+Parámetros:<br>
+tablero&nbsp;-&nbsp;lista&nbsp;de&nbsp;3x3&nbsp;casillas&nbsp;donde:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;es&nbsp;una&nbsp;casilla&nbsp;vacía&nbsp;(aparece&nbsp;blanco)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;jugador<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;ordenador</tt></dd></dl>
+ <dl><dt><a name="-tresenraya_diagonal2"><strong>tresenraya_diagonal2</strong></a>(tablero)</dt><dd><tt>Comprueba&nbsp;si&nbsp;hay&nbsp;tres&nbsp;en&nbsp;raya&nbsp;en&nbsp;la&nbsp;diagonal&nbsp;de&nbsp;derecha&nbsp;a&nbsp;izquierda.<br>
+&nbsp;<br>
+Usada&nbsp;por&nbsp;<a href="#-ganador">ganador</a>()&nbsp;y&nbsp;<a href="#-dosenraya">dosenraya</a>()<br>
+&nbsp;<br>
+Valores&nbsp;devueltos:&nbsp;True&nbsp;ó&nbsp;False<br>
+&nbsp;<br>
+Parámetros:<br>
+tablero&nbsp;-&nbsp;lista&nbsp;de&nbsp;3x3&nbsp;casillas&nbsp;donde:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;es&nbsp;una&nbsp;casilla&nbsp;vacía&nbsp;(aparece&nbsp;blanco)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;jugador<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;ordenador</tt></dd></dl>
+ <dl><dt><a name="-tresenraya_fila"><strong>tresenraya_fila</strong></a>(i, tablero)</dt><dd><tt>Comprueba&nbsp;si&nbsp;hay&nbsp;tres&nbsp;en&nbsp;raya&nbsp;en&nbsp;la&nbsp;fila&nbsp;indicada.<br>
+&nbsp;<br>
+Usada&nbsp;por&nbsp;<a href="#-ganador">ganador</a>()&nbsp;y&nbsp;<a href="#-dosenraya">dosenraya</a>()<br>
+&nbsp;<br>
+Valores&nbsp;devueltos:&nbsp;True&nbsp;ó&nbsp;False<br>
+&nbsp;<br>
+Parámetros:<br>
+i&nbsp;-&nbsp;fila<br>
+tablero&nbsp;-&nbsp;lista&nbsp;de&nbsp;3x3&nbsp;casillas&nbsp;donde:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;es&nbsp;una&nbsp;casilla&nbsp;vacía&nbsp;(aparece&nbsp;blanco)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;jugador<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;es&nbsp;una&nbsp;casilla&nbsp;ocupada&nbsp;por&nbsp;el&nbsp;ordenador</tt></dd></dl>
+</td></tr></table>
+</body></html>
