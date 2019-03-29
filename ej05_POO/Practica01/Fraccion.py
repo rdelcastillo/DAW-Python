@@ -4,15 +4,19 @@ Implementación de la clase Fracción.
 Echar un vistazo a http://interactivepython.org/runestone/static/pythoned/Introduction/ProgramacionOrientadaAObjetosEnPythonDefinicionDeClases.html
 """
 
+import sys
+
 def mcd(m,n):
     """Devuelve el máximo común divisor de los dos números pasados como parámetro"""
-    while m%n != 0:
-        m_anterior = m
-        n_anterior = n
-        m = n_anterior
-        n = m_anterior % n_anterior
-    return n
-
+    u = abs(m);
+    v = abs(n);
+    if (v == 0):
+        return u
+    while v != 0:
+        r = u % v
+        u = v
+        v = r
+    return u
 
 class Fraccion():
 
@@ -87,8 +91,8 @@ class Fraccion():
         else:
             Fraccion.__verifica_fraccion(f)
         # proceso
-        self.num *= f.numerador
-        self.den *= f.denominador
+        self.num *= f.num
+        self.den *= f.den
         self.simplifica()
 
     def divide(self, f):
@@ -103,8 +107,8 @@ class Fraccion():
             self.den *= f
         else:
             Fraccion.__verifica_fraccion(f)
-            self.num *= f.denominador
-            self.den *= f.numerador
+            self.num *= f.den
+            self.den *= f.num
         self.simplifica()
 
     #
@@ -314,8 +318,12 @@ class Fraccion():
 
 if __name__ == "__main__":
 
-    x = Fraccion(1, 2)
-    y = Fraccion(2, 3)
+    x = Fraccion(4, 5)
+    y = Fraccion(7, 2)
+
+    print(x,"=",x.resultado())
+    print(y, "=", y.resultado())
+    print()
 
     print("Probamos operadores aritméticos:")
 
@@ -341,12 +349,19 @@ if __name__ == "__main__":
     print()
 
     print("Probamos operadores relacionales:")
-    print(x, "==", y, "es", x == y)
-    print(x, "!=", y, "es", x != y)
-    print(x, "< ", y, "es", x < y)
-    print(x, "<=", y, "es", x <= y)
-    print(x, "> ", y, "es", x > y)
-    print(x, ">=", y, "es", x >= y)
+    x2 = Fraccion(x.num*2, x.den*2)
+    print(x, "==", y,  "es", x == y)
+    print(x, "==", x2, "es", x == x2)
+    print(x, "!=", y,  "es", x != y)
+    print(x, "!=", x2, "es", x != x2)
+    print(x, "< ", y,  "es", x < y)
+    print(x, "< ", x2, "es", x < x2)
+    print(x, "<=", y,  "es", x <= y)
+    print(x, "<=", x2, "es", x <= x2)
+    print(x, "> ", y,  "es", x > y)
+    print(x, "> ", x2, "es", x > x2)
+    print(x, ">=", y,  "es", x >= y)
+    print(x, ">=", x2, "es", x >= x2)
     print()
 
     print("1 ==", x, "es", 1 == x)
@@ -362,4 +377,52 @@ if __name__ == "__main__":
     print(y, "<=", 1, "es", y <= 1)
     print(y, "> ", 1, "es", y > 1)
     print(y, ">=", 1, "es", y >= 1)
+    print()
 
+    print("Modificamos la fracción",x,":")
+    print("- Incrementamos 2/3: ",end="")
+    x.incrementa(Fraccion(2,3))
+    print(x)
+    print("- Incrementamos 1:   ", end="")
+    x.incrementa(1)
+    print(x)
+    print("- Decrementamos 1:   ", end="")
+    x.decrementa(1)
+    print(x)
+    print("- Decrementamos 2/3: ", end="")
+    x.decrementa(Fraccion(2,3))
+    print(x)
+    print()
+
+    print("Modificamos la fracción", y, ":")
+    print("- Multiplicamosx2/3: ", end="")
+    y.multiplica(Fraccion(2, 3))
+    print(y)
+    print("- Dividimos por 2/3: ", end="")
+    y.divide(Fraccion(2, 3))
+    print(y)
+    print("- Multiplicamos x 3: ", end="")
+    y.multiplica(3)
+    print(y)
+    print("- Dividimos entre 3: ", end="")
+    y.divide(3)
+    print(y)
+    print()
+
+    # Denominador 0
+    print("Intentamos poner cero en el denominador de", x)
+    try:
+        x.den = 0
+    except ZeroDivisionError:
+        sys.stderr.write("ERROR: No se puede poner cero en el denominador\n")
+    finally:
+        print("Resultado:", x)
+    print()
+
+    print("Intentamos dividir", x, "entre cero");
+    try:
+        x.divide(0)
+    except ZeroDivisionError:
+        sys.stderr.write("ERROR: No se puede dividir por cero\n")
+    finally:
+        print("Resultado:", x)
