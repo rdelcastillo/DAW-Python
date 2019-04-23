@@ -27,9 +27,25 @@ class Test():
         """
         return self.__nombre
 
+    def getNombre(self):    # NO SE DEBE HACER ASÍ EL GETTER, esto es tipo Java
+        """
+        Getter tipo Java, NO SE DEBE USAR ASÍ.
+
+        En Python debe hacerse usando @property
+        """
+        return self.__nombre
+
     @property
     def ciclo(self):
         """Similar getter de Java"""
+        return self.__ciclo
+
+    def getCiclo(self):    # NO SE DEBE HACER ASÍ EL GETTER, esto es tipo Java
+        """
+        Getter tipo Java, NO SE DEBE USAR ASÍ.
+
+        En Python debe hacerse usando @property
+        """
         return self.__ciclo
 
     @ciclo.setter
@@ -37,6 +53,18 @@ class Test():
         """
         Similar al setter de Java, pero con una filosofía 'pythonica'.
         Accedemos (desde fuera) a la propiedad del objeto como si fuera un atributo y le damos valor.
+        """
+        c = c.upper()
+        if c in ["DAW","ASIR"]:
+            self.__ciclo = c
+        else:
+            print(f"ERROR: {c} no es un ciclo válido")
+
+    def setCiclo(self,c):    # NO SE DEBE HACER ASÍ EL SETTER, esto es tipo Java
+        """
+        Setter tipo Java, NO SE DEBE USAR ASÍ.
+
+        En Python debe hacerse usando @property
         """
         c = c.upper()
         if c in ["DAW","ASIR"]:
