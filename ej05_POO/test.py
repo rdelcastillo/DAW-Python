@@ -27,7 +27,7 @@ class Test():
         """
         return self.__nombre
 
-    def getNombre(self):    # NO SE DEBE HACER ASÍ EL GETTER, esto es tipo Java
+    def get_nombre(self):    # NO SE DEBE HACER ASÍ EL GETTER, esto es tipo Java
         """
         Getter tipo Java, NO SE DEBE USAR ASÍ.
 
@@ -40,7 +40,7 @@ class Test():
         """Similar getter de Java"""
         return self.__ciclo
 
-    def getCiclo(self):    # NO SE DEBE HACER ASÍ EL GETTER, esto es tipo Java
+    def get_ciclo(self):    # NO SE DEBE HACER ASÍ EL GETTER, esto es tipo Java
         """
         Getter tipo Java, NO SE DEBE USAR ASÍ.
 
@@ -60,7 +60,7 @@ class Test():
         else:
             print(f"ERROR: {c} no es un ciclo válido")
 
-    def setCiclo(self,c):    # NO SE DEBE HACER ASÍ EL SETTER, esto es tipo Java
+    def set_ciclo(self,c):    # NO SE DEBE HACER ASÍ EL SETTER, esto es tipo Java
         """
         Setter tipo Java, NO SE DEBE USAR ASÍ.
 
