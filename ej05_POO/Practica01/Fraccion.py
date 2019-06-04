@@ -22,11 +22,8 @@ class Fraccion():
 
     def __init__(self, n, d):
         # Comprobamos si hay errores al pasar los parámetros
-        Fraccion.__verifica_numerador(n)
-        Fraccion.__verifica_denominador(d)
-        # Proceso
-        self.__num = n
-        self.__den = d
+        self.num = n
+        self.den = d
 
     @property
     def den(self):
@@ -426,3 +423,19 @@ if __name__ == "__main__":
         sys.stderr.write("ERROR: No se puede dividir por cero\n")
     finally:
         print("Resultado:", x)
+    print()
+
+    # Constructor erróneo
+    print("Intentamos construir la fracción 5/0")
+    try:
+        y = Fraccion(5, 0)
+    except ZeroDivisionError:
+        sys.stderr.write("ERROR: La fracción 5/0 no es válida\n")
+    print()
+
+    print("Intentamos construir la fracción 5.9/10")
+    try:
+        y = Fraccion(5.9, 10)
+    except TypeError:
+        sys.stderr.write("ERROR: La fracción 5.9/10 no es válida\n")
+    print()
