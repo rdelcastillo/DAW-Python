@@ -19,11 +19,11 @@
 minutos = int(input("Dime la cantidad de minutos: "))
 
 # Cálculos
-res_horas = minutos//60
+horas = minutos//60
 res_min = minutos%60
 
 # Resultado
-print(res_horas,"horas y",res_min,"minutos.")
+print(horas, "horas y", res_min, "minutos.")
 
 
 
