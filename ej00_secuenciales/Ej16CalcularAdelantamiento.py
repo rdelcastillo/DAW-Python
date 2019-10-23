@@ -15,8 +15,8 @@
 # Variables: velocidad1, velocidad2, distancia (real), tiempo (real).
 ################################################################################
 # Diseño
-# 1. Leer las dos velocidades y la distancia (no puedo controlar que v1 > v2.
-# 2. Calcular tiempo: (v=s/t), por lo tanto t=s/v. Tiempo = distancia / (v1-v2)
+# 1. Leer las dos velocidades y la distancia (puedo controlar en Python que v1>v2)
+# 2. Calcular tiempo: (v=espacio/t), por lo tanto t=espacio/v. Tiempo=distancia/(v1-v2)
 # 3. El tiempo hay que pasarlo a minútos
 # 4. Mostrar tiempo
 ################################################################################
