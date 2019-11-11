@@ -12,7 +12,7 @@
 # Pedimos el centro (x1,y1) de una circunferencia y su radio r1, pedimos el
 # centro de otra circunferencia (x2,y2) y su radio r2.
 # En la siguiente página podemos aprender la relación entre dos circunferencias.
-# http:#mimosa.pntic.mec.es/clobo/geoweb/circun3.htm
+# http://mimosa.pntic.mec.es/clobo/geoweb/circun3.htm
 # Datos de entrada: x1,y1,x3,y2,r1,r2 (real)
 # Información de salida: Tipo de relación entre las circunferencias
 # Variables: x1,y1,x3,y2,r1,r2 (real), distancia (real)
@@ -47,23 +47,26 @@ distancia = math.sqrt(math.pow((x2-x1),2)+math.pow((y2-y1),2))
 # La distancia entre los centros, d, es mayor que la suma de los radios.
 if distancia>(r1+r2):
     print("Circunferencias exteriores")
-# circunferencias tangentes exteriores
-# La distancia entre los centros es igual a la suma de los radios.
-if distancia==(r1+r2):
-    print("Circunferencias tangentes exteriores")
 # circunferencias secantes
 # La distancia  es menor que la suma de los radios y mayor que su diferencia.
-if distancia<(r1+r2) and distancia>abs(r1-r2):
+elif distancia<(r1+r2) and distancia>abs(r1-r2):
     print("Circunferencias secantes")
-# Circunferencias tangentes interiores
-# La distancia entre los centros es igual a la diferencia entre los radios.
-if distancia==abs(r1-r2):
-    print("Circunferencias tangentes interiores")
 # Circunferencias interiores
 # La distancia entre los centros es mayor que cero y menor que la diferencia entre los radios.
-if distancia>0 and distancia<abs(r1-r2):
+elif distancia>0 and distancia<abs(r1-r2):
     print("Circunferencias interiores")
+# circunferencias tangentes exteriores
+# La distancia entre los centros es igual a la suma de los radios.
+elif distancia==(r1+r2):
+    print("Circunferencias tangentes exteriores")
+# Circunferencias tangentes interiores
+# La distancia entre los centros es igual a la diferencia entre los radios.
+elif distancia==abs(r1-r2):
+    print("Circunferencias tangentes interiores")
+
 # Circunferencias concétricas
 # La distancia = 0.
-if distancia==0:
+elif distancia==0:
     print("Circunferencias concéntricas")
+else:
+    print("Esta situación no se puede dar")
