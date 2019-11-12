@@ -24,30 +24,29 @@ Variables a usar:
 import random
 
 # Constantes
-INTENTOS_MAXIMOS = 3
+INTENTOS_MAXIMOS = 10
 
 # Inicializamos
-intentos_que_quedan = INTENTOS_MAXIMOS
 n_adivinar = random.randrange(1,100)
 
 # Proceso
 
 # implementamos un ciclo postcondición, ejecutamos la instrución
 # antes de entrar en el ciclo y al final del ciclo.
-n = int(input(  "Te quedan " + str(intentos_que_quedan) +
-                " intentos. Introduce un número entre 1 y 100: "))
+n = int(input("Introduce un número entre 1 y 100: "))
+intentos_que_quedan = INTENTOS_MAXIMOS-1
 while n!=n_adivinar and intentos_que_quedan>0:
-    intentos_que_quedan-=1
     if n < n_adivinar:
         print(f"{n} es menor que el número a adivinar.")
     else:
         print(f"{n} es mayor que el número a adivinar.")
     n = int(input(  "Te quedan " + str(intentos_que_quedan) +
-                " intentos. Introduce un número entre 1 y 100: "))
+                    " intentos. Introduce un número entre 1 y 100: "))
+    intentos_que_quedan -= 1
 
 # Mostramos resultado
 if n==n_adivinar: # ha adivinado
-    print(f"Has adivinado el número en {intentos} intentos")
+    print(f"Has adivinado el número en {INTENTOS_MAXIMOS-intentos_que_quedan} intentos")
 else:
     print(f"Has agotado el número máximo de intentos. El número a adivinar era {n_adivinar}")
 
