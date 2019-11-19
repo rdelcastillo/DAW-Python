@@ -1,23 +1,16 @@
-'''
-Este codigo ha sido generado por el modulo psexport 20180125-l64 de PSeInt.
-Es posible que el codigo generado no sea completamente correcto. Si encuentra
-errores por favor reportelos en el foro (http:#pseint.sourceforge.net).
+"""
+Introducir una cadena de caracteres e indicar si es un palíndromo. Una palabra palíndroma es aquella que se lee igual
+adelante que atrás.
 
-Retocado por Rafael del Castillo con el comando sed.
-'''
+Análisis.
+Leo una cadena. La paso a mayúsculas, le quito espacios y vocales con tilde,
+después creo una nueva cadena invirtiendo la cadena anterior.
+Si ambas cadenas son iguales-> Es un palíndromo.
 
-# ################################################################################
-# Introducir una cadena de caracteres e indicar si es un palíndromo. Una palabra
-# palíndroma es aquella que se lee igual adelante que atrás.
-# ################################################################################
-# Análisis
-# Leo una cadena. La paso a mayúsculas, le quito espacios y vocales con tilde,
-# después creo una nueva cadena invirtiendo la cadena anterior. Si ambas cadenas
-# son iguales-> Es un palíndromo.
-# Datos de entrada: Cadena de caracteres
-# Información de salida: Mensaje indicando si es palíndromo o no.
-# Variables: cadena, cadena1, cadena2, i (posición)
-# ################################################################################
+Datos de entrada: Cadena de caracteres
+Información de salida: Mensaje indicando si es palíndromo o no.
+Variables: cadena, cadena1, cadena2, i (posición)
+"""
 
 # Constantes
 VOCALES_CON_TILDE = "ÁÉÍÓÚ"
