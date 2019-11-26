@@ -55,7 +55,6 @@ cantidad_mostrados = 1
 # ...a partir de 3
 num = 3
 while cantidad_mostrados < cantidad_a_mostrar:
-    # pienso que es primo hasta que encuentre con que dividirlo
     if es_primo(num):  # Compruebo si "num" es primo
         cantidad_mostrados += 1
         print(f"{cantidad_mostrados}: {num}")
