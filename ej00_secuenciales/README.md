@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <h2>Ejercicios propuestos</h2>
+=======
+<em>Ejercicios propuestos</em>
+>>>>>>> 0ff4e595029f90a2d4b12ecbd53e25bf136db436
  
 1. Escribir un programa que pregunte al usuario su nombre, y luego lo salude.
 
