@@ -48,8 +48,8 @@ def pasaj2p(cadena):
     # comentarios normales
     linea = re.compile("//").sub("#",linea)
     # Comentarios /* ... */
-    linea = re.compile("/\*\s*").sub("'''\n",linea)
-    linea = re.compile("\s*\*/").sub("\n'''",linea)
+    linea = re.compile("/\*\s*").sub('"""\n',linea)
+    linea = re.compile("\s*\*/").sub('"""\n',linea)
     # ; final
     linea = re.compile(";(\s+#.*)?$").sub(r"\1",linea)
     # dos espacios de sangría por cuatro
