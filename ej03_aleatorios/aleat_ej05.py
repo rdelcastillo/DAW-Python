@@ -18,16 +18,16 @@ sumatorio <-- 0
 maximo <-- 100
 minimo <-- 199
 frecuencia_maxima <-- 0
-frecuencias[1..100] <-- 0  * inicializo a cero los elementos de cada posibilidad
+frecuencias[0..99] <-- 0  * inicializo a cero los elementos de cada posibilidad
 
 * Generación números aleatorios, cálculo de media, máximo, mínimo
 PARA i DESDE 0 HASTA 49
     n <-- aleatorio(100,199)
     numeros[i] <-- n
     sumatorio <-- sumatorio + n
-    frecuencias[n-100] <-- modas[n-100] + 1
+    frecuencias[n-100] <-- frecuencias[n-100] + 1
     SI frecuencias[n-100] > frecuencia_maxima ENTONCES
-        frecuencia_maxima <-- modas[n-100]
+        frecuencia_maxima <-- frecuencias[n-100]
     FIN-SI
     SI n<minimo ENTONCES
         minimo <-- n
@@ -58,9 +58,9 @@ import random
 import math
 
 # Constantes
-NUM = 10
-RANGO_INICIAL = 1
-RANGO_FINAL = 5
+NUM = 50            # Cantidad de números aleatorios generados
+RANGO_INICIAL = 100 # Rango de números aleatorios generados
+RANGO_FINAL = 199
 
 # Inicializamos
 sumatorio = 0
@@ -71,7 +71,7 @@ frecuencias=[0] * (RANGO_FINAL-RANGO_INICIAL+1)     # creo array(lista) de tama�
 numeros=[0] * NUM                                   # creo array(lista) de tamaño 50 (NUM)
 
 # Generación números aleatorios, cálculo de media, máximo, mínimo
-for i in range(0,NUM):
+for i in range(NUM):
     n = random.randint(RANGO_INICIAL,RANGO_FINAL)   # genero aleatorio
     numeros[i] = n  # añado a array
     sumatorio += n
@@ -103,7 +103,7 @@ print("Media:", media)
 print("Mediana:", mediana)
 print("Desviación típica:", desviaciont)
 print("Moda: ", end="")
-for i in range(0, len(frecuencias)):
+for i in range(len(frecuencias)):
     if frecuencias[i]==frecuencia_maxima:   # he encontrado una moda
         print(i+RANGO_INICIAL, end=" ")
 print()
