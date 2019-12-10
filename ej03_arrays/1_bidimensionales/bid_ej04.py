@@ -1,51 +1,66 @@
 '''
-Programa que pide 20 números enteros.
-
-Modificación del ejercicio 2 de tal forma que los números que se introducen en
-el array se generan de forma aleatoria (valores entre 100 y 999) y las sumas parciales
-y la suma total aparecen en la pantalla con un pequeño retardo, dando la impresión de
-que el ordenador se queda pensando antes de mostrar los números.
-
-@author Rafael del Castillo
+Modicación del programa anterior de forma que no se repita ningún número en el array.
+ 
+@author Rafael del Castillo Gomariz
 
 Ejercicio del libro "Aprende Java con Ejercicios" (https://leanpub.com/aprendejava)
 
 '''
-import time
+import sys
 import random
+import time
 
-# creamos array (lista) vacío de 4 filas por 5 columnas
-num = [None] * 4
-for i in range(4):
-    num[i] = [None] * 5
+numeros = [[None] * 10 for i in range(6)]
 
-# Introduce valores aleatorios en el array
-for fila in range(4):
-    for columna in range(5):
-        num[fila][columna] = int((random.random() * 900) + 100)
+# Genera el contenido del array sin que se repita ningún valor
+for fila in range(6): 
+    for columna in range(10): 
+        while True:
+            numeros[fila][columna] = int(random.random() * 1001)
+            # Comprueba si el número generado ya está en el array.
+            repetido = False
+            for i in range(10 * fila + columna):
+                if numeros[fila][columna] == numeros[i // 10][i % 10]:
+                    repetido = True
+            if not (repetido): break
 
-# Muestra los datos y las sumas parciales de las filas
-for fila in range(4):
-    suma_fila = 0
-    for columna in range(5):
-        print("%7d   "%(num[fila][columna]),end="")
-        suma_fila += num[fila][columna]
+# Proceso            
+minimo = sys.maxsize
+fila_minimo = 0
+columna_minimo = 0
+
+maximo = -sys.maxsize-1
+fila_maximo = 0
+columna_maximo = 0
+
+print("\n      ",end="")
+for columna in range(10):
+    print(f"   {columna}  ",end="")
+print()
+
+print("    ┌",end="")
+for columna in range(10):
+    print("──────",end="")
+print("┐")
+
+for fila in range(6):
+    print(f"  {fila} │",end="")
+    for columna in range(10):
+        print("%5d "%(numeros[fila][columna]),end="")
         time.sleep(0.1)
-    print("|%7d\n"%(suma_fila),end="")
-    time.sleep(0.5) 
-    
-# Muestra las sumas parciales de las columnas
-for columna in range(5):
-    print("----------",end="")
-print("-----------")
-
-suma_total = 0
-
-for columna in range(5):
-    suma_columna = 0
-    for fila in range(4):
-        suma_columna += num[fila][columna]
-    suma_total += suma_columna
-    print("%7d   "%(suma_columna),end="")
-    time.sleep(0.5)
-print("|%7d   "%(suma_total),end="")
+        # Calcula el mínimo y guarda sus coordenadas
+        if numeros[fila][columna] < minimo:
+            minimo = numeros[fila][columna]
+            fila_minimo = fila
+            columna_minimo = columna
+        # Calcula el máximo y guarda sus coordenadas
+        if numeros[fila][columna] > maximo:
+            maximo = numeros[fila][columna]
+            fila_maximo = fila
+            columna_maximo = columna
+    print("│")
+print("    └",end="")
+for columna in range(10):
+    print("──────",end="")
+print(f"┘\n\nEl máximo es {maximo} y está en la fila {fila_maximo}, columna {columna_maximo}")
+print(f"El mínimo es {minimo} y está en la fila {fila_minimo}, columna {columna_minimo}")

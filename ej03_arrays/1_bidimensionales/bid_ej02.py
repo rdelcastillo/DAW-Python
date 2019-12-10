@@ -1,43 +1,51 @@
 '''
 Programa que pide 20 números enteros.
 
-Estos números se introducen en un array de 4 filas por 5 columnas.
-El programa muestra las sumas parciales de filas y columnas igual que
-si de una hoja de cálculo se tratara.
-La suma total aparece en la esquina inferior derecha.
+Modificación del ejercicio 2 de tal forma que los números que se introducen en
+el array se generan de forma aleatoria (valores entre 100 y 999) y las sumas parciales
+y la suma total aparecen en la pantalla con un pequeño retardo, dando la impresión de
+que el ordenador se queda pensando antes de mostrar los números.
 
 @author Rafael del Castillo
+
+Ejercicio del libro "Aprende Java con Ejercicios" (https://leanpub.com/aprendejava)
+
 '''
+import time
+import random
 
-num = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]] #array de F filas por C columnas
-F = 4
-C = 5
+# creamos array (lista) vacío de 4 filas por 5 columnas
+num = [None] * 4
+for i in range(4):
+    num[i] = [None] * 5
 
-# Lee los datos de teclado
-print("Por favor, introduzca los números (enteros) en el array:")
-for fila in range(0,F):
-    for columna in range(0,C):
-        num[fila][columna] = int(input(f"Fila {fila} columna {columna}: "))
+# Introduce valores aleatorios en el array
+for fila in range(4):
+    for columna in range(5):
+        num[fila][columna] = int((random.random() * 900) + 100)
 
 # Muestra los datos y las sumas parciales de las filas
-for fila in range(0,F):
-    suma_fila = 0;
-    for columna in range(0,C):
-        print("%7d   " %(num[fila][columna]),end="")
+for fila in range(4):
+    suma_fila = 0
+    for columna in range(5):
+        print("%7d   "%(num[fila][columna]),end="")
         suma_fila += num[fila][columna]
-    print("|%7d" %(suma_fila))
-
+        time.sleep(0.1)
+    print("|%7d\n"%(suma_fila),end="")
+    time.sleep(0.5) 
+    
 # Muestra las sumas parciales de las columnas
-for columna in range(0,C):
+for columna in range(5):
     print("----------",end="")
 print("-----------")
-sumaTotal = 0;
-for columna in range(0,C):
-    sumaColumna = 0;
-    for fila in range(0,F):
-        sumaColumna += num[fila][columna];
-    sumaTotal += sumaColumna
-    print("%7d   " %(sumaColumna),end="")
-print("|%7d   " %(sumaTotal))
 
+suma_total = 0
 
+for columna in range(5):
+    suma_columna = 0
+    for fila in range(4):
+        suma_columna += num[fila][columna]
+    suma_total += suma_columna
+    print("%7d   "%(suma_columna),end="")
+    time.sleep(0.5)
+print("|%7d   "%(suma_total),end="")

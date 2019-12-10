@@ -1,12 +1,12 @@
-'''
-Programa que pide la temperatura media que ha hecho en cada mes de un determinado
-año y muestra a continuación un diagrama de barras horizontales con esos datos.
+"""
+Programa que pide la temperatura media que ha hecho en cada mes de un determinado año y muestra a continuación
+un diagrama de barras horizontales con esos datos.
 
 @author Rafael del Castillo Gomariz
 
 Ejercicio del libro "Aprende Java con Ejercicios" (https://leanpub.com/aprendejava)
 
-'''
+"""
 
 # listas con los meses y la temperatura media de cada mes
 mes = [ "enero", "febrero", "marzo", "abril", "mayo", "junio",
