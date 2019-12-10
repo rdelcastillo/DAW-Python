@@ -47,8 +47,8 @@ def esPrimo(n):
     @return True si es primo
             False si no es primo
     '''
-    esprimo=True
-    for i in range(3,int(math.sqrt(n))+1):
+    esprimo = True
+    for i in range(3, int(math.sqrt(n))+1):
         if n%i==0:  # es divisible, no es primo, acabamos
             return False
     return esprimo
