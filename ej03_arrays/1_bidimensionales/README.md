@@ -1,0 +1,7 @@
+<h1>Ejercicios propuestos.</h1>
+<p>1.&nbsp;Programa que pide 20 n&uacute;meros enteros.</p>
+<p>Estos n&uacute;meros se introducen en un array de 4 filas por 5 columnas.<br />El programa muestra las sumas parciales de filas y columnas igual que si de una hoja de c&aacute;lculo se tratara.<br />La suma total aparece en la esquina inferior derecha.</p>
+<p>2.&nbsp;Modificaci&oacute;n del ejercicio anterior de tal forma que los n&uacute;meros que se introducen en el array se generan de forma aleatoria (valores entre 100 y 999) y las sumas parciales y la suma total aparecen en la pantalla con un peque&ntilde;o retardo, dando la impresi&oacute;n de que el ordenador se queda pensando antes de mostrar los n&uacute;meros.</p>
+<p>3.&nbsp;Programa que rellena un array de 6 filas por 10 columnas con n&uacute;meros enteros positivos comprendidos entre 0 y 1000 (ambos incluidos). A continuaci&oacute;n, el programa deber&aacute; dar la posici&oacute;n tanto del m&aacute;ximo como del m&iacute;nimo.</p>
+<p>4.&nbsp;Modicaci&oacute;n del programa anterior de forma que no se repita ning&uacute;n n&uacute;mero en el array.</p>
+<p>Si tienes alguna aportaci&oacute;n o mejora ya sabes &iexcl;ap&oacute;rtala! ;-)</p>
