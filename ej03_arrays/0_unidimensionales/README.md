@@ -1,0 +1,5 @@
+<h1>Ejercicios propuestos.</h1>
+<p>1.&nbsp;Escribe un programa que pida 10 n&uacute;meros por teclado y que luego muestre los n&uacute;meros introducidos junto con las palabras &ldquo;m&aacute;ximo&rdquo; y &ldquo;m&iacute;nimo&rdquo; al lado del m&aacute;ximo y del m&iacute;nimo respectivamente.</p>
+<p>2.&nbsp;Escribe un programa que lea 15 n&uacute;meros por teclado y que los almacene en un array. Rota los elementos de ese array, es decir, el elemento de la posici&oacute;n 0 debe pasar a la posici&oacute;n 1,&nbsp;el de la 1 a la 2, etc. El n&uacute;mero que se encuentra en la &uacute;ltima posici&oacute;n debe pasar a la posici&oacute;n 0. Finalmente, muestra el contenido del array.</p>
+<p>3.&nbsp;rograma que pide la temperatura media que ha hecho en cada mes de un determinado a&ntilde;o y muestra a continuaci&oacute;n un diagrama de barras horizontales con esos datos.</p>
+<p>Si tienes alguna aportaci&oacute;n o mejora ya sabes &iexcl;ap&oacute;rtala! ;-)</p>
