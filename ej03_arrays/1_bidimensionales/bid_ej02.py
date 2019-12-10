@@ -1,10 +1,9 @@
 '''
 Programa que pide 20 números enteros.
 
-Modificación del ejercicio 2 de tal forma que los números que se introducen en
-el array se generan de forma aleatoria (valores entre 100 y 999) y las sumas parciales
-y la suma total aparecen en la pantalla con un pequeño retardo, dando la impresión de
-que el ordenador se queda pensando antes de mostrar los números.
+Modificación del ejercicio anterior de tal forma que los números que se introducen en el array se generan de
+forma aleatoria (valores entre 100 y 999) y las sumas parciales y la suma total aparecen en la pantalla con un
+pequeño retardo, dando la impresión de que el ordenador se queda pensando antes de mostrar los números.
 
 @author Rafael del Castillo
 

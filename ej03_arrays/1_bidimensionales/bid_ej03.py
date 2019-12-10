@@ -1,12 +1,10 @@
 '''
-Programa que rellena un array de 6 filas por 10 columnas con números enteros
-positivos comprendidos entre 0 y 1000 (ambos incluidos).
-
-A continuación, el programa deberá dar la posición tanto del máximo como del mínimo.
+Programa que rellena un array de 6 filas por 10 columnas con números enteros positivos comprendidos entre 0 y 1000
+(ambos incluidos). A continuación, el programa deberá dar la posición tanto del máximo como del mínimo.
 
 @author Rafael del Castillo Gomariz
 
-Ejercicio del libro "Aprende Java con Ejercicios" (https://leanpub.com/aprendejava)
+Ejercicio del libro "Aprende Java con Ejercicios. Edición 2018" (https://leanpub.com/aprendejava)
 
 '''
 import sys
@@ -58,5 +56,5 @@ for fila in range(6):
 print("    └",end="")
 for columna in range(10):
     print("──────",end="")
-print(f"┘\n\nEl máximo es {maximo} y está en la fila {fila_maximo}, columna {columna_maximo}") #Original: print("┘\n\nEl máximo es " + maximo + " y está en la fila " + fila_maximo + ", columna " + columna_maximo)
-print(f"El mínimo es {minimo} y está en la fila {fila_minimo}, columna {columna_minimo}") #Original: print("El mínimo es " + minimo + " y está en la fila " + fila_minimo + ", columna " + columna_minimo)
+print(f"┘\n\nEl máximo es {maximo} y está en la fila {fila_maximo}, columna {columna_maximo}")
+print(f"El mínimo es {minimo} y está en la fila {fila_minimo}, columna {columna_minimo}")

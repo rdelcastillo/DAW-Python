@@ -33,20 +33,20 @@ maximo = -sys.maxsize-1
 fila_maximo = 0
 columna_maximo = 0
 
-print("\n      ",end="")
+print("\n      ", end="")
 for columna in range(10):
-    print(f"   {columna}  ",end="")
+    print(f"   {columna}  ", end="")
 print()
 
-print("    ┌",end="")
+print("    ┌", end="")
 for columna in range(10):
-    print("──────",end="")
+    print("──────", end="")
 print("┐")
 
 for fila in range(6):
-    print(f"  {fila} │",end="")
+    print(f"  {fila} │", end="")
     for columna in range(10):
-        print("%5d "%(numeros[fila][columna]),end="")
+        print("%5d "%(numeros[fila][columna]), end="")
         time.sleep(0.1)
         # Calcula el mínimo y guarda sus coordenadas
         if numeros[fila][columna] < minimo:
@@ -59,8 +59,8 @@ for fila in range(6):
             fila_maximo = fila
             columna_maximo = columna
     print("│")
-print("    └",end="")
+print("    └", end="")
 for columna in range(10):
-    print("──────",end="")
+    print("──────", end="")
 print(f"┘\n\nEl máximo es {maximo} y está en la fila {fila_maximo}, columna {columna_maximo}")
 print(f"El mínimo es {minimo} y está en la fila {fila_minimo}, columna {columna_minimo}")
