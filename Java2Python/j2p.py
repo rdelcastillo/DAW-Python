@@ -5,17 +5,22 @@ import re
 
 def pasaj2p(cadena):
     comandos=[  ["\.toUpperCase\(\)",".upper()"],               # cadenas
+                ["\.trim\(\)", ".strip()"],
                 ["\.equals\((.*)\)",r"==\1"],
                 ["\.substring\((.*),(.*)\)",r"[\1:\2]"],
                 ["\.charAt\((.[^\)]*)\)",r"[\1]"],
                 ["([^\s]+)\.contains\(([^\)]+)\)",r"\2 in \1"],
+                ["String.valueOf\(","str("],
                 [r"(\w+)\.length\(\)",r"len(\1)"],              # conversiones literales
                 ["(=\s*)true",r"\1True"],
+                ["(\s+)true;", r"\1True"],
                 ["(=\s*)false",r"\1False"],
+                ["(\s+)false;",r"\1False"],
                 ["s\.nextLine","input"],
                 ["System\.console\(\)\.readLine\(\)","input()"],
                 ["Double\.parseDouble","float"],
                 ["Integer\.parseInt","int"],
+                ["Integer\.toString","str"],
                 ["Integer\.MAX_VALUE","sys.maxsize"],
                 ["Integer\.MIN_VALUE","(-sys.maxsize-1)"],
                 ["s\.nextInt\(\)","int(input())"],
@@ -35,7 +40,8 @@ def pasaj2p(cadena):
                 ["} else if","elif"],
                 ["&&","and"],                                  # operadores
                 ["\|\|","or"],
-                ["(\w+)\+\+",r"\1+=1"],
+                ["(\w+)\+\+",r"\1 += 1"],
+                ["(\w+)\-\-", r"\1 -= 1"],
                 ["(\s*while\s*)\((.*)\)\s+{",r"\1\2:"],
                 ["=(\s*)new ",r"=\1"],                         # POO
                 ["this\.","self."]
