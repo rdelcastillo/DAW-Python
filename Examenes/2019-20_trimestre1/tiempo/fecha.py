@@ -29,8 +29,8 @@ Colección de funciones:
 Hay un script para hacer pruebas: test_fecha.py.
 
 También vamos a hacer las pruebas usando el módulo doctest:
-https://python-para-impacientes.blogspot.com/2019/03/probando-el-codigo-con-doctest.html
-
+    python3 -m doctest fecha.py -v
+    https://python-para-impacientes.blogspot.com/2019/03/probando-el-codigo-con-doctest.html
 """
 
 
