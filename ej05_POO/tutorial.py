@@ -2,21 +2,22 @@
 Ejemplo de uso de clases en Python
 """
 
+
 class Test():
     """
     Ejemplo para ilustrar una clase en Python.
 
     Usaremos variables de clase y de instancia, métodos de instancia, de clase y estáticos
     """
-    n_tests = 0                             # variables de clase (estática)
+    n_tests = 0  # variables de clase (estática)
     __centro = ""
 
     def __init__(self, nombre, comentario):
         """Constructor de la clase"""
-        self.__nombre = nombre              # variable de instancia (oculta)
-        self.comentario = comentario        # variable de instancia
-        self.__ciclo = ""                   # variable de instancia (oculta)
-        Test.n_tests += 1                   # incrementamos el número de tests
+        self.__nombre = nombre  # variable de instancia (oculta)
+        self.comentario = comentario  # variable de instancia
+        self.__ciclo = ""  # variable de instancia (oculta)
+        Test.n_tests += 1  # incrementamos el número de tests
 
     @property
     def nombre(self):
@@ -27,7 +28,7 @@ class Test():
         """
         return self.__nombre
 
-    def get_nombre(self):    # NO SE DEBE HACER ASÍ EL GETTER, esto es tipo Java
+    def get_nombre(self):  # NO SE DEBE HACER ASÍ EL GETTER, esto es tipo Java
         """
         Getter tipo Java, NO SE DEBE USAR ASÍ.
 
@@ -40,7 +41,7 @@ class Test():
         """Similar getter de Java"""
         return self.__ciclo
 
-    def get_ciclo(self):    # NO SE DEBE HACER ASÍ EL GETTER, esto es tipo Java
+    def get_ciclo(self):  # NO SE DEBE HACER ASÍ EL GETTER, esto es tipo Java
         """
         Getter tipo Java, NO SE DEBE USAR ASÍ.
 
@@ -49,25 +50,25 @@ class Test():
         return self.__ciclo
 
     @ciclo.setter
-    def ciclo(self,c):
+    def ciclo(self, c):
         """
         Similar al setter de Java, pero con una filosofía 'pythonica'.
         Accedemos (desde fuera) a la propiedad del objeto como si fuera un atributo y le damos valor.
         """
         c = c.upper()
-        if c in ["DAW","ASIR"]:
+        if c in ["DAW", "ASIR"]:
             self.__ciclo = c
         else:
             print(f"ERROR: {c} no es un ciclo válido")
 
-    def set_ciclo(self,c):    # NO SE DEBE HACER ASÍ EL SETTER, esto es tipo Java
+    def set_ciclo(self, c):  # NO SE DEBE HACER ASÍ EL SETTER, esto es tipo Java
         """
         Setter tipo Java, NO SE DEBE USAR ASÍ.
 
         En Python debe hacerse usando @property
         """
         c = c.upper()
-        if c in ["DAW","ASIR"]:
+        if c in ["DAW", "ASIR"]:
             self.__ciclo = c
         else:
             print(f"ERROR: {c} no es un ciclo válido")
@@ -96,7 +97,7 @@ class Test():
         """Como toString() en Java"""
         estado = f"Nombre: {self.__nombre}\t {self.comentario}"
         if self.ciclo:
-            estado += f"\t {self.ciclo}"    # usamos la propiedad
+            estado += f"\t {self.ciclo}"  # usamos la propiedad
         if Test.__centro:
             estado += f"\t {Test.__centro}"
         return estado
@@ -110,21 +111,22 @@ class Test():
         print(f"--Test '{self.nombre}' que seas corregido con benevolencia--")
         Test.n_tests -= 1
 
+
 # Prueba
 if __name__ == "__main__":
     # Llamada a un método estático de la clase, no hace falta ninguna instancia
     Test.dame_animos()
 
     # Creamos dos objetos
-    test1 = Test("Prueba de BDA","Formas normales")
-    test2 = Test("Prueba de POO","Conceptos básicos")
+    test1 = Test("Prueba de BDA", "Formas normales")
+    test2 = Test("Prueba de POO", "Conceptos básicos")
 
     # Comprobamos cuántos hay
     print(f"Total tests: {Test.n_tests}\n")
 
     # Mostramos sus estados
     print(test1)
-    print(test2,"\n")
+    print(test2, "\n")
 
     # Con un método de clase ponemos nombre al centro
     Test.asigna_centro("IES Gran Capitán")
@@ -134,14 +136,14 @@ if __name__ == "__main__":
 
     # Mostramos sus estados (que han cambiado)
     print(test1)
-    print(test2,"\n")
+    print(test2, "\n")
 
     # Borramos un test
     print("Mandamos a corregir test2...\n")
     del test2
 
     # Comprobamos cuantos tests quedan
-    print("\nQuedan",Test.n_tests,"tests\n")
+    print("\nQuedan", Test.n_tests, "tests\n")
 
     # Fin
     print("----------------")
