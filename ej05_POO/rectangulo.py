@@ -1,19 +1,18 @@
 class Rectangulo:
     """
-    Versión 2.0.
+    Versión 3.0.
 
     Esta clase representa objetos de tipo rectángulo.
     Acciones: cálculo del perímetro, área, dibujar, comparar.
 
-    Mejoras respecto a la versión 1:
+    Mejoras respecto a la versión 2:
 
-    - Protegemos (ocultamos) los atributos.
-    - Creamos getters y setters para acceder a los mismos. Ojo, esta no
-    es la filosofía de Python, esto es estilo Java.
-    - Sobrecargamos el método __str__ para poder usar la función print y otras.
-
-    Hay cosas que mejorar, en la siguiente se explica.
+    - Quitamos getters y setters estilo Java y los sustituimos por propiedades.
+    - Usaremos métodos privados y estáticos.
+    - Usaremos variables de instancia de clase.
     """
+    lado_maximo = 10        # lado máximo del rectángulo
+    __num_rectangulos = 0   # contador de rectángulos creados
 
     def __init__(self, base, altura):
         """
@@ -23,62 +22,58 @@ class Rectangulo:
         """
         self.__base = 1
         self.__altura = 1
-        # Ojo, solo así en este ejemplo
-        self.set_base(base)
-        self.set_altura(altura)
+        Rectangulo.__num_rectangulos += 1
+        # por si hubiera errores en los parámetros hemos dado valor inicial
+        self.base = base
+        self.altura = altura
 
-    # getters y setters (ojo!!! estilo Java, no Python)
+    # propiedades
 
-    def get_base(self):
-        """
-        Getter tipo Java
-        :return: base
-        """
+    @property
+    def base(self):
         return self.__base
 
-    def set_base(self, base):
-        """
-        Setter tipo Java.
-        :param base:
-        """
-        if base>0:
-            self.__base = base
+    @base.setter
+    def base(self, value):
+        if self.es_lado_correcto(value):
+            self.__base = value
         else:
             # Mucho mejor sería lanzar una excepción
             print("ERROR. Base incorrecta")
 
-    def get_altura(self):
-        """
-        Getter tipo Java
-        :return:
-        """
+    @property
+    def altura(self):
         return self.__altura
 
-    def set_altura(self, altura):
-        """
-        Setter tipo Java
-        :param altura:
-        :return: altura
-        """
-        if altura>0:
-            self.__altura = altura
+    @altura.setter
+    def altura(self, value):
+        if Rectangulo.es_lado_correcto(value):
+            self.__altura = value
         else:
             # Mucho mejor sería lanzar una excepción
             print("ERROR. Altura incorrecta")
 
     # resto métodos
 
+    @staticmethod
+    def num_rectangulos():
+        return Rectangulo.__num_rectangulos
+
+    @staticmethod
+    def es_lado_correcto(value):
+        return type(value)==type(1) and 0<value<=Rectangulo.lado_maximo
+
     def perimetro(self):
         """
         :return: perímetro del rectángulo.
         """
-        return 2 * (self.__base + self.__altura)
+        return 2 * (self.base + self.altura)
 
     def area(self):
         """
         :return: área del rectángulo.
         """
-        return self.__base * self.__altura
+        return self.base * self.altura
 
     def compara(self, otro):
         """
@@ -95,7 +90,7 @@ class Rectangulo:
         :param otro: objeto con el que comparamos el actual.
         :return: True o False
         """
-        return self.__base == otro.get_base() and self.__altura == otro.get_altura()
+        return self.base == otro.base and self.altura == otro.altura
 
     def muestra(self):
         """
@@ -107,8 +102,8 @@ class Rectangulo:
 
     def __str__(self):
         str = ""
-        for i in range(self.__altura):
-            str += "*" * self.__base
+        for i in range(self.altura):
+            str += "*" * self.base
             str += "\n"
         str = str[:-1]
         return str
@@ -118,8 +113,8 @@ class Rectangulo:
 if __name__ == "__main__":
     r1 = Rectangulo(4, 1)
     r2 = Rectangulo(3, 2)
-    print(f"Probamos clase rectángulo con r1: ({r1.get_base()},{r1.get_altura()}) y "
-          f"r2: ({r2.get_base()},{r2.get_altura()})\n")
+    print(f"Probamos clase rectángulo con r1: ({r1.base},{r1.altura}) y "
+          f"r2: ({r2.base},{r2.altura})\n")
     # mostramos
     r1.muestra()
     print()
@@ -130,3 +125,5 @@ if __name__ == "__main__":
     # magnitudes
     print("Área r1:", r1.area(), "Perímetro r1:", r1.perimetro())
     print("Área r2:", r2.area(), "Perímetro r2:", r2.perimetro())
+    # accedemos a variables de instancia de clase
+    print("Rectángulos creados", Rectangulo.num_rectangulos())
