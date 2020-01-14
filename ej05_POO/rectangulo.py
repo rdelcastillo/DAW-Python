@@ -12,7 +12,7 @@ class Rectangulo:
     - Usaremos variables de instancia de clase.
     """
     lado_maximo = 10        # lado máximo del rectángulo
-    __num_rectangulos = 0   # contador de rectángulos creados
+    __num_creados = 0   # contador de rectángulos creados
 
     def __init__(self, base, altura):
         """
@@ -22,7 +22,7 @@ class Rectangulo:
         """
         self.__base = 1
         self.__altura = 1
-        Rectangulo.__num_rectangulos += 1
+        Rectangulo.__num_creados += 1
         # por si hubiera errores en los parámetros hemos dado valor inicial
         self.base = base
         self.altura = altura
@@ -56,8 +56,8 @@ class Rectangulo:
     # resto métodos
 
     @staticmethod
-    def num_rectangulos():
-        return Rectangulo.__num_rectangulos
+    def num_creados():
+        return Rectangulo.__num_creados
 
     @staticmethod
     def es_lado_correcto(value):
