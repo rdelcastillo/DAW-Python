@@ -1,6 +1,6 @@
 class Rectangulo:
     """
-    Versión 3.0.
+    Versión 3.01.
 
     Esta clase representa objetos de tipo rectángulo.
     Acciones: cálculo del perímetro, área, dibujar, comparar.
