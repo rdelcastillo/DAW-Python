@@ -135,6 +135,7 @@ class PartidaPunto:
         self.__pon_en_pantalla("--------------")
         for j in l:
             salida += f"Puesto: {puesto}. {j.nombre}: {j.puntos} PUNTOS\n"
+            puesto += 1
         salida += f"\nGANA: {l[0].nombre}"
         return salida
 
@@ -157,5 +158,6 @@ class PartidaPunto:
 if __name__ == '__main__':
     p = PartidaPunto(Jugador("Jugador1"), JugadorTramposo("Tramposo"), Jugador("Jugador2"))
     # p.pausa_en_tirada = True
-    print(p.juega())
-    # p.juega(); print(p)
+    # print(p.juega())
+    p.juega();
+    print(p)

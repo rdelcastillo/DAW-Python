@@ -94,7 +94,7 @@ class JugadorTramposo(Jugador):
     """
     Jugador del juego del punto que usa dados trucados.
     """
-    __valores_dado = (1, 1, 2, 3, 3, 3, 4, 5, 5, 5, 5)  # más probabilidad para 5, 3 y 1
+    __valores_dado = (1, 1, 2, 3, 3, 3, 4, 5, 5, 5, 5, 6)  # más probabilidad para 5, 3 y 1
 
     def __init__(self, nombre):
         """
