@@ -1,15 +1,15 @@
 class Rectangulo:
     """
-    Versión 3.01.
+    Versión 4.0.
 
     Esta clase representa objetos de tipo rectángulo.
     Acciones: cálculo del perímetro, área, dibujar, comparar.
 
-    Mejoras respecto a la versión 2:
+    Mejoras respecto a la versión 3.01:
 
-    - Quitamos getters y setters estilo Java y los sustituimos por propiedades.
-    - Usaremos métodos privados y estáticos.
-    - Usaremos variables de instancia de clase.
+    - Añadimos destructor.
+    - Ponemos assert.
+    - Sobrecargamos operador *.
     """
     lado_maximo = 10        # lado máximo del rectángulo
     __num_creados = 0   # contador de rectángulos creados
@@ -27,6 +27,10 @@ class Rectangulo:
         self.base = base
         self.altura = altura
 
+    def __del__(self):
+        Rectangulo.__num_creados -= 1
+
+
     # propiedades
 
     @property
@@ -35,11 +39,8 @@ class Rectangulo:
 
     @base.setter
     def base(self, value):
-        if self.es_lado_correcto(value):
-            self.__base = value
-        else:
-            # Mucho mejor sería lanzar una excepción
-            print("ERROR. Base incorrecta")
+        assert self.es_lado_correcto(value)
+        self.__base = value
 
     @property
     def altura(self):
@@ -47,11 +48,8 @@ class Rectangulo:
 
     @altura.setter
     def altura(self, value):
-        if Rectangulo.es_lado_correcto(value):
-            self.__altura = value
-        else:
-            # Mucho mejor sería lanzar una excepción
-            print("ERROR. Altura incorrecta")
+        assert Rectangulo.es_lado_correcto(value)
+        self.__altura = value
 
     # resto métodos
 
@@ -107,6 +105,37 @@ class Rectangulo:
             str += "\n"
         str = str[:-1]
         return str
+
+    def __mul__(self, other):
+        """
+        Multiplica la base si no se pasa del lado máximo, en ese caso lo
+        hace con la altura.
+        :param other: Valor entero positivo
+        :return: Otro rectángulo con la superficie original*other.
+        """
+        assert type(other)==type(1) and other>0 # operando correcto
+        assert self.base*other<=Rectangulo.lado_maximo or self.altura*other<=Rectangulo.lado_maximo
+        if self.base*other <= Rectangulo.lado_maximo:
+            return Rectangulo(self.base*other, self.altura)
+        else:
+            return Rectangulo(self.base, self.altura * other)
+
+    def __rmul__(self, other):
+        return self * other
+
+    def __lt__(self, other):
+        assert isinstance(other, Rectangulo)
+        return self.area() < other.area()
+
+    def __le__(self, other):
+        assert isinstance(other, Rectangulo)
+        return self.area() <= other.area()
+
+    def __eq__(self, other):
+        assert isinstance(other, Rectangulo)
+        return self.area() == other.area()
+
+
 
 
 
