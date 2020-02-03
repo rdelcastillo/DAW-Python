@@ -11,8 +11,8 @@ class Rectangulo:
     - Ponemos assert.
     - Sobrecargamos operador *.
     """
-    lado_maximo = 10        # lado máximo del rectángulo
-    __num_creados = 0   # contador de rectángulos creados
+    lado_maximo = 10  # lado máximo del rectángulo
+    __num_creados = 0  # contador de rectángulos creados
 
     def __init__(self, base, altura):
         """
@@ -29,7 +29,6 @@ class Rectangulo:
 
     def __del__(self):
         Rectangulo.__num_creados -= 1
-
 
     # propiedades
 
@@ -59,7 +58,7 @@ class Rectangulo:
 
     @staticmethod
     def es_lado_correcto(value):
-        return type(value)==type(1) and 0<value<=Rectangulo.lado_maximo
+        return type(value) == type(1) and 0 < value <= Rectangulo.lado_maximo
 
     def perimetro(self):
         """
@@ -113,10 +112,10 @@ class Rectangulo:
         :param other: Valor entero positivo
         :return: Otro rectángulo con la superficie original*other.
         """
-        assert type(other)==type(1) and other>0 # operando correcto
-        assert self.base*other<=Rectangulo.lado_maximo or self.altura*other<=Rectangulo.lado_maximo
-        if self.base*other <= Rectangulo.lado_maximo:
-            return Rectangulo(self.base*other, self.altura)
+        assert type(other) == type(1) and other > 0  # operando correcto
+        assert self.base * other <= Rectangulo.lado_maximo or self.altura * other <= Rectangulo.lado_maximo
+        if self.base * other <= Rectangulo.lado_maximo:
+            return Rectangulo(self.base * other, self.altura)
         else:
             return Rectangulo(self.base, self.altura * other)
 
@@ -136,9 +135,6 @@ class Rectangulo:
         return self.area() == other.area()
 
 
-
-
-
 if __name__ == "__main__":
     r1 = Rectangulo(4, 1)
     r2 = Rectangulo(3, 2)
@@ -155,4 +151,4 @@ if __name__ == "__main__":
     print("Área r1:", r1.area(), "Perímetro r1:", r1.perimetro())
     print("Área r2:", r2.area(), "Perímetro r2:", r2.perimetro())
     # accedemos a variables de instancia de clase
-    print("Rectángulos creados", Rectangulo.num_rectangulos())
+    print("Rectángulos creados", Rectangulo.num_creados())
