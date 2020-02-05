@@ -79,13 +79,19 @@ class Fecha:
                  "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
         return meses[self.mes-1]
 
+    def clona(self):
+        """
+        :return: devuelve una copia de self
+        """
+        return Fecha(self.__dia, self.__mes, self.__anyo)
+
     # Sobrecarga
 
     def __str__(self):
         return f"{self.__dia} de {self.nombre_mes()} de {self.__anyo}"
 
     def __add__(self, n):
-        f = self
+        f = self.clona()
         if n > 0:
             for i in range(n):
                 f = f.__suma_1dia()
@@ -99,6 +105,25 @@ class Fecha:
 
     def __radd__(self, n):
         return self + n     # también vale "return self.__add__(n)"
+
+    def __gt__(self, other):
+        if self.__anyo != other.anyo:
+            return self.__anyo > other.anyo
+        elif self.__mes != other.mes:
+            return self.__mes > other.mes
+        else:
+            return self.__dia > other.dia
+
+    def __ge__(self, other):
+        if self.__anyo != other.anyo:
+            return self.__anyo >= other.anyo
+        elif self.__mes != other.mes:
+            return self.__mes >= other.mes
+        else:
+            return self.__dia >= other.dia
+
+    def __eq__(self, other):
+        return (self.__dia == other.dia) and (self.__mes == other.mes) and (self.__anyo == other.anyo)
 
     # Métodos estáticos
 
