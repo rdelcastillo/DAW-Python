@@ -71,6 +71,7 @@ class Fecha:
             if mes == 0:  # nos vamos al año anterior
                 mes = 12
                 anyo -= 1
+                assert anyo >= 0 # si el año es negativo la fecha es errónea
             dia = Fecha.dias_mes(mes, anyo)
         return Fecha(dia, mes, anyo)
 
