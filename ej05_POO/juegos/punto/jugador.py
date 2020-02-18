@@ -64,27 +64,27 @@ class Jugador:
         :return: puntuación obtenida
         """
         self.__tiro_premiado = 0    # si había premio en la tirada anterior se anula
-        p = self.__tira_dados()     # tiramos los dados y recogemos puntuación
+        puntos = self.__tira_dados()     # tiramos los dados y recogemos puntuación
         # ¿es tiro premiado?
         d1, d2, d3 = self.dados[0].cara, self.dados[1].cara, self.dados[2].cara
         if (d1 == d2 == d3) and d1 in (2, 4, 6):    # si se cumple es un tiro premiado
             self.__tiro_premiado = d1
-            p = 2 * self.__tira_dados()             # tiramos de nuevo y puntuamos doble
+            puntos = 2 * self.__tira_dados()             # tiramos de nuevo y puntuamos doble
         # acumulamos puntuación y devolvemos la obtenida en la tirada
-        self.__puntos += p
-        self.__puntos_tirada = p
-        return p
+        self.__puntos += puntos
+        self.__puntos_tirada = puntos
+        return puntos
 
     def __tira_dados(self):
         """
         Tira los dados del jugador.
         :return: puntuación de la tirada
         """
-        p = 0
+        puntos = 0
         for d in self.dados:
             d.tirada()
-            p += Jugador.__puntuaciones[d.cara - 1]
-        return p
+            puntos += Jugador.__puntuaciones[d.cara - 1]
+        return puntos
 
     def inicializa_marcador(self):
         self.__puntos = 0

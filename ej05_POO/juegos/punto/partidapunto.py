@@ -157,7 +157,7 @@ class PartidaPunto:
 
 if __name__ == '__main__':
     p = PartidaPunto(Jugador("Jugador1"), JugadorTramposo("Tramposo"), Jugador("Jugador2"))
-    # p.pausa_en_tirada = True
+    #p.pausa_en_tirada = True
     # print(p.juega())
     p.juega();
     print(p)
