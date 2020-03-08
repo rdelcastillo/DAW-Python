@@ -6,7 +6,7 @@ Usaremos la API de themoviedb.org
 Para los géneros de las películas: https://developers.themoviedb.org/3/genres/get-movie-list
 Para el "trending topic": https://developers.themoviedb.org/3/trending/get-trending
 
-Versión 0.2: construimos funciones y hacemos las primeras pruebas.
+Versión 0.3: probamos filtrado por géneros. No siempre funciona, averigua el motivo.
 """
 
 import requests
@@ -34,8 +34,8 @@ def pedir_temporalizacion():
 
 def pedir_genero():
     genero = 0  # 0 implica que no filtramos por género
-    # probamos sin filtrar por género
-    return genero
+    # probamos sin filtrar por género con ciencia ficción (878)
+    return 878  # ciencia ficción, si se prueba con 37 (western), el programa no acaba ¿por qué?
 
 
 def trending_topic_pelis(pagina, temporalizacion):
@@ -91,5 +91,6 @@ while True:
             if num_pelis == TOP:  # hemos llegado al TOP, no seguimos
                 break
     pagina += 1
-    if num_pelis == 5:  # condición de terminación del ciclo (HASTA)
+    # OJO!!! Aquí había un error, ponía 5 en vez de TOP
+    if num_pelis == TOP:  # condición de terminación del ciclo (HASTA)
         break
