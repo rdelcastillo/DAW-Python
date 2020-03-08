@@ -6,8 +6,7 @@ Usaremos la API de themoviedb.org
 Para los géneros de las películas: https://developers.themoviedb.org/3/genres/get-movie-list
 Para el "trending topic": https://developers.themoviedb.org/3/trending/get-trending
 
-Versión 0.4: probamos filtrado por géneros.
-Solucionamos el error, que se produce cuando hay que hacer varias peticiones.
+Versión 0.9: A la versión final le quedaría el control de excepciones.
 """
 
 import requests
@@ -15,11 +14,12 @@ import os
 
 # Constantes
 URL_BASE = "https://api.themoviedb.org/3"  # url a partir de la cual hacemos las peticiones
-SEMANAL = "/week"  # parte del endpoint para el trending topic semanal
-DIARIO = "/day"  # parte del endpoint para el trending topic diario
+SEMANAL = "/week"   # parte del endpoint para el trending topic semanal
+DIARIO = "/day"     # parte del endpoint para el trending topic diario
 PETICION_TRENDING = "/trending/movie"
-PETICION_GENEROS = "/genres/get-movie-list"
-TOP = 5  # número de películas a mostrar
+PETICION_GENEROS = "/genre/movie/list"
+TOP = 5             # número de películas a mostrar
+API_KEY = os.environ["API_KEY_MOVIEDB"] # CAMBIA RESPECTO VERSIÓN ANTERIOR
 
 
 # ---------
@@ -33,10 +33,50 @@ def pedir_temporalizacion():
     return temp
 
 
+def generos_peliculas():
+    """
+    Hace una petición a la API de MOVIEDB para obtener los géneros de las películas
+    :return: diccionario de pares: código, descripción
+    """
+    # construimos endpoint y hacemos petición API REST
+    url = URL_BASE + PETICION_GENEROS
+    params = {"api_key" : API_KEY, "language" : "es"}
+    response = requests.get(url, params=params)
+
+    # si hay error terminamos
+    if response.status_code != 200:
+        print("Error al hacer la petición:", response.url, "status:", response.status_code)
+        exit(1)
+
+    # construimos diccionario con la respuesta
+    lista_generos = response.json()
+    generos = dict()
+    for g in lista_generos["genres"]:
+        generos[g["id"]] = g["name"]
+
+    return generos
+
+
 def pedir_genero():
-    genero = 0  # 0 implica que no filtramos por género
-    # probamos sin filtrar por género con ciencia ficción (878)
-    return 37  # western, se hacen varias peticiones
+    g = 0  # 0 implica que no filtramos por género
+
+    # ¿filtramos por género?
+    while True:
+        resp = input("¿Quiere filtrar por algún género de película? (S/N): ").upper()
+        if resp in ["S", "N"]:
+            break
+
+    # si filtramos por género pedimos el código
+    if resp == "S":
+        generos = generos_peliculas()  # diccionario géneros, la clave es el código y el valor la descripción
+        # mostramos los géneros y pedimos uno de ellos
+        while True:
+            print(generos)
+            g = int(input("Género: "))
+            if g in generos.keys():
+                break
+
+    return g
 
 
 def trending_topic_pelis(pagina, temporalizacion):
@@ -48,7 +88,7 @@ def trending_topic_pelis(pagina, temporalizacion):
         url += DIARIO
 
     # parámetros petición
-    params = {"api_key" : os.environ["API_KEY_MOVIEDB"],
+    params = {"api_key" : API_KEY,
               "language" : "es",
               "page" : str(pagina)}
 
