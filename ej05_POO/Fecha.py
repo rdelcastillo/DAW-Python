@@ -5,9 +5,16 @@ https://github.com/rdelcastillo/DAW-Python/blob/master/Examenes/2019-20_trimestr
 """
 
 
+class FechaErronea(Exception):
+    def __init__(self, mensaje_error):
+        Exception.__init__(self)
+        self.mensaje_error = mensaje_error
+
+
 class Fecha:
     def __init__(self, dia, mes, anyo):
-        assert Fecha.es_correcta(dia, mes, anyo)
+        if not Fecha.es_correcta(dia, mes, anyo):
+            raise FechaErronea("Día, mes o año erróneo al construir la fecha")
         self.__dia = dia
         self.__mes = mes
         self.__anyo = anyo
@@ -19,7 +26,8 @@ class Fecha:
 
     @dia.setter
     def dia(self, value):
-        assert Fecha.es_correcta(value, self.__mes, self.__anyo)
+        if not Fecha.es_correcta(value, self.__mes, self.__anyo):
+            raise FechaErronea(f"Día asignado {value} incorrecto")
         self.__dia = value
 
     @property
@@ -28,7 +36,8 @@ class Fecha:
 
     @mes.setter
     def mes(self, value):
-        assert Fecha.es_correcta(self.__dia, value, self.__anyo)
+        if not Fecha.es_correcta(self.__dia, value, self.__anyo):
+            raise FechaErronea(f"Mes asignado {value} incorrecto")
         self.__mes = value
 
     @property
@@ -37,7 +46,8 @@ class Fecha:
 
     @anyo.setter
     def anyo(self, value):
-        assert Fecha.es_correcta(self.__dia, self.__mes, value)
+        if not Fecha.es_correcta(self.__dia, self.__mes, value):
+            raise FechaErronea(f"Año asignado {value} incorrecto")
         self.__anyo = value
 
     # Métodos
@@ -71,14 +81,14 @@ class Fecha:
             if mes == 0:  # nos vamos al año anterior
                 mes = 12
                 anyo -= 1
-                assert anyo >= 0 # si el año es negativo la fecha es errónea
+                assert anyo >= 0  # si el año es negativo la fecha es errónea
             dia = Fecha.dias_mes(mes, anyo)
         return Fecha(dia, mes, anyo)
 
     def nombre_mes(self):
         meses = ("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
                  "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre")
-        return meses[self.mes-1]
+        return meses[self.mes - 1]
 
     def clona(self):
         """
@@ -102,10 +112,10 @@ class Fecha:
         return f
 
     def __sub__(self, n):
-        return self + -1*n
+        return self + -1 * n
 
     def __radd__(self, n):
-        return self + n     # también vale "return self.__add__(n)"
+        return self + n  # también vale "return self.__add__(n)"
 
     def __gt__(self, other):
         if self.__anyo != other.anyo:
