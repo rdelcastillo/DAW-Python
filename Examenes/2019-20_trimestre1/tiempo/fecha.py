@@ -26,7 +26,7 @@ Colección de funciones:
 
 9. año, mes, dia, nombre_mes: recibe un fecha y devuelve esos valores.
 
-Hay un script para hacer pruebas: test_fecha.py.
+Hay un script para hacer pruebas: prueba_fecha.py.
 
 También vamos a hacer las pruebas usando el módulo doctest:
     python3 -m doctest fecha.py -v
