@@ -6,7 +6,7 @@ Usaremos la API de themoviedb.org
 Para los géneros de las películas: https://developers.themoviedb.org/3/genres/get-movie-list
 Para el "trending topic": https://developers.themoviedb.org/3/trending/get-trending
 
-Versión 0.9: A la versión final le quedaría el control de excepciones.
+Versión 1.0.
 """
 
 import requests
@@ -14,12 +14,12 @@ import os
 
 # Constantes
 URL_BASE = "https://api.themoviedb.org/3"  # url a partir de la cual hacemos las peticiones
-SEMANAL = "/week"   # parte del endpoint para el trending topic semanal
-DIARIO = "/day"     # parte del endpoint para el trending topic diario
+SEMANAL = "/week"  # parte del endpoint para el trending topic semanal
+DIARIO = "/day"  # parte del endpoint para el trending topic diario
 PETICION_TRENDING = "/trending/movie"
 PETICION_GENEROS = "/genre/movie/list"
-TOP = 5             # número de películas a mostrar
-API_KEY = os.environ["API_KEY_MOVIEDB"] # CAMBIA RESPECTO VERSIÓN ANTERIOR
+TOP = 5  # número de películas a mostrar
+API_KEY = os.environ["API_KEY_MOVIEDB"]
 
 
 # ---------
@@ -40,7 +40,7 @@ def generos_peliculas():
     """
     # construimos endpoint y hacemos petición API REST
     url = URL_BASE + PETICION_GENEROS
-    params = {"api_key" : API_KEY, "language" : "es"}
+    params = {"api_key": API_KEY, "language": "es"}
     response = requests.get(url, params=params)
 
     # si hay error terminamos
@@ -57,6 +57,18 @@ def generos_peliculas():
     return generos
 
 
+def mostrar_generos(generos):
+    """
+    Muestra por pantalla los géneros de las películas.
+    :param generos: diccionario con los géneros.
+    """
+    print("\nGÉNEROS")
+    print("-------")
+    for codigo, nombre in generos.items():
+        print(f"{codigo}: {nombre}")
+    print()
+
+
 def pedir_genero():
     g = 0  # 0 implica que no filtramos por género
 
@@ -71,10 +83,14 @@ def pedir_genero():
         generos = generos_peliculas()  # diccionario géneros, la clave es el código y el valor la descripción
         # mostramos los géneros y pedimos uno de ellos
         while True:
-            print(generos)
-            g = int(input("Género: "))
+            mostrar_generos(generos)
+            try:
+                g = int(input("Género: "))
+            except ValueError:  # si pone algo que no es entero
+                g = 0
             if g in generos.keys():
                 break
+            print("Código de género erróneo.")
 
     return g
 
@@ -88,13 +104,13 @@ def trending_topic_pelis(pagina, temporalizacion):
         url += DIARIO
 
     # parámetros petición
-    params = {"api_key" : API_KEY,
-              "language" : "es",
-              "page" : str(pagina)}
+    params = {"api_key": API_KEY,
+              "language": "es",
+              "page": str(pagina)}
 
     # petición API REST
     response = requests.get(url, params=params)
-    if response.status_code == 200:     # todo ok
+    if response.status_code == 200:  # todo ok
         return response.json()
 
     # si llegamos aquí hay un error
