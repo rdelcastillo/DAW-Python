@@ -1,5 +1,0 @@
-Esto es una prueba
-del ejercicio 2 de la relación de ficheros en Python
-que encripta un archivo usando el método César
-
-¿Y qué pasa si hay una Z ó una z?
