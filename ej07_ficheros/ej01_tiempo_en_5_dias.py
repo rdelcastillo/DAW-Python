@@ -20,13 +20,69 @@ Consideraciones:
   diciendo que la sintaxis es incorrecta.
 - Si el programa recibe un solo parámetro y este es "-h" el programa muestra un texto explicando qué hace.
 
-Versión 0.1: probamos escribiendo fichero de exto plano (sin marcas html)
+Versión 1.0.
 """
 
 import requests
 import sys
 import os
 
+
+# Funciones para manejar el html
+def inicio_html(ciudad):
+    """
+    :param ciudad:
+    :return: inicio del html del resumen del pronóstico del tiempo.
+    """
+    return f"""<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectura de temperaturas en {ciudad}</title>
+</head>
+<body>
+    <center><p>Este programa nos muestra los resultados de las mediciones para los próximos 5 días en {ciudad}</p>
+        <table border="1">
+            <tr>
+                <th>Día</th>
+                <th>Temperatura Media</th>
+                <th>Temperatura Mínima</th>
+                <th>Temperatura Máxima</th>
+                <th>Nº Mediciones</th>
+            </tr>"""
+
+
+def fila_html(dia, temp_med, temp_min, temp_max, mediciones):
+    return f"""
+            <tr>
+                <td><center>{dia}</center></td>
+                <td><center>{temp_med:.2f}º</center></td>
+                <td><center>{temp_min}º</center></td>
+                <td><center>{temp_max}º</center></td>
+                <td><center>{mediciones}</center></td>
+            </tr>"""
+
+
+def fin_html(temp_med, temp_min, temp_max, mediciones):
+    return f"""
+            <tr>
+                <th><center>TOTALES</center></th>
+                <th><center>{temp_med:.2f}º</center></th>
+                <th><center>{temp_min}º</center></th>
+                <th><center>{temp_max}º</center></th>
+                <th><center>{mediciones}</center></t>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>
+"""
+
+
+#
+# PROGRAMA PRINCIPAL
+#
 # Comprobamos si el número de parámetros es correcto
 if len(sys.argv) == 1 or len(sys.argv) > 3:
     print("La sintaxis es incorrecta.", file=sys.stderr)
@@ -56,7 +112,7 @@ url = "https://api.openweathermap.org/data/2.5/forecast"
 params = {"q": ciudad, "appid": os.environ["OPEN_WEATHER_KEY"], "units": "metric", "lang": "es"}
 response = requests.get(url, params=params)
 if response.status_code != 200:
-    print("Error al hacer la petición o", ciudad, "no existe:", response.status_code)
+    print("Error al hacer la petición o", ciudad, "no existe:", response.status_code, file=sys.stderr)
     exit(2)
 datos = response.json()
 
@@ -82,13 +138,15 @@ for medicion in datos["list"]:
     totales["temp_min"].append(temp_min)
     totales["temp_max"].append(temp_max)
 
-# resultados
+# Resultados
+# crear fichero html si es necesario
 if salida_html:
-    # nombre fichero
+    # nombre fichero: {CIUDAD}_{FECHA-INICIO}_{FECHA_FIN}
+    # ejemplo: "Cordoba_2020-02-27-12.00.00_2020-03-03-09.00.00.html"
     fecha_inicio = datos["list"][0]["dt_txt"]  # fecha primera medición
     fecha_fin = datos["list"][-1]["dt_txt"]  # fecha última medición
-    nombre_fichero = directorio + ciudad + "_" + fecha_inicio + "_" + fecha_fin
-    # sustituimos en el mombre ":" por "." y " " por "-"
+    nombre_fichero = directorio + ciudad + "_" + fecha_inicio + "_" + fecha_fin + ".html"
+    # sustituimos en el nombre ":" por "." y " " por "-"
     nombre_fichero = nombre_fichero.replace(":", ".").replace(" ", "-")
     # abrimos fichero para escritura
     try:
@@ -96,29 +154,34 @@ if salida_html:
     except IOError:
         print("No se puede crear el fichero html:", nombre_fichero)
         exit(3)
+    # escribimos inicio html
+    fichero.write(inicio_html(ciudad))
 else:
     print()
-    fichero = sys.stdout
-
+# procesamos cada medición
 for dia, temps in dias.items():
     # diario
+    dia = f"{dia[8:]}-{dia[5:7]}-{dia[0:4]}"  # formato dd-mm-aaaa
     temp_med = sum(temps['temp']) / len(temps['temp'])
     temp_min = min(temps['temp_min'])
     temp_max = max(temps['temp_max'])
-    print(f"Día {dia[8:]}-{dia[5:7]}-{dia[0:4]}:\t"
-          f"Temperatura media: {temp_med:.2f}º, "
-          f"mínima: {temp_min}º y máxima: {temp_max}º. "
-          f"Mediciones: {len(temps['temp'])}", file=fichero)
+    if salida_html:
+        fichero.write(fila_html(dia, temp_med, temp_min, temp_max, len(temps['temp'])))
+    else:
+        print(f"Día {dia}:\t"
+              f"Temperatura media: {temp_med:.2f}º, "
+              f"mínima: {temp_min}º y máxima: {temp_max}º. "
+              f"Mediciones: {len(temps['temp'])}")
 print()
 
 # global
 temp_med = sum(totales['temp']) / len(totales['temp'])
 temp_min = min(totales['temp_min'])
 temp_max = max(totales['temp_max'])
-print(f"TOTALES:\t\tTemperatura media: {temp_med:.2f}º, "
-      f"mínima: {temp_min}º y máxima: {temp_max}º", file=fichero)
-
-# fin
 if salida_html:
+    fichero.write(fin_html(temp_med, temp_min, temp_max, len(datos["list"])))
     fichero.close()
     print("Generado fichero", nombre_fichero, "con los datos.")
+else:
+    print(f"TOTALES:\t\tTemperatura media: {temp_med:.2f}º, "
+          f"mínima: {temp_min}º y máxima: {temp_max}º")
