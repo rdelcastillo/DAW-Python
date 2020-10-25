@@ -1,30 +1,36 @@
-################################################################################
-# Calcular el perímetro y área de un rectángulo dada su base y su altura.
-################################################################################
-# Análisis
-# Tenemos que leer la base y la altura del triangulo y calcular el perímetro y el
-# área.
-# Datos de entrada: base(real), altura(real)
-# Información de salida: perímetro(real) y área(real)
-# Variables: base, altura, perimetro y area (Real)
-################################################################################
-# Diseño
-# 1. Leer base y altura
-# 2. Calcular perímetro (2*base + 2*altura)
-# 3. Calcular área (base * altura)
-# 4. Mostrar perímetro y área
-################################################################################
+"""
+Programa Ej02Rectangulo.py
+Propósito: Calcular el perímetro y área de un rectángulo dada su base y su altura.
+Autor: Rafael del Castillo Gomariz
+Fecha: 8/10/2020
+-------------------------------------------------------------------------------------
+Análisis:
+-------------------------------------------------------------------------------------
+Tenemos que leer la base y la altura del rectángulo y calcular el perimetro y el área.
+
+Datos de entrada: base (número real), altura (número real).
+Información de salida: perímetro (real) y área (real).
+
+Variables: base, altura, perímetro y area (real).
+-------------------------------------------------------------------------------------
+Diseño:
+-------------------------------------------------------------------------------------
+1. Leer base y altura.
+2. Calcular perímetro (2*base + 2*altura).
+3. Calcular área (base * altura).
+4. Mostrar perímetro y área.
+"""
+
+print("Cálculo del perímetro y área de un rectángulo.")
+print("----------------------------------------------")
 
 # Pedimos datos
 base = float(input("Introduce la base: "))
-altura = float(input("Introduce la altura: "))
+height = float(input("Introduce la altura: "))
 
 # Cálculos
-perimetro = 2*(base+altura)
-area = base*altura
+perimeter = 2 * (base + height)
+area = base * height
 
 # Mostramos resultado
-print("El perímetro es", perimetro, "y el área es", area)
-
-
-
+print("El perímetro es", perimeter, "y el área es", area)

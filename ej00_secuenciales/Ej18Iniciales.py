@@ -1,30 +1,37 @@
-################################################################################
-# Pedir el nombre y los dos apellidos de una persona y mostrar las iniciales.
-################################################################################
-# Análisis
-# Hay que pedir el nombre y los apellidos, y mostrar las iniciales.
-# Primer carácter de cada cadena.
-# Datos de entrada: nombre y apellidos (cadena)
-# Información de salida: Iniciales (cadena)
-# Variables: nombre, apellido1, apellido2, inicial (cadena).
-################################################################################
-# Diseño
-# 1. Leer nombre y apellidos
-# 2. Obtener primer carácter de cada cadena
-# 3. Concatenar los caracteres
-# 4. Mostrar iniciales
-################################################################################
+"""
+Programa Ej18Iniciales.py
+
+Propósito: Pedir el nombre y los dos apellidos de una persona y mostrar las iniciales.
+
+Autor: Rafael del Castillo Gomariz
+Fecha: 12/10/2020
+-------------------------------------------------------------------------------------
+Análisis:
+-------------------------------------------------------------------------------------
+Hay que pedir el nombre y los apellidos, y mostrar las iniciales, o sea, el primer carácter de cada cadena.
+
+Datos de entrada: nombre y apellidos (cadena)
+Información de salida: Iniciales (cadena)
+
+Variables: name, surname1, surname2, initials (cadena).
+------------------------------------------------------------------------------------
+Algoritmo:
+-------------------------------------------------------------------------------------
+1. Leer nombre y apellidos
+2. Obtener primer carácter de cada cadena
+3. Concatenar los caracteres
+4. Mostrar iniciales
+"""
+print("Cálculo de las iniciales del nombre y los apellidos de una persona")
+print("------------------------------------------------------------------")
 
 # Pedimos datos
-nombre = input("Dime tu nombre: ")
-apellido1 = input("Dime tu primer apellido: ")
-apellido2 = input("Dime tu segundo apellido: ")
+name = input("Dime tu nombre: ")
+surname1 = input("Dime tu primer apellido: ")
+surname2 = input("Dime tu segundo apellido: ")
 
 # Cálculos
-inicial = (nombre[0]+apellido1[0]+apellido2[0]).upper()
+initials = (name[0] + surname1[0] + surname2[0]).upper()
 
 # Salida
-print("Las iniciales son: ",inicial)
-
-
-
+print("Las iniciales son: ", initials)
