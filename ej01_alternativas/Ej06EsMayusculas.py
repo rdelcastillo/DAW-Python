@@ -1,28 +1,34 @@
-# ################################################################################
-# Programa que lea una cadena por teclado y compruebe si es una letra mayúscula.
-# ################################################################################
-# Análisis
-# Pedimos por teclado una cadena
-# y hay que comprobar que todas las letras sean mayúsculas.
-# Datos de entrada: cadena (cadena)
-# Información de salida: Mensajes de es mayúsculas o no es mayúsculas.
-# Variables: cadena (cadena)
-# ################################################################################
-# Diseño
-# 1. Leer la cadena
-# 2. Si la cadena es igual a la cadena convertida en mayúsculas,
-# mostrar "La cadena es mayúsculas"
-# 3. En caso contrario mostrar "La cadena no es mayúsculas"
-# ################################################################################
+"""
+Lee una cadena por teclado y comprueba si es una letra mayúscula.
+
+- Autor: Rafael del Castillo.
+- Fecha: 4/11/2020.
+-------------------------------------------------------------------------------------
+Análisis:
+-------------------------------------------------------------------------------------
+- Datos de entrada: cadena (cadena)
+- Información de salida: Mensajes de es mayúsculas o no es mayúsculas.
+- Variables: letter (cadena)
+-------------------------------------------------------------------------------------
+Algoritmo:
+-------------------------------------------------------------------------------------
+1. Leer la cadena
+2. Si la cadena es una letra y mayúscula mostramos "La cadena es mayúsculas"
+3. En caso contrario mostramos "La cadena no es mayúsculas"
+"""
+
+print("Comprobación de letras mayúsculas")
+print("---------------------------------")
 
 # Pedir datos
-cad = input("Introduce una cadena: ")
+letter = input("Introduce una cadena: ")
 
-# Comprobamos ymostramos resultados
-if len(cad)==1 and cad>="A" and cad<="Z":
-    print("La cadena es una letra mayúscula")
+# Comprobamos y mostramos resultados
+if len(letter) == 1 and "A" <= letter <= "Z":
+    print("La cadena es una letra mayúscula.")
 else:
-    print("La cadena no es una letra mayúscula")
+    print("La cadena no es una letra mayúscula.")
 
-
-
+# La expresión condicional está simplificada para Python,
+# en otro lenguaje sería:
+# len(letter) == 1 and letter >= "A" and letter <= "Z":

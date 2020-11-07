@@ -24,9 +24,7 @@ print("---------------------------------")
 letter = input("Introduce una cadena: ")
 
 # Comprobamos y mostramos resultados
-if len(letter) == 1 and (("A" <= letter <= "Z") or          # letras normales
-                         ("Á" <= letter <= "Ú") or          # con tilde
-                         letter == "Ñ" or letter == "Ü"):   # especiales
+if len(letter) == 1 and letter.isupper():
     print("La cadena es una letra mayúscula.")
 else:
     print("La cadena no es una letra mayúscula.")
