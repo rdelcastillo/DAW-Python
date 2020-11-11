@@ -2,6 +2,8 @@
 Escribir un programa que imprima todos los números pares entre dos números que
 se le pidan al usuario.
 
+Versión con ciclo for.
+
 Análisis
 --------
 Leemos un número. Si es impar, le sumo 1 y ya es par. Leemos el segundo número.
@@ -12,13 +14,11 @@ Variables: num,num1,num2 (entero).
 
 Diseño
 ------
-Leer num1,num2
-Si num1 es mayor que num2 intercambio el valor de las variables
-Si num1 es par -> num <-- num1 sino num <-- num1+1
-Mientras num <= num2
-    Escribir num
-    num <-- num+2
-FinMientras
+1.- Leer num1,num2
+2.- Si num1 es mayor que num2 intercambio el valor de las variables
+3.- Si num1 es impar -> num1=num1+1
+4.- Desde num1 hasta num2 de 2 en 2
+5.- Escribir el número
 """
 
 print("Pares comprendidos entre dos números")
@@ -30,15 +30,12 @@ num2 = int(input("Introduce el número 2: "))
 
 # ¿Intercambiamos?
 if num1 > num2:
-    num1, num2 = num2, num1  # solo en Python, en otro lenguaje usamos variable auxiliar
+    num1, num2 = num2, num1  # solo en Python
 
-# Si num1 es par, empezamos por ese número, sino por el siguiente
-if num1 % 2 == 0:
-    num = num1
-else:
-    num = num1 + 1
+# Si primer número es impar pasamos al siguiente par
+if num1 % 2 == 1:
+    num1 += 1
 
-# Ciclo de escritura de pares comprendidos entre num1 y num2
-while num <= num2:
-    print(num)
-    num += 2
+# Mostramos salida
+for num in range(num1, num2 + 1, 2):
+    print(f"{num} ", end="")
