@@ -1,16 +1,20 @@
 """
 Mostrar en pantalla los N primeros números primos. Se pide por teclado la cantidad
 de números primos que queremos mostrar.
----
+--------
 Análisis
-Tengo que leer la cantidad de números primos que voy a mostrar. La cantidad debe
-ser positivo. El primer número primo es el 2 (lo muestro) a partir de este son
-todos impares. Voy probando desde el 3 todos los impares hasta que muestre la
-cantidad que hemos indicado (necesito un contador).
-Para comprobar si son primos, los voy dividiendo desde 3 hasta la raíz cuadrada
-del número, si es divisible por algún número no es primo (necesito un indicador).
-Datos de entrada: Cantidad de números a mostrar.
+--------
+Tengo que leer la cantidad de números primos que voy a mostrar, que debe ser positiva.
+
+El primer número primo es el 2 (lo muestro) a partir de este son todos impares. Voy probando desde el 3 todos
+los impares hasta que muestre la cantidad que hemos indicado (necesito un contador).
+
+Para comprobar si son primos, los voy dividiendo desde 3 hasta la raíz cuadrada del número, si es divisible por
+algún número no es primo (necesito un interruptor).
+
+Datos de entrada: cantidad de números a mostrar.
 Información de salida: Los números primos indicados.
+
 Variables: cantidad_a_mostrar, cantidad_mostrados, divisor (entero), es_primo(lógico)
 ---
 Diseño
@@ -34,19 +38,21 @@ import math
 
 def es_primo(num_a_comprobar):
     creo_que_es_primo = True
-    num = 2
-    while num <= math.sqrt(num_a_comprobar) and creo_que_es_primo:
-        if num_a_comprobar % num == 0:
+    n = 2
+    while n <= math.sqrt(num_a_comprobar) and creo_que_es_primo:
+        if num_a_comprobar % n == 0:
             creo_que_es_primo = False
-        num += 1
+        n += 1
     return creo_que_es_primo
+
 
 # Principal
 
 # Pedimos datos
 while True:  # postcondición
     cantidad_a_mostrar = int(input("Ingrese la cantidad de números primos a mostrar: "))
-    if cantidad_a_mostrar > 0: break  # condición de salida del ciclo
+    if cantidad_a_mostrar > 0:
+        break  # condición de salida del ciclo
 
 # Proceso
 # el primer primo es 2, los otros son todos impares...
