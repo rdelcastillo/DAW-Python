@@ -36,14 +36,16 @@ Usamos una función para comprobar si un número es primo
 import math
 
 
-def es_primo(num_a_comprobar):
-    creo_que_es_primo = True
-    n = 2
-    while n <= math.sqrt(num_a_comprobar) and creo_que_es_primo:
-        if num_a_comprobar % n == 0:
-            creo_que_es_primo = False
-        n += 1
-    return creo_que_es_primo
+def es_primo(num):
+    """
+    Comprueba si un número es primo usando el teorema de Wilson, que dice que:
+    Si p es un número primo entonces (p-1)!+1 es divisible por p.
+
+    :param num: número que queremos comprobar si es primo
+    :return: verdadero o falso
+    """
+
+    return (math.factorial(num - 1) + 1) % num == 0
 
 
 # Principal
@@ -59,9 +61,9 @@ while True:  # postcondición
 print("1: 2")
 cantidad_mostrados = 1
 # ...a partir de 3
-num = 3
+candidato_a_primo = 3
 while cantidad_mostrados < cantidad_a_mostrar:
-    if es_primo(num):  # Compruebo si "num" es primo
+    if es_primo(candidato_a_primo):  # Compruebo si "candidato_a_primo" es primo
         cantidad_mostrados += 1
-        print(f"{cantidad_mostrados}: {num}")
-    num += 2
+        print(f"{cantidad_mostrados}: {candidato_a_primo}")
+    candidato_a_primo += 2
