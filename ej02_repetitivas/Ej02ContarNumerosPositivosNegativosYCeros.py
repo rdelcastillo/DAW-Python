@@ -8,17 +8,17 @@ Se pide la cantidad de números que se van a leer. Vamos introduciendo números.
 Tenemos que contar los positivos, negativos y 0.
 Datos de entrada:Cantidad de números, los números.
 Información de salida: Cantidad de positivos, de negativos y de 0.
-Variables:cantidad_num,num,contPositivos,cant_negativos,cantidad_ceros(entero)
+Variables: cantidad_num, num, cont_positivos, cont_negativos, cont_ceros (enteros)
 ---
 Diseño
 1.- Inicializo los contadores
 2.- Leer cantidad de números
 3.- Desde 1 hasta cantidad de números
         Leer num
-        Si num> 0-> incremento contPositivos
-        Si num< 0-> incremento contNegativos
-        Si num = 0-> incremento contCeros.
-4.- Muestro cont_positivos, contNegativos, contCeros
+        Si num > 0-> incremento cont_positivos
+        Si num < 0-> incremento cont_negativos
+        Si num = 0-> incremento cont_ceros.
+4.- Muestro contadores
 """
 
 # Inicializamos contadores
