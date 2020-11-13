@@ -15,22 +15,22 @@ algún número no es primo (necesito un interruptor).
 Datos de entrada: cantidad de números a mostrar.
 Información de salida: Los números primos indicados.
 
-Variables: cantidad_a_mostrar, cantidad_mostrados, divisor (entero), es_primo(lógico)
+Variables: cantidad_a_mostrar, cantidad_mostrados, divisor (entero), es_primo (lógico)
 
 Diseño
 ------
 1.- Leer cantidad de número primos a mostrar, debe ser positivo
 2.- Muestro el primer número primo, el 2.
 3.- Inicializo el contador de número mostrados a 1.
-4.- Inicializo la variable donde guardo el número a probar -> num=3
-4.- Mientras no haya mostrado la cantidad de número indicados
-5.- Considero que es primo. Inicializo el indicador -> es_primo=Verdadero
-6.- desde el 3 hasta la raíz cuadrada del número
-7.- Si es divisible -> Ya no es primo -> es_primo=Falso
-8.- Si es primo
-9.- Incremento el contador de números mostrados
-10.- Escribo el número primo
-11.- Como son impares, incremento en 2 el número a probar
+4.- Inicializo la variable donde guardo el número a probar -> candidato_a_primo=3
+5.- Mientras no haya mostrado la cantidad de números indicados:
+    6.- Considero que es primo. Inicializo el indicador -> es_primo=Verdadero
+    7.- Desde el 3 hasta la raíz cuadrada del número a comprobar (candidato_a_primo)
+        8.- Si es divisible -> Ya no es primo -> es_primo=Falso
+    9.- Si es primo
+        10.- Escribo el número primo
+        11.- Incremento el contador de números mostrados
+    12.- Como son impares, incremento en 2 el número a probar (candidato_a_primo)
 """
 
 import math
@@ -44,23 +44,24 @@ while True:  # repetir
 # Proceso
 
 # el primer primo es 2, los otros son todos impares...
-print("1: 2")
+print("1º: 2")
 cantidad_mostrados = 1
 
 # ...a partir de 3
-num = 3
+candidato_a_primo = 3
 while cantidad_mostrados < cantidad_a_mostrar:
     # pienso que es primo hasta que encuentre con que dividirlo
     es_primo = True
     # ya sabemos que es impar
-    divisor = 3  # no empiezo en 2 porque sé que "num" es impar
-    while divisor <= math.sqrt(num) and es_primo:
+    divisor = 3  # no empiezo en 2 porque sé que "candidato_a_primo" es impar
+    while divisor <= math.sqrt(candidato_a_primo) and es_primo:
         # si la división da exacta...
-        if num % divisor == 0:
+        if candidato_a_primo % divisor == 0:
             # ...ya no es primo
             es_primo = False
-        divisor += 2  # va al siguiente impar, no necesito comprobar el par
-    if es_primo:  # Compruebo si "num" es primo
+        else:
+            divisor += 2  # va al siguiente impar, no necesito comprobar el par
+    if es_primo:  # Compruebo si "candidato_a_primo" es primo
         cantidad_mostrados += 1
-        print(f"{cantidad_mostrados}: {num}")
-    num += 2
+        print(f"{cantidad_mostrados}º: {candidato_a_primo}")
+    candidato_a_primo += 2  # el siguiente sigue siendo impar
