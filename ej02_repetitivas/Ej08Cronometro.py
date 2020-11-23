@@ -18,7 +18,7 @@ while True:
     # en el print usamos:
     #   - 02 para que el tiempo ocupe dos lugares y se rellene con ceros
     #   - flush=True para forzar a que el buffer de pantalla se escriba
-    print(f"{horas:02}:{minutos:02}:{segundos:02}", end="", flush=True)
+    print(f"{horas:02d}:{minutos:02d}:{segundos:02d}", end="", flush=True)
 
     time.sleep(1)   # espera de un segundo
 
