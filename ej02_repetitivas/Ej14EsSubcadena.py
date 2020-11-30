@@ -85,9 +85,9 @@ cadena = input("Dame una cadena: ")
 subcadena = input(f"Dame una subcadena de '{cadena}': ")
 
 # Proceso de búsqueda de la subcadena
-comprobar_hasta = len(cadena)-len(subcadena)
-while not esta_subcadena and i<=comprobar_hasta:
-    if subcadena == cadena[i:i+len(subcadena)]:
+comprobar_hasta = len(cadena) - len(subcadena)
+while not esta_subcadena and i <= comprobar_hasta:
+    if subcadena == cadena[i:i + len(subcadena)]:
         esta_subcadena = True
     i += 1
 
