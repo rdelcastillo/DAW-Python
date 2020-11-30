@@ -34,24 +34,26 @@ Diseño:
 
 import math
 
+
 # ---------
 # Funciones
 # ---------
 
 def esPrimo(n):
-    '''
+    """
     Comprueba si el parámetro que recibe es o no un número primo.
 
     @param n número entero a comprobar
 
     @return True si es primo
             False si no es primo
-    '''
+    """
     esprimo = True
-    for i in range(3, int(math.sqrt(n))+1):
-        if n%i==0:  # es divisible, no es primo, acabamos
+    for i in range(3, int(math.sqrt(n)) + 1):
+        if n % i == 0:  # es divisible, no es primo, acabamos
             return False
     return esprimo
+
 
 # ---------
 # Principal
@@ -60,7 +62,7 @@ def esPrimo(n):
 # Pedimos datos
 while True:
     cantidad_a_mostrar = int(input("Ingrese la cantidad de números primos a mostrar: "))
-    if not (cantidad_a_mostrar<=0): break
+    if not (cantidad_a_mostrar <= 0): break
 
 # Proceso
 # el primer primo es 2, los otros son todos impares...
@@ -71,7 +73,6 @@ num = 3
 while cantidad_mostrados < cantidad_a_mostrar:
     # me muevo solo por los números impares
     if esPrimo(num):
-        cantidad_mostrados+=1
+        cantidad_mostrados += 1
         print(f"{cantidad_mostrados}: {num}")
     num += 2
-
