@@ -1,5 +1,5 @@
 """
-Programa: Ej23CalcularDistancia.py
+Programa: ej23_calcular_distancia.py
 
 Propósito: dados cinco números enteros, hay que determinar cuál de los cuatro últimos
 números es más cercano al primero.

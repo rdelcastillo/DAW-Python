@@ -1,5 +1,5 @@
 """
-Programa: Ej09ClasificarCaracter.py
+Programa: ej09_clasificar_caracter.py
 
 Propósito: Lee un carácter de teclado y muestra por la pantalla el mensaje:
 
