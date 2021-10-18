@@ -1,5 +1,5 @@
 """
-Programa Ej17CalcularHoraLlegada.py
+Programa ej17_calcular_hora_llegada.py
 
 Propósito: Un ciclista parte de una ciudad A a las HH horas, MM minutos y SS segundos.
 El tiempo de viaje hasta llegar a otra ciudad B es de T segundos.

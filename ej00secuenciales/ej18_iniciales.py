@@ -1,5 +1,5 @@
 """
-Programa Ej18Iniciales.py
+Programa ej18_iniciales.py
 
 Propósito: Pedir el nombre y los dos apellidos de una persona y mostrar las iniciales.
 

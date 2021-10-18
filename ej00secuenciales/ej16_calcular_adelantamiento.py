@@ -1,5 +1,5 @@
 """
-Programa Ej16CalcularAdelantamiento.py
+Programa ej16_calcular_adelantamiento.py
 
 Propósito:
 Calcular en cuanto tiempo (en minutos) alcanzará un vehículo a otro distanciados por una distancia D, conociendo sus

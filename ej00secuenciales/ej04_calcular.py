@@ -1,5 +1,5 @@
 """
-Programa Ej04Calcular.py
+Programa ej04_calcular.py
 Propósito: Dados dos números, mostrar la suma, resta, división y multiplicación de ambos.
 Autor: Rafael del Castillo Gomariz
 Fecha: 12/10/2020

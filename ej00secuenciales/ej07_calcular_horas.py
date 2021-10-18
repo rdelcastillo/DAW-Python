@@ -1,5 +1,5 @@
 """
-Programa Ej07CalcularHoras.py
+Programa ej07_calcular_horas.py
 Propósito: Pide una cantidad de minutos y muestra por pantalla a cuantas horas y minutos corresponde.
 Autor: Rafael del Castillo Gomariz
 Fecha: 12/10/2020

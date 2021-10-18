@@ -37,7 +37,7 @@ class PartidaPunto:
         """
         self.__jugadores = jugadores
         self.__turno = 0
-        self.__pausa_en_tirada = False
+        self.__pausa_en_tirada = True
         self.__salida = [""] * (PartidaPunto.__TURNOS + 1)
 
     # propiedades get/set
@@ -157,7 +157,7 @@ class PartidaPunto:
 
 if __name__ == '__main__':
     p = PartidaPunto(Jugador("Jugador1"), JugadorTramposo("Tramposo"), Jugador("Jugador2"))
-    #p.pausa_en_tirada = True
+    # p.pausa_en_tirada = False
     # print(p.juega())
     p.juega();
     print(p)

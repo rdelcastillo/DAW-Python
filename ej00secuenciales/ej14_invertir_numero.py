@@ -1,5 +1,5 @@
 """
-Programa Ej14InvertirNumero.py
+Programa ej14_invertir_numero.py
 
 Propósito: Dado un número de dos cifras este programa lo invierte.
 

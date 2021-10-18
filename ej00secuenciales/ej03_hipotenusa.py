@@ -1,5 +1,5 @@
 """
-Programa Ej03Hipotenusa.py
+Programa ej03_hipotenusa.py
 Propósito: Dados los catetos de un triángulo rectángulo, calcular su hipotenusa.
 Autor: Rafael del Castillo Gomariz
 Fecha: 12/10/2020
@@ -34,7 +34,7 @@ side1 = float(input("Introduce el primer cateto:  "))
 side2 = float(input("Introduce el segundo cateto: "))
 
 # Cálculos
-hypotenuse = math.sqrt(side1 ** 2 + side2 ** 2)
+hypotenuse = math.sqrt(side1**2 + side2**2)
 
 # Mostramos resultado
 print("La hipotenusa es", hypotenuse)

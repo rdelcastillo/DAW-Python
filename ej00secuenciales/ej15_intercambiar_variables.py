@@ -1,5 +1,5 @@
 """
-Programa Ej15IntercambiarVariables.py
+Programa ej15_intercambiar_variables.py
 
 Propósito: Dadas dos variables numéricas A y B, que el usuario debe teclear, se pide intercambiar los valores de ambas.
 
