@@ -1,16 +1,14 @@
 """
-Imprimimos por pantalla los cien primeros números pares usando while.
+Imprimimos por pantalla los cien primeros números pares usando for.
 
 ALGORITMO
     VAR n (ENTERO)
 
-    num_par <-- 0
-    MIENTRAS num_par < 100
-        num_par <-- num_par + 1
+    PARA num_par <-- 1 HASTA 100
         ESCRIBIR num_par * 2
-    FIN-MIENTRAS
+    FIN-PARA
 
-Fecha: 20/10/2021
+Fecha: 26/10/2021
 Autor: Rafael del Castillo
 """
 
@@ -19,7 +17,5 @@ TOTAL_PARES = 100
 print(f"Primeros {TOTAL_PARES} números pares")
 print("--------------------------")
 
-num_par = 0
-while num_par < TOTAL_PARES:
-    num_par += 1
+for num_par in range(1, TOTAL_PARES+1):
     print(f"Par número {num_par: 3}: {num_par * 2: 3}")
