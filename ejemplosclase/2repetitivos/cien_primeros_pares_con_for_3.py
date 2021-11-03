@@ -4,8 +4,8 @@ Imprimimos por pantalla los cien primeros números pares usando for.
 ALGORITMO
     VAR n (ENTERO)
 
-    PARA num_par <-- 1 HASTA 100
-        ESCRIBIR num_par * 2
+    PARA par <-- 2 HASTA 200 INCREMENTO 2
+        ESCRIBIR num_par
     FIN-PARA
 
 Fecha: 26/10/2021
@@ -17,6 +17,5 @@ TOTAL_PARES = 100
 print(f"Primeros {TOTAL_PARES} números pares")
 print("--------------------------")
 
-for num_par in range(TOTAL_PARES):
-    par = (num_par + 1) * 2
-    print(f"Par número {num_par+1: 3}: {par: 3}")
+for par in range(2, 2*TOTAL_PARES+1, 2):
+    print(f"Par número {par//2: 3}: {par: 3}")

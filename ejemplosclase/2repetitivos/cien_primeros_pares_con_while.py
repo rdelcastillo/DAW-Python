@@ -19,7 +19,7 @@ TOTAL_PARES = 100
 print(f"Primeros {TOTAL_PARES} números pares")
 print("--------------------------")
 
-num_par = 0
-while num_par < TOTAL_PARES:
-    num_par += 1
+num_par = 1
+while num_par <= TOTAL_PARES:
     print(f"Par número {num_par: 3}: {num_par * 2: 3}")
+    num_par += 1

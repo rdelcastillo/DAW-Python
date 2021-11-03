@@ -1,4 +1,4 @@
-'''
+"""
 Programa que lea 3 datos de entrada A, B y C. Estos corresponden a las dimensiones de los lados de un triángulo.
 El programa debe determinar que tipo de triángulo es, teniendo en cuenta:
 - Si se cumple Pitágoras entonces es triángulo rectángulo
@@ -12,7 +12,7 @@ Fecha: 29/10/2019.
 Análisis
 --------
 1. Pedir la medida de los tres lados de un triángulo.
-2. Comprobamos si es equilatero (si lo es no puede ser el resto de casos, ni siquiera rectángulo)
+2. Comprobamos si es equilátero (si lo es no puede ser el resto de casos, ni siquiera rectángulo)
 En caso contrario
 3. Comprobamos si se cumple el teorema de pitágoras, entonces es un triángulo rectángulo.
 4. Comprobamos si tiene dos lados iguales (y uno desigual, sino sería equilátero), es isósceles
@@ -26,25 +26,25 @@ En caso contrario
 Ejemplos:
 (3,4,5) rectángulo,escaleno
 (7,7,9.8994949366117) rectángulo,isósceles
-'''
+"""
 
 # Pedimos los datos de los lados del triángulo
-ladoA = float(input("Introduce longitud lado A: "))
-ladoB = float(input("Introduce longitud lado B: "))
-ladoC = float(input("Introduce longitud lado C: "))
+lado_a = float(input("Introduce longitud lado A: "))
+lado_b = float(input("Introduce longitud lado B: "))
+lado_c = float(input("Introduce longitud lado C: "))
 
 # Cálculos
-# Comprobamos si es equilatero, este caso es excluyente
-if ladoA==ladoB and ladoB==ladoC:       #Python permitiría ladoA==ladoB==ladoC
+# Comprobamos si es equilátero, este caso es excluyente
+if lado_a == lado_b and lado_b == lado_c:  # Python permitiría lado_a == lado_b == lado_c
     print("El triángulo es EQUILÁTERO")
 else:
     # Comprobamos si es rectángulo (puede ser rectángulo y isósceles o escaleno)
-    if ladoA**2==(ladoB**2+ladoC**2) or ladoB**2==(ladoA**2+ladoC**2) or ladoC**2==(ladoB**2+ladoA**2):
+    if lado_a ** 2 == (lado_b ** 2 + lado_c ** 2) \
+            or lado_b ** 2 == (lado_a ** 2 + lado_c ** 2) \
+            or lado_c ** 2 == (lado_b ** 2 + lado_a ** 2):
         print("El triángulo es RECTÁNGULO")
-    # Comprobamos si es isósceles o escaleno (equilatero no es)
-    if ladoA==ladoB or ladoA==ladoC or ladoB==ladoC:
+    # Comprobamos si es isósceles o escaleno (equilátero no es)
+    if lado_a == lado_b or lado_a == lado_c or lado_b == lado_c:
         print("El triángulo es ISÓSCELES")
     else:
         print("El triángulo es ESCALENO")
-
-

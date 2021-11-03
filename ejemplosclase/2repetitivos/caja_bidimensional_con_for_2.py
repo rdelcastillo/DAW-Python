@@ -9,9 +9,12 @@ Fecha: 27/10/2021
 """
 import sys
 
+print("Dibujo de una caja bidimensional")
+print("--------------------------------")
+
 DIMENSION_MAXIMA = 9
-EXIT_ERROR_DIMENSION_COLUMNAS = 2
-EXIT_ERROR_DIMENSION_FILAS = 1
+EXIT_ERROR_COLUMNAS = 2
+EXIT_ERROR_FILAS = 1
 
 print("Dibujo de una caja bidimensional")
 print("--------------------------------")
@@ -25,20 +28,16 @@ print("--------------------------------")
 filas = int(input("Número de filas de la caja: "))
 if filas < 1 or filas > DIMENSION_MAXIMA:
     print(f"Dimensión de las filas incorrecta (entre 1 y {DIMENSION_MAXIMA}).", file=sys.stderr)
-    exit(EXIT_ERROR_DIMENSION_FILAS)
+    exit(EXIT_ERROR_FILAS)
 
 columnas = int(input("Número de columnas de la caja: "))
 if columnas < 1 or columnas > DIMENSION_MAXIMA:
     print(f"Dimensión de las columnas incorrecta (entre 1 y {DIMENSION_MAXIMA}).", file=sys.stderr)
-    exit(EXIT_ERROR_DIMENSION_COLUMNAS)
+    exit(EXIT_ERROR_COLUMNAS)
 
 # Impresión de la caja
 
-f = 1   # esta variable es un "contador"
-while f <= filas:
-    c = 1   # esta variable es un "contador"
-    while c <= columnas:
-        print(f"{f}{c}\t", end="")
-        c += 1
+for f in range(filas):
+    for c in range(columnas):
+        print(f"{f+1}{c+1}\t", end="")
     print()
-    f += 1
