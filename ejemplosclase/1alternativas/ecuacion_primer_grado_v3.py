@@ -1,4 +1,4 @@
-# Programa: primergrado_v3.py
+# Programa: ecuacion_primer_grado_v3.py
 # Propósito:    Resuelve una ecuación de 1er.grado tipo ax+b=0.
 #               Uso una estructura alternativa anidada compactada.
 # Autor: Rafael del Castillo.

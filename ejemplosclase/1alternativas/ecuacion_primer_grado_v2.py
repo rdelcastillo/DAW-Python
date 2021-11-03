@@ -1,5 +1,6 @@
-# Programa: primergrado.py
-# Propósito: Resuelve una ecuación de 1er.grado tipo ax+b=0.
+# Programa: ecuacion_primer_grado_v2.py
+# Propósito:    Resuelve una ecuación de 1er.grado tipo ax+b=0.
+#               Uso una estructura alternativa doble
 # Autor: Rafael del Castillo.
 # Fecha: 10/10/2019.
 #
@@ -23,9 +24,8 @@ if a!=0:
     x =-b/a
     # Mostramos resultado
     print("El valor de X es", x)
-
-if a==0:
+else:
     if b!=0:
         print("No hay solución")
-    if b==0:
+    else:
         print("Hay infinitas soluciones")
