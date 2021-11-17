@@ -44,9 +44,13 @@ FIN-SI
 
 import random
 
+RANGO_INICIAL = 1
+RANGO_FINAL = 100
+INTENTOS_MAXIMOS = 10
+
 # Inicializamos
-numero_a_adivinar = random.randint(1, 100)
-intentos_que_quedan = 10
+numero_a_adivinar = random.randint(RANGO_INICIAL, RANGO_FINAL)
+intentos_que_quedan = INTENTOS_MAXIMOS
 
 # Proceso
 while True:  # implementación ciclo postcondición REPETIR
@@ -66,6 +70,6 @@ while True:  # implementación ciclo postcondición REPETIR
 
 # Mostramos si acertó o no
 if numero_introducido == numero_a_adivinar:  # ha adivinado
-    print(f"Has adivinado el número en {10 - intentos_que_quedan} intentos")
+    print(f"Has adivinado el número en {INTENTOS_MAXIMOS - intentos_que_quedan} intentos")
 else:
     print(f"Has agotado el número máximo de intentos. El número a adivinar era {numero_a_adivinar}")

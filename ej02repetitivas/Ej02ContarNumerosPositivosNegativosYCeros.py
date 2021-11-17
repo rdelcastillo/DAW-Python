@@ -30,8 +30,8 @@ cont_ceros = 0
 cantidad_num = int(input("¿Cuántos números vas a introducir?: "))
 
 # Ciclo
-for i in range(1, cantidad_num + 1):
-    num = int(input(f"Número {i}: "))
+for i in range(cantidad_num):
+    num = int(input(f"Número {i+1}: "))
     # Comprobamos si es +, - ó 0 e incrementamos contador
     if num > 0:
         cont_positivos += 1

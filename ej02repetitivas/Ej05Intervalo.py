@@ -45,10 +45,11 @@ Diseño:
 
 # Inicializamos
 contador_fuera_del_intervalo = 0    # cuenta los números introducidos fuera del intervalo
-igual_limites = False               # interruptor que nos dice si hemos introducido algún extremo
+igual_limites_intervalo = False     # interruptor que nos dice si hemos introducido algún extremo
 suma_dentro_intervalo = 0           # suma los números introducidos dentro del intervalo
 
 # Pido el intervalo y me aseguro que el lim_inf introducido es menor que el lim_sup
+# se podía haber hecho con un ciclo ITERAR (ver siguiente ejemplo)
 lim_inf = int(input("Introduce el límite inferior del intervalo: "))
 lim_sup = int(input("Introduce el límite superior del intervalo: "))
 while lim_inf > lim_sup:
@@ -66,14 +67,14 @@ while num != 0:
         contador_fuera_del_intervalo += 1
         # Número igual a alguno de los límites
         if num == lim_inf or num == lim_sup:
-            igual_limites = True
+            igual_limites_intervalo = True
     num = int(input("Introduce un número (0, para salir): "))
 
 # Resultados
 print("\nRESULTADOS:")
 print(f"La suma de los números dentro del intervalo es {suma_dentro_intervalo}")
 print(f"La cantidad de números fuera del intervalo es {contador_fuera_del_intervalo}")
-if igual_limites:
+if igual_limites_intervalo:
     print("Se ha introducido algún número igual a los límites del intervalo.")
 else:
     print("No se ha introducido ningún número igual a los límites del intervalo.")

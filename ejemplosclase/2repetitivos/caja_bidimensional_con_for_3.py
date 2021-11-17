@@ -35,9 +35,9 @@ if columnas < 1 or columnas > DIMENSION_MAXIMA:
     exit(EXIT_ERROR_COLUMNAS)
 
 # Creamos las cadenas correspondientes a la cabecera, intersección y pie de la caja
-cabecera_caja = "┌" + "──┬" * (columnas - 1) + "──┐"
-interseccion_caja = "├" + "──┼" * (columnas - 1) + "──┤"
-pie_caja = "└" + "──┴" * (columnas - 1) + "──┘"
+cabecera_caja = "┌" + "────┬" * (columnas - 1) + "────┐"
+interseccion_caja = "├" + "────┼" * (columnas - 1) + "────┤"
+pie_caja = "└" + "────┴" * (columnas - 1) + "────┘"
 
 # Impresión caja
 f = 0
@@ -45,7 +45,7 @@ print(cabecera_caja)
 while True:
     print("│", end="")
     for c in range(columnas):
-        print(f"{f + 1}{c + 1}", end="│")
+        print(f" {f + 1}{c + 1} ", end="│")
     f += 1
     if f == filas:
         break
