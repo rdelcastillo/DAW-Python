@@ -54,6 +54,7 @@ elif duration <= 10:
     cost = (duration - 8) * 70 + 240 + 500
 else:
     cost = (duration - 10) * 50 + 140 + 240 + 500
+
 # impuestos
 if is_sunday.upper() == "S":
     cost += cost * 0.03
