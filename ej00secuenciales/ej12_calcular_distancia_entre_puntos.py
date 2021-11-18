@@ -36,7 +36,7 @@ x2 = int(input("Dime las coordenadas del punto 2:\n"))
 y2 = int(input())
 
 # Cálculos
-distancia = math.sqrt(math.pow(x2-x1, 2) + math.pow(y2-y1, 2))
+distance = math.sqrt(math.pow(x2 - x1, 2) + math.pow(y2 - y1, 2))
 
 # Salida
-print(f"Distancia: {distancia}")
+print(f"Distancia: {distance}")

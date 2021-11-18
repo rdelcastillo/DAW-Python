@@ -14,12 +14,12 @@ Fecha: 20/10/2021
 Autor: Rafael del Castillo
 """
 
-TOTAL_PARES = 100
+NUM_PAIRS = 100
 
-print(f"Primeros {TOTAL_PARES} números pares")
+print(f"Primeros {NUM_PAIRS} números pares")
 print("--------------------------")
 
 num_par = 1
-while num_par <= TOTAL_PARES:
+while num_par <= NUM_PAIRS:
     print(f"Par número {num_par: 3}: {num_par * 2: 3}")
     num_par += 1

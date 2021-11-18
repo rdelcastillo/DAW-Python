@@ -137,7 +137,7 @@ class Tiempo:
 
     @staticmethod
     def __segundos_total(t):
-        return t.hours * 3600 + t.minutos * 60 + t.segundos
+        return t.hours * 3600 + t.minutes * 60 + t.segundos
 
     @staticmethod
     def __segundos_a_tiempo(s):

@@ -31,10 +31,10 @@ print("-----------------------------------------------------")
 # Pedimos datos
 speed1 = float(input("Dime la velocidad del coche 1 (km/h): "))
 speed2 = float(input("Dime la velocidad del coche 2 (más pequeña)(km/h): "))
-distancia = float(input("Dime la distancia entre los coches (km): "))
+distance = float(input("Dime la distancia entre los coches (km): "))
 
 # Hacemos cálculos
-tiempo = 60 * distancia / (speed1 - speed2)
+tiempo = 60 * distance / (speed1 - speed2)
 
 # Resultado
 print("El primer coche alcanza al primero en", tiempo, "minutos.")

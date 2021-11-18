@@ -30,10 +30,10 @@ number = int(input("Dame un número de dos cifras para invertir: "))
 # cálculos
 digit1 = number // 10
 digit2 = number % 10
-invertido = digit2 * 10 + digit1
+invested = digit2 * 10 + digit1
 
 # muestro resultado
-print("El número invertido es", invertido)
+print("El número invertido es", invested)
 
 # -------------
 # Primera forma
@@ -45,11 +45,11 @@ number = input("Dame un número de dos cifras para invertir: ")
 # cálculos
 digit1 = number[0]
 digit2 = number[1]
-invertido = digit2 + digit1
+invested = digit2 + digit1
 # otras opciones
 # invertido = number[1] + number[0]
 
 # muestro resultado
-print("El número invertido es", invertido)
+print("El número invertido es", invested)
 # otras opciones
 # print("El número invertido es", number[::-1])

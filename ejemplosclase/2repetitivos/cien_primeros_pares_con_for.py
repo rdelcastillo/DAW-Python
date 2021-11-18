@@ -12,10 +12,10 @@ Fecha: 26/10/2021
 Autor: Rafael del Castillo
 """
 
-TOTAL_PARES = 100
+NUM_PAIRS = 100
 
-print(f"Primeros {TOTAL_PARES} números pares")
+print(f"Primeros {NUM_PAIRS} números pares")
 print("--------------------------")
 
-for num_par in range(1, TOTAL_PARES+1):
+for num_par in range(1, NUM_PAIRS+1):
     print(f"Par número {num_par: 3}: {num_par * 2: 3}")

@@ -20,12 +20,12 @@ a = float(input("Valor de 'a' (coeficiente x)........: "))
 b = float(input("Valor de 'b' (término independiente): "))
 
 # Cálculos
-if a!=0:
-    x =-b/a
+if a != 0:
+    x = -b / a
     # Mostramos resultado
     print("El valor de X es", x)
 else:
-    if b!=0:
+    if b != 0:
         print("No hay solución")
     else:
         print("Hay infinitas soluciones")

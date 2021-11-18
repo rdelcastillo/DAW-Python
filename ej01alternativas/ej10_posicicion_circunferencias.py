@@ -49,36 +49,36 @@ r2 = float(input("Dime radio segunda circunferencia: "))
 # -------
 # Proceso
 # -------
-distancia_circunferencias = math.sqrt(math.pow((x2 - x1), 2) + math.pow((y2 - y1), 2))
+circumferences_distance = math.sqrt(math.pow((x2 - x1), 2) + math.pow((y2 - y1), 2))
 
 # Circunferencias exteriores
 # La distancia entre los centros, d, es mayor que la suma de los radios.
-if distancia_circunferencias > (r1 + r2):
+if circumferences_distance > (r1 + r2):
     print("Circunferencias exteriores")
 
 # Circunferencias secantes
 # La distancia  es menor que la suma de los radios y mayor que su diferencia.
-elif (r1 + r2) > distancia_circunferencias > abs(r1 - r2):
+elif (r1 + r2) > circumferences_distance > abs(r1 - r2):
     print("Circunferencias secantes")
 
 # Circunferencias interiores
 # La distancia entre los centros es mayor que cero y menor que la diferencia entre los radios.
-elif 0 < distancia_circunferencias < abs(r1 - r2):
+elif 0 < circumferences_distance < abs(r1 - r2):
     print("Circunferencias interiores")
 
 # Circunferencias tangentes exteriores
 # La distancia entre los centros es igual a la suma de los radios.
-elif distancia_circunferencias == (r1 + r2):
+elif circumferences_distance == (r1 + r2):
     print("Circunferencias tangentes exteriores")
 
 # Circunferencias tangentes interiores
 # La distancia entre los centros es igual a la diferencia entre los radios.
-elif distancia_circunferencias == abs(r1 - r2):
+elif circumferences_distance == abs(r1 - r2):
     print("Circunferencias tangentes interiores")
 
 # Circunferencias concéntricas
 # La distancia = 0
-elif distancia_circunferencias == 0:
+elif circumferences_distance == 0:
     print("Circunferencias concéntricas")
 else:
     print("Esta situación no se puede dar")

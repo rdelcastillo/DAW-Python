@@ -16,23 +16,23 @@
 ################################################################################
 
 # Pedimos datos
-minutos = int(input("Dime la cantidad de minutos: "))
+total_minutes = int(input("Dime la cantidad de minutos: "))
 
 # Cálculos
-horas = minutos // 60
-res_min = minutos % 60
+hours = total_minutes // 60
+minutes = total_minutes % 60
 
 # Resultado
 # Distinguiremos el caso de cuando horas y minutos vayan en singular
 
 # primero: escribo el valor de la variable "horas"
-print(horas, "hora", end="")
+print(hours, "hora", end="")
 
 # segundo: compruebo si es más hora, en ese caso añado una "s"
-if horas != 1:
+if hours != 1:
     print("s", end="")
 
 # tercero: hago lo mismo con los minutos
-print(" y", res_min, "minuto", end="")
-if res_min != 1:
+print(" y", minutes, "minuto", end="")
+if minutes != 1:
     print("s")

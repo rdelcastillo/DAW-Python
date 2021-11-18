@@ -40,30 +40,27 @@
 ################################################################################
 
 # Pedimos datos
-tiempo = int(input("¿Cuánto tiempo es la llamada?: "))
-es_domingo = input("¿Es Domingo? (S/N): ")
-if es_domingo.upper()=="N":
-    turno = input("¿Qué turno: Mañana o Tarde? (M/T)?: ")
+duration = int(input("¿Cuánto tiempo dura la la llamada?: "))
+is_sunday = input("¿Es Domingo? (S/N): ")
+if is_sunday.upper() == "N":
+    turn = input("¿Qué turno: Mañana o Tarde? (M/T)?: ")
 
 # Proceso
-if tiempo<=5:
-    coste = tiempo*100
-elif tiempo<=8:
-    coste = (tiempo-5)*80+500
-elif tiempo<=10:
-    coste = (tiempo-8)*70+240+500
+if duration <= 5:
+    cost = duration * 100
+elif duration <= 8:
+    cost = (duration - 5) * 80 + 500
+elif duration <= 10:
+    cost = (duration - 8) * 70 + 240 + 500
 else:
-    coste = (tiempo-10)*50+140+240+500
+    cost = (duration - 10) * 50 + 140 + 240 + 500
 # impuestos
-if es_domingo.upper()=="S":
-    coste += coste*0.03
-elif turno.upper()=="M":
-    coste += coste*0.15
+if is_sunday.upper() == "S":
+    cost += cost * 0.03
+elif turn.upper() == "M":
+    cost += cost * 0.15
 else:
-    coste += coste*0.10
+    cost += cost * 0.10
 
 # Salida
-print("El coste de la llamada:",coste/100,"euros.")
-
-
-
+print("El coste de la llamada:", cost / 100, "euros.")

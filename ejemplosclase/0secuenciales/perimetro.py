@@ -21,14 +21,14 @@ print("-------------------------------------------")
 # -----------------
 # Usamos excepciones para controlar que el usuario no de valores no numéricos.
 try:
-    radio = float(input("Dame el radio de la circunferencia: "))
-except:
+    radius = float(input("Dame el radio de la circunferencia: "))
+except ValueError:
     print("Tienes que introducir datos numéricos, lo introducido no lo es.")
     print("Ejecuta el programa de nuevo introduciendo los datos correctamente.")
     exit(1)
 
 # Cálculos
-perimetro = 2*math.pi*radio
+perimeter = 2 * math.pi * radius
 
 # Salida
-print("El perímetro de la circunferencia es", perimetro)
+print("El perímetro de la circunferencia es", perimeter)

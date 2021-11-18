@@ -9,9 +9,9 @@ Fecha: 27/10/2021
 """
 import sys
 
-DIMENSION_MAXIMA = 9
-EXIT_ERROR_DIMENSION_COLUMNAS = 2
-EXIT_ERROR_DIMENSION_FILAS = 1
+MAXIMUM_SIZE = 9
+EXIT_ERROR_COLUMNS = 2
+EXIT_ERROR_ROWS = 1
 
 print("Dibujo de una caja bidimensional")
 print("--------------------------------")
@@ -22,22 +22,22 @@ print("--------------------------------")
 # En caso de no estarlo acabaremos el programa con un código de salida distinto de 0.
 # En caso de error no escribimos en la salida estándar, lo hacemos en la de error.
 
-filas = int(input("Número de filas de la caja: "))
-if filas < 1 or filas > DIMENSION_MAXIMA:
-    print(f"Dimensión de las filas incorrecta (entre 1 y {DIMENSION_MAXIMA}).", file=sys.stderr)
-    exit(EXIT_ERROR_DIMENSION_FILAS)
+rows = int(input("Número de filas de la caja: "))
+if rows < 1 or rows > MAXIMUM_SIZE:
+    print(f"Dimensión de las filas incorrecta (entre 1 y {MAXIMUM_SIZE}).", file=sys.stderr)
+    exit(EXIT_ERROR_ROWS)
 
-columnas = int(input("Número de columnas de la caja: "))
-if columnas < 1 or columnas > DIMENSION_MAXIMA:
-    print(f"Dimensión de las columnas incorrecta (entre 1 y {DIMENSION_MAXIMA}).", file=sys.stderr)
-    exit(EXIT_ERROR_DIMENSION_COLUMNAS)
+columns = int(input("Número de columnas de la caja: "))
+if columns < 1 or columns > MAXIMUM_SIZE:
+    print(f"Dimensión de las columnas incorrecta (entre 1 y {MAXIMUM_SIZE}).", file=sys.stderr)
+    exit(EXIT_ERROR_COLUMNS)
 
 # Impresión de la caja
 
 f = 1   # esta variable es un "contador"
-while f <= filas:
+while f <= rows:
     c = 1   # esta variable es un "contador"
-    while c <= columnas:
+    while c <= columns:
         print(f"{f}{c}\t", end="")
         c += 1
     print()

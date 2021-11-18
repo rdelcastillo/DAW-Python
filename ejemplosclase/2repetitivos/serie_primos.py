@@ -12,27 +12,27 @@ print("Relación de números primos")
 print("--------------------------")
 
 # Petición de datos
-num_primos_a_mostrar = int(input("¿Cuántos números primos mostramos? "))
-if num_primos_a_mostrar < 1:
+num_primes_to_show = int(input("¿Cuántos números primos mostramos? "))
+if num_primes_to_show < 1:
     print("No puedo imprimir esa cantidad de primos", file=sys.stderr)
     exit(1)
 
 # Proceso
-num_primos_mostrados = 0
-candidato_a_primo = 2
+num_primes_displayed = 0
+prime_candidate = 2
 
-while num_primos_mostrados < num_primos_a_mostrar:
+while num_primes_displayed < num_primes_to_show:
     # ¿el candidato a primo lo es?
     # vamos a comprobar cuantos divisores tiene entre dos y candidato-1
-    total_divisores = 0
-    for n in range(2, candidato_a_primo):
-        if candidato_a_primo % n == 0:
-            total_divisores += 1
+    total_dividers = 0
+    for n in range(2, prime_candidate):
+        if prime_candidate % n == 0:
+            total_dividers += 1
 
     # si no tiene divisores es primo
-    if total_divisores == 0:
-        print(candidato_a_primo)
-        num_primos_mostrados += 1
+    if total_dividers == 0:
+        print(prime_candidate)
+        num_primes_displayed += 1
 
     # pasar al siguiente candidato
-    candidato_a_primo += 1
+    prime_candidate += 1

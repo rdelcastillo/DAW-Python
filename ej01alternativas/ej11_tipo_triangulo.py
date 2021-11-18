@@ -29,22 +29,22 @@ Ejemplos:
 """
 
 # Pedimos los datos de los lados del triángulo
-lado_a = float(input("Introduce longitud lado A: "))
-lado_b = float(input("Introduce longitud lado B: "))
-lado_c = float(input("Introduce longitud lado C: "))
+side_a = float(input("Introduce longitud lado A: "))
+side_b = float(input("Introduce longitud lado B: "))
+side_c = float(input("Introduce longitud lado C: "))
 
 # Cálculos
 # Comprobamos si es equilátero, este caso es excluyente
-if lado_a == lado_b and lado_b == lado_c:  # Python permitiría lado_a == lado_b == lado_c
+if side_a == side_b and side_b == side_c:  # Python permitiría lado_a == lado_b == lado_c
     print("El triángulo es EQUILÁTERO")
 else:
     # Comprobamos si es rectángulo (puede ser rectángulo y isósceles o escaleno)
-    if lado_a ** 2 == (lado_b ** 2 + lado_c ** 2) \
-            or lado_b ** 2 == (lado_a ** 2 + lado_c ** 2) \
-            or lado_c ** 2 == (lado_b ** 2 + lado_a ** 2):
+    if side_a ** 2 == (side_b ** 2 + side_c ** 2) \
+            or side_b ** 2 == (side_a ** 2 + side_c ** 2) \
+            or side_c ** 2 == (side_b ** 2 + side_a ** 2):
         print("El triángulo es RECTÁNGULO")
     # Comprobamos si es isósceles o escaleno (equilátero no es)
-    if lado_a == lado_b or lado_a == lado_c or lado_b == lado_c:
+    if side_a == side_b or side_a == side_c or side_b == side_c:
         print("El triángulo es ISÓSCELES")
     else:
         print("El triángulo es ESCALENO")

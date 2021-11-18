@@ -6,8 +6,6 @@ Fecha: 3/11/2021
 """
 import sys
 
-suma_notas = 0  # esta variable es un "acumulador"
-
 print(f"Cálculo del factorial de un número")
 print("-----------------------------------")
 
