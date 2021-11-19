@@ -1,18 +1,18 @@
 """
 Este programa pedirá una cantidad de números primos para mostrar.
 
-Versión 2.
+Versión 3.
 
-En esta versión para ver si un número es primo, no comprobaremos si
-todos los números comprendidos entre 2 y el anterior son divisibles, solo
-hasta la raíz cuadrada del número a comprobar.
+En esta versión nos vamos a saltar los números pares, salvo el 2, porque sabemos
+que no son primos.
 
-También, cuando tengamos constancia de que el número a comprobar es divisible
-por alguno de los números entre 2 y el anterior, dejaremos de comprobar porque
-ya sabremos que NO es primo.
+Cuando comprobemos los posibles divisores, nos vamos a saltar los pares, porque
+sabemos que un número impar no puede ser divisible por uno par.
 
-Autoría: Clase 1ºDAW-B
-Fecha: 17/11/2021
+El ciclo de comprobación de los divisores, lo vamos a simplificar usando un break.
+
+Autoría: Clase 1ºDAW-A
+Fecha: 19/11/2021
 """
 import math
 import sys
@@ -27,23 +27,24 @@ if num_primes_to_show < 1:
     exit(1)
 
 # Proceso
-num_primes_displayed = 0
-prime_candidate = 2
+print("2")  # es el primer primo y único par, a partir de aquí todos impares
+num_primes_displayed = 1
+prime_candidate = 3
 
 while num_primes_displayed < num_primes_to_show:
     # ¿el candidato a primo lo es?
     # vamos a comprobar si es divisible por algún número entre dos y su raíz cuadrada
     is_prime = True
-    divider = 2
-    while is_prime and divider <= math.sqrt(prime_candidate):
+    divider = 3
+    while divider <= math.sqrt(prime_candidate):
         if prime_candidate % divider == 0:
             is_prime = False
-        else:
-            divider += 1
+            break
+        divider += 2
 
     if is_prime:
         print(prime_candidate)
         num_primes_displayed += 1
 
     # pasar al siguiente candidato
-    prime_candidate += 1
+    prime_candidate += 2
