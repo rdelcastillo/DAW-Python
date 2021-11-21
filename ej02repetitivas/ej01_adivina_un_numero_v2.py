@@ -20,17 +20,19 @@ Otra versión del programa anterior.
 import random
 
 # Constantes
-INTENTOS_MAXIMOS = 10
+STARTING_NUMBER = 1
+FINAL_NUMBER = 100
+MAXIMUM_TRIES = 10
 
 # Inicializamos
-numero_a_adivinar = random.randint(1, 100)
+numero_a_adivinar = random.randint(STARTING_NUMBER, FINAL_NUMBER)
 
 # Proceso
 
 # implementamos un ciclo postcondición, ejecutamos la instrucción
 # antes de entrar en el ciclo y al final del ciclo.
-numero_introducido = int(input("Introduce un número entre 1 y 100: "))
-intentos_que_quedan = INTENTOS_MAXIMOS - 1
+numero_introducido = int(input(f"Introduce un número entre {STARTING_NUMBER} y {FINAL_NUMBER}: "))
+intentos_que_quedan = MAXIMUM_TRIES - 1
 while numero_introducido != numero_a_adivinar and intentos_que_quedan > 0:
     if numero_introducido < numero_a_adivinar:
         print(f"{numero_introducido} es menor que el número a adivinar.")
@@ -42,6 +44,6 @@ while numero_introducido != numero_a_adivinar and intentos_que_quedan > 0:
 
 # Mostramos resultado
 if numero_introducido == numero_a_adivinar:  # ha adivinado
-    print(f"Has adivinado el número en {INTENTOS_MAXIMOS - intentos_que_quedan} intentos")
+    print(f"Has adivinado el número en {MAXIMUM_TRIES - intentos_que_quedan} intentos")
 else:
     print(f"Has agotado el número máximo de intentos. El número a adivinar era {numero_a_adivinar}")

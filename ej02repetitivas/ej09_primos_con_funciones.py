@@ -52,18 +52,18 @@ def es_primo(num):
 
 # Pedimos datos
 while True:  # postcondición
-    cantidad_a_mostrar = int(input("Ingrese la cantidad de números primos a mostrar: "))
-    if cantidad_a_mostrar > 0:
+    num_primes_to_show = int(input("Ingrese la cantidad de números primos a mostrar: "))
+    if num_primes_to_show > 0:
         break  # condición de salida del ciclo
 
 # Proceso
 # el primer primo es 2, los otros son todos impares...
-print("1: 2")
-cantidad_mostrados = 1
+print("1º: 2")
+num_primes_displayed = 1
 # ...a partir de 3
-candidato_a_primo = 3
-while cantidad_mostrados < cantidad_a_mostrar:
-    if es_primo(candidato_a_primo):  # Compruebo si "candidato_a_primo" es primo
-        cantidad_mostrados += 1
-        print(f"{cantidad_mostrados}: {candidato_a_primo}")
-    candidato_a_primo += 2
+prime_candidate = 3
+while num_primes_displayed < num_primes_to_show:
+    if es_primo(prime_candidate):  # Compruebo si "candidato_a_primo" es primo
+        num_primes_displayed += 1
+        print(f"{num_primes_displayed}º: {prime_candidate}")
+    prime_candidate += 2

@@ -26,19 +26,21 @@ FIN-PARA
 
 ESCRIBIR pago_total
 """
+MONTHS = 20
+FIRST_PAYMENT = 10
 
 print("Pago mensuales")
 print("--------------")
 
 # Inicializamos variables
-pago_total = 0
-pago_mes = 10   # primer mes
+full_payment = 0
+payment_month = FIRST_PAYMENT   # primer mes
 
 # Proceso de impresión de pagos mensuales
-for mes in range(1, 21):
-    print(f"Pago mes {mes:2d}: {pago_mes:8,d}€")
-    pago_total += pago_mes
-    pago_mes *= 2               # pago mes siguiente
+for mes in range(MONTHS):
+    print(f"Pago mes {mes+1:2d}: {payment_month:8,d}€")
+    full_payment += payment_month
+    payment_month *= 2               # pago mes siguiente
 
 # Pago total
-print(f"\nTotal a pagar: {pago_total:,d}€")
+print(f"\nTotal a pagar: {full_payment:,d}€")

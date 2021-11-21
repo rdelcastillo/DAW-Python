@@ -6,7 +6,9 @@ Análisis
 --------
 Leemos un número. Si es impar, le sumo 1 y ya es par. Leemos el segundo número.
 Escribo el número desde el primero hasta el segundo de dos en dos.
+
 Datos de entrada: dos números.
+
 Información de salida: Los números pares que hay entre los dos anteriores.
 Variables: num,num1,num2 (entero).
 

@@ -22,25 +22,25 @@ Diseño
 """
 
 # Inicializamos contadores
-cont_positivos = 0
-cont_negativos = 0
-cont_ceros = 0
+positive_counter = 0
+negative_counter = 0
+zeros_counter = 0
 
 # Pedimos cantidad de números a introducir
-cantidad_num = int(input("¿Cuántos números vas a introducir?: "))
+total_numbers = int(input("¿Cuántos números vas a introducir?: "))
 
 # Ciclo
-for i in range(cantidad_num):
-    num = int(input(f"Número {i+1}: "))
+for i in range(total_numbers):
+    number = int(input(f"Número {i + 1}: "))
     # Comprobamos si es +, - ó 0 e incrementamos contador
-    if num > 0:
-        cont_positivos += 1
-    elif num < 0:
-        cont_negativos += 1
+    if number > 0:
+        positive_counter += 1
+    elif number < 0:
+        negative_counter += 1
     else:
-        cont_ceros += 1
+        zeros_counter += 1
 
 # Mostramos resultados
-print(f"Números positivos: {cont_positivos}")
-print(f"Números negativos: {cont_negativos}")
-print(f"Números igual a 0: {cont_ceros}")
+print(f"Números positivos: {positive_counter}")
+print(f"Números negativos: {negative_counter}")
+print(f"Números igual a 0: {zeros_counter}")

@@ -42,41 +42,42 @@ Diseño:
 Usamos una función para leer los valores del intervalo.
 """
 
+
 def lee_intervalo():
-    limite_inferior = int(input("Introduce el límite inferior del intervalo: "))
-    limite_superior = int(input("Introduce el límite superior del intervalo: "))
-    return limite_inferior,limite_superior  # devolvemos una tupla, solo en Python
+    lower = int(input("Introduce el límite inferior del intervalo: "))
+    upper = int(input("Introduce el límite superior del intervalo: "))
+    return lower, upper  # devolvemos una tupla, solo en Python
+
 
 # Inicializamos
-cont_fuera_intervalo = 0
-igual_limites = False
-suma_dentro_intervalo = 0
+numbers_out_range = 0
+there_are_numbers_at_the_limits = False
+sum_in_range = 0
 
 # Me aseguro que el lim_inf introducido es menor que el lim_sup
-lim_inf, lim_sup = lee_intervalo()
-while lim_inf > lim_sup:
+lower_range, upper_range = lee_intervalo()
+while lower_range > upper_range:
     print("El límite inferior no puede ser mayor al superior.")
     print("VUELVE a introducir los límites.\n")
-    lim_inf, lim_sup = lee_intervalo()
+    lower_range, upper_range = lee_intervalo()
 
 # Proceso
 num = int(input("\nIntroduce un número (0, para salir): "))
-while num!=0:
-    if num>lim_inf and num<lim_sup: # Pertenece al intervalo
-        suma_dentro_intervalo += num
-    else:   # No pertenece al intervalo
-        cont_fuera_intervalo += 1
+while num != 0:
+    if lower_range < num < upper_range:  # Pertenece al intervalo
+        sum_in_range += num
+    else:  # No pertenece al intervalo
+        numbers_out_range += 1
         # Número igual a alguno de los límites
-        if num==lim_inf or num==lim_sup:
-            igual_limites = True
+        if num == lower_range or num == upper_range:
+            there_are_numbers_at_the_limits = True
     num = int(input("Introduce un número (0, para salir): "))
 
 # Resultados
 print("\nRESULTADOS:")
-print(f"La suma de los números dentro del intervalo es {suma_dentro_intervalo}")
-print(f"La cantidad de números fuera del intervalo es {cont_fuera_intervalo}")
-if igual_limites:
+print(f"La suma de los números dentro del intervalo es {sum_in_range}")
+print(f"La cantidad de números fuera del intervalo es {numbers_out_range}")
+if there_are_numbers_at_the_limits:
     print("Se ha introducido algún número igual a los límites del intervalo.")
 else:
     print("No se ha introducido ningún número igual a los límites del intervalo.")
-

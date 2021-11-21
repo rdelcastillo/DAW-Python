@@ -13,29 +13,30 @@ Variables: cadena, cadena1, cadena2, i (posición)
 """
 
 # Constantes
-VOCALES_CON_TILDE = "ÁÉÍÓÚ"
-VOCALES_SIN_TILDE = "AEIOU"
+VOWELS_WITH_TILDE = "ÁÉÍÓÚ"
+VOWELS_WITHOUT_TILDE = "AEIOU"
 
 # Inicializamos variables
-cadena1 = ""  # cadena original en mayúscula, sin espacios ni tildes
-cadena2 = ""  # cadena anterior invertida
+reverse_string = ""  # cadena original invertida
 
 # Pedimos datos
-cadena = input("Introduce una cadena para comprobar si es palíndroma: ")
+user_string = input("Introduce una cadena para comprobar si es palíndroma: ")
 
 # Proceso
 
-# Pasamos a mayúsculas la cadena orginal, quitamos tildes y espacios
-cadena1 = cadena.upper().replace(" ",""); # mayúsculas y sin espacios
-for i in range(len(VOCALES_CON_TILDE)):  # vocales con tilde
-    cadena1 = cadena1.replace(VOCALES_CON_TILDE[i],VOCALES_SIN_TILDE[i])
+# Pasamos a mayúsculas la cadena original, quitamos tildes y espacios
+original_string = user_string.upper().replace(" ", "")  # mayúsculas y sin espacios
+for i in range(len(VOWELS_WITH_TILDE)):  # vocales con tilde
+    original_string = original_string.replace(VOWELS_WITH_TILDE[i], VOWELS_WITHOUT_TILDE[i])
 
 # Invertimos cadena anterior
-cadena2 = cadena1[::-1]
+for ch in original_string:
+    reverse_string = ch + reverse_string
+
+# En Python también podemos hacer: reverse_string = original_string[::-1]
 
 # ¿Es palíndromo?
-if cadena1==cadena2:
+if original_string == reverse_string:
     print("Es un palíndromo")
 else:
     print("No es un palíndromo")
-

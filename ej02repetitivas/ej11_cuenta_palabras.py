@@ -13,18 +13,18 @@ print("Contador de palabras")
 print("--------------------")
 
 # Petición de datos
-cadena = input("Introduce una frase: ")
+user_string = input("Introduce una frase: ")
 
 # Proceso
-estoy_en_palabra = False
-contador_palabras = 0
-for c in cadena:
+in_word = False
+word_counter = 0
+for c in user_string:
     if c != " ":
-        if not estoy_en_palabra:
-            estoy_en_palabra = True
-            contador_palabras += 1
+        if not in_word:
+            in_word = True
+            word_counter += 1
     else:
-        estoy_en_palabra = False
+        in_word = False
 
 # Salida
-print("Número de palabras:", contador_palabras)
+print("Número de palabras:", word_counter)

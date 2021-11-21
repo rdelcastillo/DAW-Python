@@ -31,20 +31,20 @@ Diseño
 import math
 
 # Inicialización
-creo_que_es_primo = True
+is_prime = True
 
 # Pedimos datos
-num_a_comprobar = int(input("Introduce un número para comprobar si es primo: "))
+num_to_check = int(input("Introduce un número para comprobar si es primo: "))
 
 # Proceso
 num = 2
-while num <= math.sqrt(num_a_comprobar) and creo_que_es_primo:
-    if num_a_comprobar % num == 0:
-        creo_que_es_primo = False
+while num <= math.sqrt(num_to_check) and is_prime:
+    if num_to_check % num == 0:
+        is_prime = False
     num += 1
 
 # Mostramos resultado    
-if creo_que_es_primo:
+if is_prime:
     print("Es Primo")
 else:
     print("No es Primo")

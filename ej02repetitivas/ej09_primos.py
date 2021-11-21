@@ -37,31 +37,32 @@ import math
 
 # Pedimos datos
 while True:  # repetir
-    cantidad_a_mostrar = int(input("Ingrese la cantidad de números primos a mostrar: "))
-    if cantidad_a_mostrar > 0:
+    num_primes_to_show = int(input("Ingrese la cantidad de números primos a mostrar: "))
+    if num_primes_to_show > 0:
         break  # condición de salida del ciclo
 
 # Proceso
 
 # el primer primo es 2, los otros son todos impares...
 print("1º: 2")
-cantidad_mostrados = 1
+num_primes_displayed = 1
 
 # ...a partir de 3
-candidato_a_primo = 3
-while cantidad_mostrados < cantidad_a_mostrar:
+prime_candidate = 3
+while num_primes_displayed < num_primes_to_show:
     # pienso que es primo hasta que encuentre con que dividirlo
-    es_primo = True
+    is_primo = True
     # ya sabemos que es impar
-    divisor = 3  # no empiezo en 2 porque sé que "candidato_a_primo" es impar
-    while divisor <= math.sqrt(candidato_a_primo) and es_primo:
+    divider = 3  # no empiezo en 2 porque sé que "candidato_a_primo" es impar
+    while divider <= math.sqrt(prime_candidate):
         # si la división da exacta...
-        if candidato_a_primo % divisor == 0:
-            # ...ya no es primo
-            es_primo = False
-        else:
-            divisor += 2  # va al siguiente impar, no necesito comprobar el par
-    if es_primo:  # Compruebo si "candidato_a_primo" es primo
-        cantidad_mostrados += 1
-        print(f"{cantidad_mostrados}º: {candidato_a_primo}")
-    candidato_a_primo += 2  # el siguiente sigue siendo impar
+        if prime_candidate % divider == 0:
+            # ...ya no es primo, acabamos
+            is_primo = False
+            break
+        divider += 2  # va al siguiente impar, no necesito comprobar el par
+    # si "candidato_a_primo" es primo, lo imprimo y contabilizo uno más
+    if is_primo:
+        num_primes_displayed += 1
+        print(f"{num_primes_displayed}º: {prime_candidate}")
+    prime_candidate += 2  # el siguiente sigue siendo impar

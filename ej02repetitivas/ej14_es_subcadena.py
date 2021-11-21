@@ -77,22 +77,22 @@ Variables a usar:
 """
 
 # Inicializamos variables
-esta_subcadena = False
+is_substring = False
 i = 0
 
 # Pedimos datos
-cadena = input("Dame una cadena: ")
-subcadena = input(f"Dame una subcadena de '{cadena}': ")
+user_string = input("Dame una cadena: ")
+user_substring = input(f"Dame una subcadena de '{user_string}': ")
 
 # Proceso de búsqueda de la subcadena
-comprobar_hasta = len(cadena) - len(subcadena)
-while not esta_subcadena and i <= comprobar_hasta:
-    if subcadena == cadena[i:i + len(subcadena)]:
-        esta_subcadena = True
+last_index_to_check = len(user_string) - len(user_substring)
+while not is_substring and i <= last_index_to_check:
+    if user_substring == user_string[i:i + len(user_substring)]:
+        is_substring = True
     i += 1
 
 # Mostramos resultado
-if esta_subcadena:
+if is_substring:
     print("Muy bien")
 else:
-    print(f"Me estás engañando '{subcadena}' no forma parte de '{cadena}'")
+    print(f"Me estás engañando '{user_substring}' no forma parte de '{user_string}'")

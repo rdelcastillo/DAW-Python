@@ -43,19 +43,19 @@ print("Cálculo de la potencia")
 print("----------------------")
 
 # Inicializamos variables
-potencia = 1
+power = 1
 
 # Pedimos datos
 base = float(input("Base: "))
-exponente = int(input("Exponente: "))
+exponent = int(input("Exponente: "))
 
 # Cálculos
-for _ in range(abs(exponente)): # en Python podemos por _ si no hace falta variable de control
-    potencia *= base
+for _ in range(abs(exponent)): # en Python podemos por _ si no hace falta variable de control
+    power *= base
 
 # Si el exponente es negativo calculamos la inversa
-if exponente < 0:
-    potencia = 1/potencia
+if exponent < 0:
+    power = 1 / power
 
 # Salida
-print(f"\n{base} elevado a {exponente} es {potencia}")
+print(f"\n{base} elevado a {exponent} es {power}")
