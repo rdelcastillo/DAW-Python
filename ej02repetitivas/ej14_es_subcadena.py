@@ -76,20 +76,19 @@ Variables a usar:
 - comprobar_hasta: hasta el índice que hay que comprobar (en función longitud subcadena).
 """
 
-# Inicializamos variables
-is_substring = False
-i = 0
-
 # Pedimos datos
 user_string = input("Dame una cadena: ")
 user_substring = input(f"Dame una subcadena de '{user_string}': ")
 
 # Proceso de búsqueda de la subcadena
+is_substring = False
 last_index_to_check = len(user_string) - len(user_substring)
-while not is_substring and i <= last_index_to_check:
-    if user_substring == user_string[i:i + len(user_substring)]:
+index = 0
+while index <= last_index_to_check:
+    if user_substring == user_string[index:index + len(user_substring)]:
         is_substring = True
-    i += 1
+        break
+    index += 1
 
 # Mostramos resultado
 if is_substring:
