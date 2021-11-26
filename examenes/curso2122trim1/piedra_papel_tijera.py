@@ -16,14 +16,14 @@ REPETIR
     gana_ordenador <-- Falso
     SI tirada_ordenador == tirada_humano
         empates <-- empates + 1
-    SINO SI tirada_humano == ROCA
+    SINO SI tirada_humano == PIEDRA
         SI tirada_ordenador == PAPEL
             gana_ordenador <-- VERDADERO
         SINO
             gana_humano <-- VERDADERO
         FIN-SI
     SINO SI tirada_humano == PAPEL
-        SI tirada_ordenador == ROCA
+        SI tirada_ordenador == PIEDRA
             gana_humano <-- VERDADERO
         SINO
             gana_ordenador <-- VERDADERO
@@ -71,7 +71,7 @@ while True:
     # Juega humano
     while True:
         human_play_str = input("\n¿Piedra (1), Papel (2) o Tijera (3)? ")
-        if human_play_str.isdigit() and 1 <= int(human_play_str) <= 3:
+        if len(human_play_str) == 1 and human_play_str in "123":
             break
         print("Opción incorrecta, hay que introducir 1, 2 o 3.")
     human_play = int(human_play_str)
@@ -119,7 +119,7 @@ while True:
     # ¿Seguimos?
     while True:
         keep_playing = input("\n¿Seguimos jugando? (S/N) ").upper()
-        if keep_playing in "SN":
+        if len(keep_playing) == 1 and keep_playing in "SN":
             break
         print("Respuesta incorrecta, hay que contestar S o N")
     if keep_playing == "N":

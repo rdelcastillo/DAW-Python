@@ -29,7 +29,7 @@ SI mes == 0 O mes > 12
 FIN-SI
 
 dias_mes = CALCULAR_DIAS_MES(mes, año)
-SI dia == 0 o DIA > dias_mes
+SI dia == 0 o dia > dias_mes
     FIN
 FIN-SI
 
@@ -109,4 +109,4 @@ if day > days_month:    # me voy al mes siguiente
         year += 1
 
 # Resultado
-print(f"El día siguiente es {day:02}/{month:02}/{year:02}")
+print(f"El día siguiente es {day:02}/{month:02}/{year:04}")
