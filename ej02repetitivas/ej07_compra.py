@@ -33,14 +33,14 @@ print("Pago mensuales")
 print("--------------")
 
 # Inicializamos variables
-full_payment = 0
+total_payment = 0
 payment_month = FIRST_PAYMENT   # primer mes
 
 # Proceso de impresión de pagos mensuales
 for mes in range(MONTHS):
     print(f"Pago mes {mes+1:2d}: {payment_month:8,d}€")
-    full_payment += payment_month
+    total_payment += payment_month
     payment_month *= 2               # pago mes siguiente
 
 # Pago total
-print(f"\nTotal a pagar: {full_payment:,d}€")
+print(f"\nTotal a pagar: {total_payment:,d}€")

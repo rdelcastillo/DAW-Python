@@ -15,9 +15,11 @@ user_string = input("Dame una cadena de caracteres: ")
 char_to_replace = input("Carácter a sustituir en la cadena: ")
 if len(char_to_replace) != 1:
     print("No es un carácter", file=sys.stderr)
+    exit(1)
 char_replaced = input("Carácter por el que lo reemplazaremos: ")
 if len(char_replaced) != 1:
     print("No es un carácter", file=sys.stderr)
+    exit(1)
 
 # Proceso de sustitución
 final_string = ""
