@@ -1,4 +1,4 @@
-# Programa: ecuacion_primer_grado.py
+# Programa: ecuacion_primer_grado_v1.py
 # Propósito: Resuelve una ecuación de 1er.grado tipo ax+b=0.
 # Autor: Rafael del Castillo.
 # Fecha: 10/10/2019.
