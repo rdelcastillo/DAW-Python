@@ -20,7 +20,7 @@ SI NO_ES_NUMÉRICO(dia) O NO_ES_NUMÉRICO(mes) O NO_ES_NUMÉRICO(año)
     FIN
 FIN-SI
 
-SI año < 2000 O año >=2100
+SI año < 2000 O año >= 2100
     FIN
 FIN-SI
 

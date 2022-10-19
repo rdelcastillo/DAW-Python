@@ -63,7 +63,7 @@ SCISSORS_CUT_PAPER = "Tijera corta a Papel"
 ROCK, PAPER, SCISSORS = 1, 2, 3
 PLAY = ["Piedra", "Papel", "Tijera"]
 
-tied_games, won_games, lost_games = 0, 0, 0
+tied_games, human_wins, computer_wins = 0, 0, 0
 
 print("Batalla a piedra, papel y tijera")
 print("--------------------------------")
@@ -109,10 +109,10 @@ while True:
     # Resultado
     if human_win:
         print("¡Ganaste!", message)
-        won_games += 1
+        human_wins += 1
     elif computer_win:
         print("¡Perdiste!", message)
-        lost_games += 1
+        computer_wins += 1
     else:
         print("Empate.")
 
@@ -126,7 +126,7 @@ while True:
         break
 
 # Estadísticas
-print("\nPartidas jugadas:  ", won_games + lost_games + tied_games)
-print("Partidas ganadas:  ", won_games)
-print("Partidas perdidas: ", lost_games)
+print("\nPartidas jugadas:  ", human_wins + computer_wins + tied_games)
+print("Partidas ganadas:  ", human_wins)
+print("Partidas perdidas: ", computer_wins)
 print("Partidas empatadas:", tied_games)
