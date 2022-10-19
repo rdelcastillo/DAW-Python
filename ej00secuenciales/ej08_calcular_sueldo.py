@@ -1,7 +1,7 @@
 """
 Programa ej08_calcular_sueldo.py
 
-Propósito: Un vendedor recibe un sueldo base mas un 10% extra por comisión de sus ventas, el vendedor desea saber cuanto
+Propósito: Un vendedor recibe un sueldo base más un 10% extra por comisión de sus ventas, el vendedor desea saber cuanto
 dinero obtendrá por concepto de comisiones por las tres ventas que realiza en el mes y el total que recibirá en el mes
 tomando en cuenta su sueldo base y comisiones.
 
@@ -10,13 +10,13 @@ Fecha: 12/10/2020
 -------------------------------------------------------------------------------------
 Análisis:
 -------------------------------------------------------------------------------------
-El vendedor tiene un sueldo base mas una comisión del 10% por cada venta. Hace tres ventas.
+El vendedor tiene un sueldo base más una comisión del 10% por cada venta. Hace tres ventas.
 
 Datos de entrada: sueldo base, las tres ventas (real).
 
 Información de salida: comisiones y sueldo total (real).
 
-Variables: base_salary, sale1, sale2, sale3, commission(real).
+Variables: base_salary, sale1, sale2, sale3, commission_salary(real).
 ------------------------------------------------------------------------------------
 Algoritmo:
 -------------------------------------------------------------------------------------
@@ -26,6 +26,8 @@ Algoritmo:
 4. Mostrar comisión
 5. Mostrar sueldo total: base_salary + comisión
 """
+
+COMMISSION_SALE = 0.1
 
 print("Cálculo de la comisión y sueldo de un vendedor")
 print("----------------------------------------------")
@@ -37,8 +39,8 @@ sale2 = float(input("Dime precio de la venta 2: "))
 sale3 = float(input("Dime precio de la venta 3: "))
 
 # Cálculos
-commission = 0.1 * (sale1 + sale2 + sale3)     # 10% de las ventas
+commission_salary = COMMISSION_SALE * (sale1 + sale2 + sale3)     # 10% de las ventas
 
 # Salida
-print(f"Comisión por ventas: {commission}")
-print(f"Sueldo total: {base_salary + commission}")
+print(f"Comisión por ventas: {commission_salary}")
+print(f"Sueldo total: {base_salary + commission_salary}")
