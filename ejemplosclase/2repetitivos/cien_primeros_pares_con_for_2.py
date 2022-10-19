@@ -4,8 +4,8 @@ Imprimimos por pantalla los cien primeros números pares usando for.
 ALGORITMO
     VAR n (ENTERO)
 
-    PARA num_par <-- 1 HASTA 100
-        ESCRIBIR num_par * 2
+    PARA pair <-- 1 HASTA 100
+        ESCRIBIR pair * 2
     FIN-PARA
 
 Fecha: 26/10/2021

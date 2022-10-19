@@ -5,7 +5,7 @@ ALGORITMO
     VAR n (ENTERO)
 
     PARA par <-- 2 HASTA 200 INCREMENTO 2
-        ESCRIBIR num_par
+        ESCRIBIR pair
     FIN-PARA
 
 Fecha: 26/10/2021
