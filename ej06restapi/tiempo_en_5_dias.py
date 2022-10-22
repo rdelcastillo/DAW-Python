@@ -1,5 +1,5 @@
 """
-Usando la API de OpenWeather obtendremos el pronóstico del tiempo para una ciudad que se le pide al usuario de los
+Usando la API de OpenWeather obtendremos el pronóstico del time para una ciudad que se le pide al usuario de los
 próximos cinco días, mostraremos:
 
 Temperatura media, mínima y máxima (en grados Celsius) para cada día y global.
@@ -12,7 +12,7 @@ import requests
 import os
 
 # Pedimos la ciudad
-ciudad = input("Ciudad de la que quiere conocer el pronóstico del tiempo en los próximos 5 días: ")
+ciudad = input("Ciudad de la que quiere conocer el pronóstico del time en los próximos 5 días: ")
 
 # datos para hacer la petición
 url = "https://api.openweathermap.org/data/2.5/forecast"
