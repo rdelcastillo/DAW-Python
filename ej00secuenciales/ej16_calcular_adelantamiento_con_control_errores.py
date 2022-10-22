@@ -24,6 +24,11 @@ Algoritmo:
 2. Calcular time: (v=espacio/t), por lo tanto t=espacio/v. Tiempo=distancia/(v1-v2).
 3. Mostrar time.
 """
+import sys
+
+DISTANCE_ERROR = 2
+SPEED_ERROR = 1
+MINUTES_HOUR = 60
 
 print("Cálculo del tiempo que el primer alcanzará al segundo")
 print("-----------------------------------------------------")
@@ -31,10 +36,17 @@ print("-----------------------------------------------------")
 # Pedimos datos
 speed1 = float(input("Dime la velocidad del coche 1 (km/h): "))
 speed2 = float(input("Dime la velocidad del coche 2 (más pequeña)(km/h): "))
+if speed1 <= speed2:
+    print("ERROR. La velocidad del coche 1 no es mayor que la del coche 2.", file=sys.stderr)
+    sys.exit(SPEED_ERROR)
+
 distance = float(input("Dime la distancia entre los coches (km): "))
+if distance <= 0:
+    print("ERROR. La distancia no puede ser negativa.", file=sys.stderr)
+    sys.exit(DISTANCE_ERROR)
 
 # Hacemos cálculos
-time = 60 * distance / (speed1 - speed2)
+time = MINUTES_HOUR * distance / (speed1 - speed2)
 
 # Resultado
-print("El coche 1 alcanza al coche 2 en", time, "minutos.")
+print(f"El coche 1 alcanza al coche 2 en {time:.2f} minutos.")
