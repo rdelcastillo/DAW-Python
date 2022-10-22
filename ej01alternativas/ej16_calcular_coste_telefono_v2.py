@@ -6,7 +6,7 @@ contestar si es o no domingo se pone un carácter distinto de S ó N.
 # Pedimos datos
 import sys
 
-duration = int(input("¿Cuánto tiempo dura la llamada?: "))
+duration = int(input("¿Cuánto time dura la llamada?: "))
 is_sunday = input("¿Es Domingo? (S/N): ")
 if is_sunday.upper() == "N":
     turn = input("¿Qué turno: Mañana o Tarde? (M/T)?: ")

@@ -31,6 +31,7 @@ SINO
     ESCRIBIR "No es un carácter"
 FIN-SI
 """
+PUNCTUATION_MARKS = ".:!¡?¿\"',;-^(){}[]“”«»"
 
 print("Clasificación del tipo de un carácter")
 print("-------------------------------------")
@@ -40,7 +41,7 @@ ch = input("Dame un carácter: ")
 
 # Comprobamos si es un carácter (no una cadena) y vemos su tipología
 if len(ch) == 1:
-    if ch in ".:;()[]¡!¿?'\",-/—":
+    if ch in PUNCTUATION_MARKS:
         print("Es un signo de puntuación.")
     elif ch.isalpha():
         print("Es una letra.")

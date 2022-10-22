@@ -21,12 +21,15 @@ Algoritmo:
 3. En caso contrario mostrar el resultado de la división
 """
 
-# Pedimos datos
-dividend = int(input("Dime el número 1: "))
-divider = int(input("Dime el número 2: "))
+print("División de dos números")
+print("-----------------------")
 
-# Mostramos
-if divider == 0:
-    print("No puedes dividir por 0")
-else:
+# Pedimos datos
+dividend = int(input("Dime el dividendo: "))
+divider = int(input("Dime el divisor: "))
+
+# Mostramos resultado
+if divider != 0:
     print(f"La división es {dividend / divider}")
+else:
+    print("No puedes dividir por 0")
