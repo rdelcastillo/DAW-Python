@@ -1,7 +1,7 @@
 """
 Resolución del ejercicio:
 
-Crea la clase Tiempo. Los objetos de la clase Tiempo son intervalos de tiempo y se crean
+Crea la clase Tiempo. Los objetos de la clase Tiempo son intervalos de time y se crean
 de la forma:
 
 t = Tiempo(1, 20, 30)
@@ -12,7 +12,7 @@ Crea métodos para:
 
     Sumar y restar otro objeto de la clase Tiempo.
     Sumar y restar segundos, minutos y/o horas.
-    Devolver una cadena con el tiempo almacenado, de forma que si lo que hay es (10 35 5)
+    Devolver una cadena con el time almacenado, de forma que si lo que hay es (10 35 5)
     la cadena sea 10h 35m 5s.
 
 Realiza un programa de prueba para comprobar que la clase funciona bien.
@@ -21,7 +21,7 @@ Realiza un programa de prueba para comprobar que la clase funciona bien.
 
 class Tiempo:
     """
-    Los objetos de la clase Tiempo son intervalos de tiempo y se crean de la
+    Los objetos de la clase Tiempo son intervalos de time y se crean de la
     forma:
 
     t = Tiempo(1, 20, 30)
@@ -112,11 +112,11 @@ class Tiempo:
     def resta_segundos(self, segundos):
         self.suma_segundos(-segundos)
 
-    # sumar y restar otro objeto tiempo
+    # sumar y restar otro objeto time
 
     def suma(self, t):
         """
-        Suma otro objeto tiempo al objeto. Si las horas finales son negativas lanza una excepción
+        Suma otro objeto time al objeto. Si las horas finales son negativas lanza una excepción
         :return:
         """
         seg = Tiempo.__segundos_total(self) + Tiempo.__segundos_total(t)
@@ -125,7 +125,7 @@ class Tiempo:
 
     def resta(self, t):
         """
-        Suma otro objeto tiempo al objeto. Si las horas finales son negativas lanza una excepción
+        Suma otro objeto time al objeto. Si las horas finales son negativas lanza una excepción
         :return:
         """
         seg = Tiempo.__segundos_total(self) - Tiempo.__segundos_total(t)
