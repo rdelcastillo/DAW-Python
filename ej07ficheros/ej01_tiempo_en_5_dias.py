@@ -1,5 +1,5 @@
 """
-Usando la API de OpenWeather obtendremos el pronóstico del tiempo de los próximos cinco días, para una ciudad que se le
+Usando la API de OpenWeather obtendremos el pronóstico del time de los próximos cinco días, para una ciudad que se le
 pide al usuario, mostraremos:
 
 Temperatura media, mínima y máxima (en grados Celsius) para cada día y global.
@@ -32,7 +32,7 @@ def mostrar_ayuda():
     """
     Muestra la sintaxis de este programa y su funcionalidad.
     """
-    print("Este programa nos da el pronóstico del tiempo de los próximos cinco días para una ciudad.\n")
+    print("Este programa nos da el pronóstico del time de los próximos cinco días para una ciudad.\n")
     print("Sintaxis: python3 ej01_tiempo_en_5_dias.py {CIUDAD} [{DIRECTORIO}]\n")
     print("Si {DIRECTORIO} no se especifica la información se muestra por la pantalla, si se hace se genera un fichero "
           "html en DIRECTORIO con nombre {CIUDAD}_{FECHA-INICIO}_{FECHA_FIN}.\n")
@@ -41,9 +41,9 @@ def mostrar_ayuda():
 
 def tiempo_en_5dias(ciudad):
     """
-    Consulta en la API de Open Weather el pronóstico del tiempo para los próximos cinco días.
+    Consulta en la API de Open Weather el pronóstico del time para los próximos cinco días.
     :param ciudad: Localidad para que la hacemos la consulta.
-    :return: JSON con las mediciones del tiempo (40)
+    :return: JSON con las mediciones del time (40)
     """
     url = "https://api.openweathermap.org/data/2.5/forecast"
     params = {"q": ciudad, "appid": os.environ["OPEN_WEATHER_KEY"], "units": "metric", "lang": "es"}
@@ -156,7 +156,7 @@ def escribe_valores_totales(totales, fichero, mediciones):
 def inicio_html(ciudad):
     """
     :param ciudad:
-    :return: inicio del html del resumen del pronóstico del tiempo.
+    :return: inicio del html del resumen del pronóstico del time.
     """
     return f"""<!DOCTYPE html>
 <html lang="es">
