@@ -9,9 +9,6 @@ Fecha: 27/10/2021
 """
 import sys
 
-print("Dibujo de una caja bidimensional")
-print("--------------------------------")
-
 MAXIMUM_SIZE = 9
 EXIT_ERROR_COLUMNS = 2
 EXIT_ERROR_ROWS = 1
@@ -21,7 +18,7 @@ print("--------------------------------")
 
 # Pedimos las dimensiones de la caja
 
-# Controlamos que las dimensiones están entre 1 y DIMENSION_MAXIMA.
+# Controlamos que las dimensiones están entre 1 y MAXIMUM_SIZE.
 # En caso de no estarlo acabaremos el programa con un código de salida distinto de 0.
 # En caso de error no escribimos en la salida estándar, lo hacemos en la de error.
 
