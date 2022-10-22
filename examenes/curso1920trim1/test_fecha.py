@@ -2,7 +2,7 @@
 Prueba funciones de fecha.py.
 """
 
-from tiempo import fecha    # otra opción: import tiempo.fecha as fecha
+from tiempo import fecha    # otra opción: import time.fecha as fecha
 
 # Testeamos funciones fecha correcta
 fechas = ["20191215", # correcto
