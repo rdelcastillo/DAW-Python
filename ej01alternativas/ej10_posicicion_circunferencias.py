@@ -33,7 +33,7 @@ resta de los radios mostrar "Circunferencias secante"
 "Circunferencias tangentes interiores"
 8. Si distancia >0 y distancia < que el valor absoluto de la resta de los
 radios mostrar "Circunferencias interiores"
-9. Si distancia = 0  mostrar "Circunferencias concéntricas"
+9. Si distancia = 0 mostrar "Circunferencias concéntricas"
 """
 
 import math
@@ -57,7 +57,7 @@ if circumferences_distance > (r1 + r2):
     print("Circunferencias exteriores")
 
 # Circunferencias secantes
-# La distancia  es menor que la suma de los radios y mayor que su diferencia.
+# La distancia es menor que la suma de los radios y mayor que su diferencia.
 elif (r1 + r2) > circumferences_distance > abs(r1 - r2):
     print("Circunferencias secantes")
 
@@ -81,4 +81,4 @@ elif circumferences_distance == abs(r1 - r2):
 elif circumferences_distance == 0:
     print("Circunferencias concéntricas")
 else:
-    print("Esta situación no se puede dar")
+    print("No conozco las relaciones entre las dos circunferencias")

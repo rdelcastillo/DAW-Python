@@ -7,7 +7,7 @@ Lee una cadena por teclado y comprueba si es una letra mayúscula.
 Análisis:
 -------------------------------------------------------------------------------------
 - Datos de entrada: cadena (cadena)
-- Información de salida: Mensajes de es mayúsculas o no es mayúsculas.
+- Información de salida: Mensajes de si es mayúscula o no es mayúscula.
 - Variables: letter (cadena)
 -------------------------------------------------------------------------------------
 Algoritmo:

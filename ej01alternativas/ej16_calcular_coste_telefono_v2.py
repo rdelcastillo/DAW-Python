@@ -1,33 +1,50 @@
 """
-Modificación del programa anterior para que no de error si al
-contestar si es o no domingo se pone un carácter distinto de S ó N.
+Modificación del programa anterior con mejoras.
 """
-
-# Pedimos datos
 import sys
 
-duration = int(input("¿Cuánto time dura la llamada?: "))
-is_sunday = input("¿Es Domingo? (S/N): ")
-if is_sunday.upper() == "N":
-    turn = input("¿Qué turno: Mañana o Tarde? (M/T)?: ")
-elif is_sunday.upper() != "S":
+COST_FARE3 = 70
+
+STAGE3 = 10
+
+COST_FARE2 = 80
+
+STAGE2 = 8
+
+STAGE1 = 5
+
+COST_FARE1 = 100
+
+# Pedimos datos
+duration = int(input("¿Cuántos minutos dura la llamada?: "))
+if duration <= 0:
+    print("Los minutos tienen que ser un valor entero. Abortamos...", file=sys.stderr)
+    exit(1)
+
+is_sunday = input("¿Es Domingo? (S/N): ").upper()
+if is_sunday == "N":
+    turn = input("¿Qué turno: Mañana o Tarde? (M/T)?: ").upper()
+    if turn != "M" and turn != "T":
+        print("La respuesta era M ó T, ha dado una distinta. Abortamos...", file=sys.stderr)
+        exit(1)
+elif is_sunday != "S":
     print("La respuesta era S ó N, ha dado una distinta. Abortamos...", file=sys.stderr)
     exit(1)
 
 # Proceso
-if duration <= 5:
-    cost = duration * 100
-elif duration <= 8:
-    cost = (duration - 5) * 80 + 500
-elif duration <= 10:
-    cost = (duration - 8) * 70 + 240 + 500
+if duration <= STAGE1:
+    cost = duration * COST_FARE1
+elif duration <= STAGE2:
+    cost = STAGE1 * COST_FARE1 + (duration - STAGE1) * COST_FARE2
+elif duration <= STAGE3:
+    cost = STAGE1 * COST_FARE1 + STAGE2 * COST_FARE2 + (duration - STAGE3) * COST_FARE3
 else:
-    cost = (duration - 10) * 50 + 140 + 240 + 500
+    cost = STAGE1 * COST_FARE1 + STAGE2 * COST_FARE2 + STAGE3 * COST_FARE3 + (duration - STAGE3) * 50 + 140 + 240 + 500
 
 # impuestos
 if is_sunday.upper() == "S":
     cost += cost * 0.03
-elif turn.upper() == "M":
+elif turn == "M":
     cost += cost * 0.15
 else:
     cost += cost * 0.10

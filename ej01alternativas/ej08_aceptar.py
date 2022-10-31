@@ -37,7 +37,7 @@ sex = input("Nota: ")
 if value >= 5 and age >= 18:
     if sex.upper() == "F":
         print("ACEPTADA")
-    else:  # asumimos que no hay errores en la entrada, siempre es 'F' ó 'M'
+    else:  # asumimos que no hay errores en la entrada, siempre es 'F' o 'M'
         print("POSIBLE")
 else:
     print("NO ACEPTADA")

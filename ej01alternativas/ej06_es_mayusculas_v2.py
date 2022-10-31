@@ -7,7 +7,7 @@ Lee una cadena por teclado y comprueba si es una letra mayúscula.
 Análisis:
 -------------------------------------------------------------------------------------
 - Datos de entrada: cadena (cadena)
-- Información de salida: Mensajes de es mayúsculas o no es mayúsculas.
+- Información de salida: Mensajes de si es mayúscula o no.
 - Variables: letter (cadena)
 -------------------------------------------------------------------------------------
 Algoritmo:
@@ -24,9 +24,10 @@ print("---------------------------------")
 letter = input("Introduce una cadena: ")
 
 # Comprobamos y mostramos resultados
-if len(letter) == 1 and (("A" <= letter <= "Z") or          # letras normales
-                         ("Á" <= letter <= "Ú") or          # con tilde
-                         letter == "Ñ" or letter == "Ü"):   # especiales
+if len(letter) == 1 \
+        and (("A" <= letter <= "Z")  # letras normales
+             or letter == "Á" or letter == "É" or letter == "Í" or letter == "Ó" or letter == "Ú"  # con tilde
+             or letter == "Ñ" or letter == "Ü"):  # especiales
     print("La cadena es una letra mayúscula.")
 else:
     print("La cadena no es una letra mayúscula.")
