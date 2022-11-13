@@ -4,10 +4,10 @@ Cálculo del combinatorio de dos números.
 Combinatorio(n,m) = n! / (m! * (n-m)!) si n>m
 """
 
-# Inicializamos variables
-nFactorial=1
-mFactorial=1
-nMenosmFactorial=1
+# Inicializamos variables (acumuladores)
+n_factorial = 1
+m_factorial = 1
+n_menos_m_factorial = 1
 
 # Pedimos los datos: n y m de forma que n > m
 while True:
@@ -17,16 +17,17 @@ while True:
         break
 
 # Cálculo de n!
-for i in range(n, 1, -1): # va desde n hasta 2
-    nFactorial = nFactorial * i #nFactorial *= i
+for i in range(n, 1, -1):  # va desde n hasta 2
+    n_factorial = n_factorial * i  # nFactorial *= i
 
 # Cálculo de m!
 for i in range(m, 1, -1):
-    mFactorial = mFactorial * i
+    m_factorial = m_factorial * i
 
 # Cálculo de(n - m)!
-for i in range(n-m, 1, -1):
-    nMenosmFactorial = nMenosmFactorial * i
+for i in range(n - m, 1, -1):
+    n_menos_m_factorial = n_menos_m_factorial * i
 
 # Resultado
-print(f"El número combinatorio de {n} sobre {m} es {nFactorial/(mFactorial*nMenosmFactorial)}")
+combinatorio = n_factorial // (m_factorial * n_menos_m_factorial)
+print(f"El número combinatorio de {n} sobre {m} es {combinatorio}")
