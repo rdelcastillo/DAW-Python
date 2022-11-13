@@ -1,6 +1,6 @@
 """
 Escribe un programa que diga si un número introducido por teclado es o no primo.
-Un número primo es aquel que sólo es divisible entre él mismo y la unidad.
+Un número primo es aquel que solo es divisible entre él mismo y la unidad.
 Nota: Es suficiente probar hasta la raíz cuadrada del número para ver si es
 divisible por algún otro número.
 
@@ -11,7 +11,7 @@ Si es divisible por algún número no es primo.
 Si no es divisible por ningún número es primo.
 Para saber si es divisible usamos el operador módulo.
 
-Datos de entrada: el número a comprobar si es primo o no.
+Datos de entrada: el número a revisar si es primo o no.
 Información de salida: Un mensaje diciendo si es primo o no.
 
 Variables:
@@ -29,12 +29,16 @@ Diseño
 6.- Si no -> Mostrar "No es primo"
 """
 import math
+import sys
 
 # Inicialización
 is_prime = True
 
 # Pedimos datos
-num_to_check = int(input("Introduce un número para comprobar si es primo: "))
+num_to_check = int(input("Introduce un número (>=2) para comprobar si es primo: "))
+if num_to_check < 2:
+    print("ERROR. El número no es válido.", file=sys.stderr)
+    exit(1)
 
 # Proceso
 num = 2

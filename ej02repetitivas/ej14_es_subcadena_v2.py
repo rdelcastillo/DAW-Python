@@ -11,7 +11,8 @@ user_substring = input(f"Dame una subcadena de '{user_string}': ")
 
 # Proceso de búsqueda de la subcadena
 is_substring = False
-for index in range(len(user_string) - len(user_substring)):
+last_index_to_check = len(user_string) - len(user_substring) + 1
+for index in range(last_index_to_check):
     if user_substring == user_string[index:index + len(user_substring)]:
         is_substring = True
         break

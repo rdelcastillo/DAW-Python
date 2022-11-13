@@ -11,7 +11,7 @@ Análisis
 Pedimos un intervalo (límite inferior y superior)
 Nos tenemos que asegurar que el límite inferior sea menor que el superior.
 Se van pidiendo números hasta que se introduzca el 0.
-    Si el numero pertenece al intervalo -> lo voy sumando (necesito un acumulador)
+    Si el número pertenece al intervalo -> lo voy sumando (necesito un acumulador)
     Si el número no pertenece al intervalo, lo cuento (necesito un contador)
     Si el número es igual a algún límite, lo índico (necesito un interruptor)
 Al final muestro la suma de los números que pertenecen al intervalo.

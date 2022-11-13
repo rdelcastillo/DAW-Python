@@ -19,9 +19,9 @@ Variables: cantidad_a_mostrar, cantidad_mostrados, divisor (entero), es_primo (l
 
 Diseño
 ------
-1.- Leer cantidad de número primos a mostrar, debe ser positivo
+1.- Leer cantidad de números primos a mostrar, debe ser positivo
 2.- Muestro el primer número primo, el 2.
-3.- Inicializo el contador de número mostrados a 1.
+3.- Inicializo el contador de números mostrados a 1.
 4.- Inicializo la variable donde guardo el número a probar -> candidato_a_primo=3
 5.- Mientras no haya mostrado la cantidad de números indicados:
     6.- Considero que es primo. Inicializo el indicador -> es_primo=Verdadero
@@ -51,18 +51,18 @@ num_primes_displayed = 1
 prime_candidate = 3
 while num_primes_displayed < num_primes_to_show:
     # pienso que es primo hasta que encuentre con que dividirlo
-    is_primo = True
+    is_prime = True
     # ya sabemos que es impar
     divider = 3  # no empiezo en 2 porque sé que "candidato_a_primo" es impar
     while divider <= math.sqrt(prime_candidate):
         # si la división da exacta...
         if prime_candidate % divider == 0:
             # ...ya no es primo, acabamos
-            is_primo = False
+            is_prime = False
             break
         divider += 2  # va al siguiente impar, no necesito comprobar el par
     # si "candidato_a_primo" es primo, lo imprimo y contabilizo uno más
-    if is_primo:
+    if is_prime:
         num_primes_displayed += 1
         print(f"{num_primes_displayed}º: {prime_candidate}")
     prime_candidate += 2  # el siguiente sigue siendo impar

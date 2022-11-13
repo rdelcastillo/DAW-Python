@@ -54,15 +54,15 @@ intentos_que_quedan = MAXIMUM_TRIES
 
 # Proceso
 while True:  # implementación ciclo postcondición REPETIR
-    numero_introducido = int(input(f"Te quedan {intentos_que_quedan} intentos. Introduce un número entre 1 y 100: "))
+    numero_introducido = int(input(f"Te quedan {intentos_que_quedan} intentos. "
+                                   f"Introduce un número entre {STARTING_NUMBER} y {FINAL_NUMBER}: "))
+    intentos_que_quedan -= 1  # hemos consumido un intento
 
     # pista (si no acierta) para que le sea más fácil adivinar
     if numero_introducido < numero_a_adivinar:
         print(f"{numero_introducido} es menor que el número a adivinar.")
     elif numero_introducido > numero_a_adivinar:
         print(f"{numero_introducido} es mayor que el número a adivinar.")
-
-    intentos_que_quedan -= 1    # hemos consumido un intento
 
     # salida ciclo
     if numero_introducido == numero_a_adivinar or intentos_que_quedan == 0:  # acabo si adivino o supero los intentos
