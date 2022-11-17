@@ -8,47 +8,21 @@ Ejercicio sacado del libro "Aprende Java con Ejercicios edición 2018" (https://
 
 Created on 27 nov. 2018.
 
-@author: rafa
+@author: Rafael del Castillo
 """
-N = 15  #tamaño lista
-# si creo la lista con 15 elementos
-#numeros = list([None]*15)
 
-# si creo lista vacía y voy añadiendo
-numeros=list()
+TOTAL_NUMBERS = 15  
+numbers = list()
 
-# pido datos
+# Pedimos los datos
 print("Vaya introduciendo números enteros y pulsando INTRO:")
-for i in range(0,N):
-    #numeros[i] = int(input())
-    numeros.append(int(input()))
+for i in range(TOTAL_NUMBERS):
+    numbers.append(int(input()))
+print("\nLista original:", numbers)
 
-print()
-
-# Muestra el array original
-print("Array original:");
-for i in range(0,15):
-    print("|%3d "%(i),end="")
-print("|\n","⎯"*75,end="")
-print("⎯");
-for n in numeros:
-    print("|%3d "%(n),end="")
-print("|")
-
-# rota una posición a la derecha //////////
-aux = numeros[-1]
-for i in range(len(numeros)-1,0,-1):
-    numeros[i] = numeros[i-1]
-numeros[0] = aux;
-
-# Muestra el array rotado 
-print("\nArray rotado a la derecha una posición:")
-for i in range(0,15):
-    print("|%3d "%(i),end="")
-print("|\n","⎯"*75)
-for n in numeros:
-    print("|%3d "%(n),end="")
-print("|",end="")
-
-
-
+# Rotamos una posición a la derecha
+aux = numbers[-1]
+for i in range(len(numbers) - 1, 0, -1):
+    numbers[i] = numbers[i - 1]
+numbers[0] = aux
+print("\nLista rotada una posición a la derecha:", numbers)

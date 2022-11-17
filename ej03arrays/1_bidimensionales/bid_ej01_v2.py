@@ -7,11 +7,17 @@ La suma total aparece en la esquina inferior derecha.
 
 Ejercicio del libro "Aprende Java con Ejercicios edición 2018" (https://leanpub.com/aprendejava).
 
+En esta versión mejoramos los siguientes aspectos:
+
+- El ancho de visualización de cada número lo calculamos automáticamente (no es 3 como antes).
+- A la hora de imprimir las casillas y calcular el sumatorio de las filas, contemplamos que un array bidimensional es
+  un array de arrays de una dimensión.
+
 @author Rafael del Castillo
 """
 
-ROWS = 4
-COLUMNS = 5
+ROWS = 2
+COLUMNS = 3
 array = [[0] * COLUMNS for _ in range(ROWS)]  # inicializamos array (lista) a 0
 
 # Petición de datos
@@ -20,11 +26,11 @@ for row in range(ROWS):
         array[row][column] = int(input(f"Dame el valor del array de la posición {row},{column}: "))
 
 # Imprimir filas y sumatorio de cada fila
-for row in range(ROWS):
+for vector in array:  # array tiene en cada fila un vector de enteros
     sum_row = 0
-    for column in range(COLUMNS):
-        sum_row += array[row][column]
-        print(f"{array[row][column]:3d} ", end="")
+    for n in vector:
+        sum_row += n
+        print(f"{n:3d} ", end="")
     print(f"| {sum_row:3d}")
 
 # Imprimir sumatorio de las columnas y sumatorio total
