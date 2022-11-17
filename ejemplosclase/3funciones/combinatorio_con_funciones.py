@@ -7,7 +7,7 @@ Combinatorio(n,m) = n! / (m! * (n-m)!) si n>m
 
 def factorial(x):
     f = 1
-    for i in range(x, 1, -1):
+    for i in range(x, 0, -1):
         f = f * i
     return f
 
