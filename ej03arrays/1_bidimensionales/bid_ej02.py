@@ -1,50 +1,41 @@
-'''
-Programa que pide 20 números enteros.
+"""
+Programa que genera 20 números enteros entre 100 y 999 y los introduce en un array de 4 filas por 5 columnas.
+El programa muestra las sumas parciales de filas y columnas igual que si de una hoja de cálculo se tratara.
+La suma total aparece en la esquina inferior derecha.
 
-Modificación del ejercicio anterior de tal forma que los números que se introducen en el array se generan de
-forma aleatoria (valores entre 100 y 999) y las sumas parciales y la suma total aparecen en la pantalla con un
-pequeño retardo, dando la impresión de que el ordenador se queda pensando antes de mostrar los números.
+Ejercicio del libro "Aprende Java con Ejercicios edición 2018" (https://leanpub.com/aprendejava).
 
 @author Rafael del Castillo
-
-Ejercicio del libro "Aprende Java con Ejercicios" (https://leanpub.com/aprendejava)
-
-'''
-import time
+"""
 import random
 
-# creamos array (lista) vacío de 4 filas por 5 columnas
-num = [None] * 4
-for i in range(4):
-    num[i] = [None] * 5
+ROWS = 4
+COLUMNS = 5
+LOWEST_NUM = 100
+BIGGEST_NUM = 999
+WIDTH_NUMBER = 5
+array = [[0] * COLUMNS for _ in range(ROWS)]  # inicializamos array (lista) a 0
 
-# Introduce valores aleatorios en el array
-for fila in range(4):
-    for columna in range(5):
-        num[fila][columna] = int((random.random() * 900) + 100)
+# Generación de datos
+for row in range(ROWS):
+    for column in range(COLUMNS):
+        array[row][column] = random.randint(LOWEST_NUM, BIGGEST_NUM)
 
-# Muestra los datos y las sumas parciales de las filas
-for fila in range(4):
-    suma_fila = 0
-    for columna in range(5):
-        print("%7d   "%(num[fila][columna]),end="")
-        suma_fila += num[fila][columna]
-        time.sleep(0.1)
-    print("|%7d\n"%(suma_fila),end="")
-    time.sleep(0.5) 
-    
-# Muestra las sumas parciales de las columnas
-for columna in range(5):
-    print("----------",end="")
-print("-----------")
+# Imprimir filas y sumatorio de cada fila
+for row in range(ROWS):
+    sum_row = 0
+    for column in range(COLUMNS):
+        sum_row += array[row][column]
+        print(f"{array[row][column]:{WIDTH_NUMBER}} ", end="")
+    print(f"| {sum_row:{WIDTH_NUMBER}}")
 
-suma_total = 0
-
-for columna in range(5):
-    suma_columna = 0
-    for fila in range(4):
-        suma_columna += num[fila][columna]
-    suma_total += suma_columna
-    print("%7d   "%(suma_columna),end="")
-    time.sleep(0.5)
-print("|%7d   "%(suma_total),end="")
+# Imprimir sumatorio de las columnas y sumatorio total
+print("-" * ((WIDTH_NUMBER+1)*(COLUMNS+1) + 1))  # separador
+sum_total = 0
+for column in range(COLUMNS):
+    sum_column = 0
+    for row in range(ROWS):
+        sum_column += array[row][column]
+    print(f"{sum_column:{WIDTH_NUMBER}} ", end="")
+    sum_total += sum_column
+print(f"| {sum_total:{WIDTH_NUMBER}}")

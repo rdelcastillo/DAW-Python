@@ -16,30 +16,35 @@ En esta versión mejoramos los siguientes aspectos:
 @author Rafael del Castillo
 """
 
-ROWS = 2
-COLUMNS = 3
+ROWS = 4
+COLUMNS = 5
 array = [[0] * COLUMNS for _ in range(ROWS)]  # inicializamos array (lista) a 0
 
 # Petición de datos
+sum_total = 0
 for row in range(ROWS):
     for column in range(COLUMNS):
-        array[row][column] = int(input(f"Dame el valor del array de la posición {row},{column}: "))
+        n = int(input(f"Dame el valor del array de la posición {row},{column}: "))
+        array[row][column] = n
+        sum_total += n
+
+width_number = len(str(sum_total))  # ancho de visualización del número
 
 # Imprimir filas y sumatorio de cada fila
 for vector in array:  # array tiene en cada fila un vector de enteros
     sum_row = 0
     for n in vector:
         sum_row += n
-        print(f"{n:3d} ", end="")
-    print(f"| {sum_row:3d}")
+        print(f"{n:{width_number}d} ", end="")
+    print(f"| {sum_row:{width_number}d}")
 
 # Imprimir sumatorio de las columnas y sumatorio total
-print("-" * (4*(COLUMNS+1) + 1))  # separador
+print("-" * ((width_number+1)*(COLUMNS+1) + 1))  # separador
 sum_total = 0
 for column in range(COLUMNS):
     sum_column = 0
     for row in range(ROWS):
         sum_column += array[row][column]
-    print(f"{sum_column:3d} ", end="")
+    print(f"{sum_column:{width_number}d} ", end="")
     sum_total += sum_column
-print(f"| {sum_total:3d}")
+print(f"| {sum_total:{width_number}d}")
