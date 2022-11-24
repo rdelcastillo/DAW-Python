@@ -13,7 +13,7 @@ ROWS = 4
 COLUMNS = 5
 LOWEST_NUM = 100
 BIGGEST_NUM = 999
-WIDTH_NUMBER = 5
+WIDTH_NUMBER = 5  # no voy a tener números de más de 5 cifras
 array = [[0] * COLUMNS for _ in range(ROWS)]  # inicializamos array (lista) a 0
 
 # Generación de datos
