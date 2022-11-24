@@ -18,11 +18,11 @@ Información de salida: Los números primos indicados.
 Variables: cantidad_a_mostrar, cantidad_mostrados, divisor (entero), es_primo(lógico)
 ---
 Diseño
-1.- Leer cantidad de número primos a mostrar, debe ser positivo
+1.- Leer cantidad de números primos a mostrar, debe ser positivo
 2.- Muestro el primer número primo, el 2.
-3.- Inicializo el contador de número mostrados a 1.
+3.- Inicializo el contador de números mostrados a 1.
 4.- Inicializo la variable donde guardo el número a probar -> num=3
-4.- Mientras no haya mostrado la cantidad de número indicados
+4.- Mientras no haya mostrado la cantidad de números indicados
 5.- Considero que es primo. Inicializo el indicador -> es_primo=Verdadero
 6.- desde el 3 hasta la raíz cuadrada del número
 7.- Si es divisible -> Ya no es primo -> es_primo=Falso
@@ -36,7 +36,7 @@ Usamos una función para comprobar si un número es primo
 import math
 
 
-def es_primo(num):
+def is_prime(num):
     """
     Comprueba si un número es primo usando el teorema de Wilson, que dice que:
     Si p es un número primo entonces (p-1)!+1 es divisible por p.
@@ -44,7 +44,6 @@ def es_primo(num):
     :param num: número que queremos comprobar si es primo
     :return: verdadero o falso
     """
-
     return (math.factorial(num - 1) + 1) % num == 0
 
 
@@ -63,7 +62,7 @@ num_primes_displayed = 1
 # ...a partir de 3
 prime_candidate = 3
 while num_primes_displayed < num_primes_to_show:
-    if es_primo(prime_candidate):  # Compruebo si "candidato_a_primo" es primo
+    if is_prime(prime_candidate):  # Compruebo si "candidato_a_primo" es primo
         num_primes_displayed += 1
         print(f"{num_primes_displayed}º: {prime_candidate}")
     prime_candidate += 2
