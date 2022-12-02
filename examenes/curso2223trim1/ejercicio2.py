@@ -14,7 +14,7 @@ print("-----------------------------------------------------")
 
 iterations = int(input("¿Cuantas iteraciones usamos? "))
 if iterations < 0:
-    print("El número de iteraciones no es válido.", file=sys.stderr)
+    print("ERROR. El número de iteraciones no es válido.", file=sys.stderr)
     exit(1)
 
 pi = 4
