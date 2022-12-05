@@ -153,7 +153,7 @@ while True:
     elif option == 5:
         print_min_mark_module()
     elif option == 6:
-        print_marks_module_sorted()
+        print_ma0rks_module_sorted()
     elif option == 7:
         break
     else:
