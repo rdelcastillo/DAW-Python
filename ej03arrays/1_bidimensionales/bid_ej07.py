@@ -83,7 +83,7 @@ def input_module():
         return -1
     return module
 
-def print_students_sorted():
+def print_marks_module_sorted():
     """Listado ordenado de estudiantes respecto a la nota de un módulo"""
     module = int(input("Número de módulo (1-PROGR 2-L.MAR 3-B.DAT 4-S.INF): "))
     if module == -1:
@@ -153,7 +153,7 @@ while True:
     elif option == 5:
         print_min_mark_module()
     elif option == 6:
-        print_students_sorted()
+        print_marks_module_sorted()
     elif option == 7:
         break
     else:
