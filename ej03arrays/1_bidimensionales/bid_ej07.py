@@ -68,7 +68,7 @@ def print_marks_student():
         for i in range(len(MODULES)):
             print(f"{MODULES[i]+':':{LEN_MARK_NAME}} {marks[i]:{MARK_FORMAT}}")
 
-    student_name = input("Nombre del o de la estudiante: ")
+    student_name = input("Nombre del alumno/a: ")
     for student in students:
         if student[0] == student_name:
             print_marks()
@@ -125,7 +125,7 @@ print("Gestión de calificaciones")
 print("-------------------------")
 
 students = []
-# fill_students_randomly(20) # la usaremos para hacer pruebas y no tener que meter los datos
+fill_students_randomly(20) # la usaremos para hacer pruebas y no tener que meter los datos
 
 input_marks()
 
@@ -136,11 +136,12 @@ while True:
           "1. Impresión de las calificaciones del curso completo.\n"
           "2. Impresión de las calificaciones de un/a estudiante.\n"
           "3. Nota media de un módulo.\n"
-          "4. Nota máxima en un módulo.\n"
+          "4. Nota más alta en un módulo.\n"
           "5. Nota más baja en un módulo.\n"
           "6. Listado ordenado de los estudiantes respecto a su nota en un módulo (de mayor a menor).\n"
           "7. Finalizar.\n")
 
+    # escogemos opción y ejecutamos la función asociada
     option = int(input("Introduzca una opción: "))
     if option == 1:
         print_marks_course()
@@ -153,7 +154,7 @@ while True:
     elif option == 5:
         print_min_mark_module()
     elif option == 6:
-        print_ma0rks_module_sorted()
+        print_marks_module_sorted()
     elif option == 7:
         break
     else:
