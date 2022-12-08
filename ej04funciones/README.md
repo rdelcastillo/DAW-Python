@@ -26,8 +26,8 @@ Prohibido usar funciones de conversión del número a una cadena.
 - quita\_por\_delante: le quita a un número n dígitos por delante (por la izquierda).
 - pega\_por\_detras: añade un dígito a un número por detrás.
 - pega\_por\_delante: añade un dígito a un número por delante.
-- trozoDeNumero: toma como parámetros las posiciones inicial y final dentro de un número y devuelve el trozo correspondiente.
-- juntaNumeros: pega dos números para formar uno.
+- trozo\_de\_numero: toma como parámetros las posiciones inicial y final dentro de un número y devuelve el trozo correspondiente.
+- junta\_numeros: pega dos números para formar uno.
 
 Haz el programa de manera que al ejecutarse pruebe cada una de las funciones.
 
