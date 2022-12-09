@@ -34,13 +34,12 @@ MARK_FORMAT = "5.2f"
 
 def input_marks():
     """Lectura por teclado de las notas de los y las estudiantes"""
-    def input_mark(mod):
+    def input_mark():
         while True:
-            mark = float(input(f"Dame su nota en {mod} (entre 0 y 10): "))
+            mark = float(input(f"Dame su nota en {module} (entre 0 y 10): "))
             if 0 <= mark <= 10:
-                break
+                return mark
             print("El valor de la nota es erróneo, debe ser entre 0 y 10")
-        return mark
 
     while True:
         student_name = input("\nDame el nombre y apellidos del alumno/a a dar de alta (Intro para terminar): ")
@@ -48,7 +47,8 @@ def input_marks():
             break
         marks = []
         for module in MODULES:
-            marks.append(input_mark(module))
+            module_mark = input_mark()
+            marks.append(module_mark)
         students.append([student_name] + marks)
 
 def print_marks_course():
@@ -75,6 +75,16 @@ def print_marks_student():
             return
     print("Ese nombre de estudiante no existe.")
 
+def print_marks_module_sorted():
+    """Listado ordenado de estudiantes respecto a la nota de un módulo"""
+    module = input_module()
+    if module == -1:
+        return
+    marks = [[student[module], student[0]] for student in students] # lista auxiliar con nota y nombre estudiante
+    marks.sort(reverse=True)
+    for mark in marks:
+        print(f"{mark[1]:{LEN_STUDENT_NAME}} {mark[0]:{MARK_FORMAT}}")
+
 def input_module():
     """Pide el código de un módulo, devuelve -1 si se mete mal"""
     module = int(input("Número de módulo (1-PROGR 2-L.MAR 3-B.DAT 4-S.INF): "))
@@ -82,16 +92,6 @@ def input_module():
         print("ERROR. El número de módulo es erróneo.")
         return -1
     return module
-
-def print_marks_module_sorted():
-    """Listado ordenado de estudiantes respecto a la nota de un módulo"""
-    module = int(input("Número de módulo (1-PROGR 2-L.MAR 3-B.DAT 4-S.INF): "))
-    if module == -1:
-        return
-    marks = [[student[module], student[0]] for student in students] # lista auxiliar con nota y nombre estudiante
-    marks.sort(reverse=True)
-    for mark in marks:
-        print(f"{mark[1]:{LEN_STUDENT_NAME}} {mark[0]:{MARK_FORMAT}}")
 
 def print_min_mark_module():
     """Imprime la nota más baja de un módulo"""
@@ -125,7 +125,7 @@ print("Gestión de calificaciones")
 print("-------------------------")
 
 students = []
-fill_students_randomly(20) # la usaremos para hacer pruebas y no tener que meter los datos
+# fill_students_randomly(20) # la usaremos para hacer pruebas y no tener que meter los datos
 
 input_marks()
 
