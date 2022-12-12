@@ -78,7 +78,7 @@ Utiliza esta función en un programa para comprobar que funciona bien. Desde la 
 
 Crea una función que reciba un número, lo convierta al sistema Morse y lo devuelve en una cadena de caracteres. 
 
-Por ejemplo, el 213 es el . . _ _ _ . _ _ _ _ . . . _ _ en Morse. Utiliza esta función en un programa para comprobar que funciona bien.
+Por ejemplo, el 213 es el ..___ .____ ...__ en Morse. Utiliza esta función en un programa para comprobar que funciona bien.
 
 Desde la función no se debe mostrar nada por pantalla, solo se debe usar print desde el programa principal.
 
@@ -90,7 +90,7 @@ Define la función mezcla de forma que tome dos listas como parámetros y devuel
 
 Ejemplos
 
-Si a = [8, 9, 0] y b = [1, 2, 3], mezcla(a, b) devuelve [8, 1, 9, 2, 0, 3 ]
+Si a = [8, 9, 0] y b = [1, 2, 3], mezcla(a, b) devuelve [8, 1, 9, 2, 0, 3]
 
 Si a = [4, 3] y b = [7, 8, 9, 10], mezcla(a, b) devuelve [4, 7, 3, 8, 9, 10]
 
