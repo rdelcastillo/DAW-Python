@@ -12,23 +12,19 @@ def main():
     data_has_been_entered = False
     while True:
         option = input_option()
-        if option == 1:
-            a, b = input_data()
-            data_has_been_entered = True
-        elif option == 6:
-            break
-        elif not data_has_been_entered:
+        if not data_has_been_entered and option != 1 and option != 6:
             print("ERROR. Lo primero que debe hacer es introducir A y B.")
-        elif option == 2:
-            print_addition(a, b)
-        elif option == 3:
-            print_subtraction(a, b)
-        elif option == 4:
-            print_multiplication(a, b)
-        elif option == 5:
-            print_division(a, b)
-        else:
-            print("Opción incorrecta.")
+            continue  # vuelve al principio del ciclo
+        match option:
+            case 1:
+                a, b = input_data()
+                data_has_been_entered = True
+            case 2: print_addition(a, b)
+            case 3: print_subtraction(a, b)
+            case 4: print_multiplication(a, b)
+            case 5: print_division(a, b)
+            case 6: break
+            case _: print("Opción incorrecta.")
     print("¡Adiós! :-)")
 
 def input_option():

@@ -41,10 +41,10 @@ def es_primo(n):
     return True # si llegamos aquí, el número es primo
 
 def siguiente_primo(n):
-    num = n+1
-    while not es_primo(num):
-        num += 1
-    return num
+    candidato_a_primo = n+1
+    while not es_primo(candidato_a_primo):
+        candidato_a_primo += 1
+    return candidato_a_primo
 
 def digitos(n):
     num = abs(n)
