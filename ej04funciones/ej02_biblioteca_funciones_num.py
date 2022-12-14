@@ -54,52 +54,52 @@ def digitos(n):
         num //= 10
     return total_digitos
 
-def digito_n(n, pos):
-    lanza_excepcion_si_posicion_erronea(n, pos)
-    num_hasta_pos = abs(n) // 10 ** (digitos(n)-pos-1)
-    return num_hasta_pos % 10   # el último dígito está en pos
+def digito_n(num, pos_n):
+    lanza_excepcion_si_posicion_erronea(num, pos_n)
+    num_hasta_pos_n = abs(num) // 10 ** (digitos(num) - pos_n - 1)
+    return num_hasta_pos_n % 10   # el último dígito está en pos
 
-def lanza_excepcion_si_posicion_erronea(n, pos):
+def lanza_excepcion_si_posicion_erronea(num, pos):
     if pos < 0:
         raise ValueError("La posición no puede ser negativa")
-    if pos >= digitos(n):  # si la posición sobrepasa el número de dígitos posible lanzamos una excepción
-        raise ValueError(f"No hay dígitos en la posición {pos} de {n}")
+    if pos >= digitos(num):  # si la posición sobrepasa el número de dígitos posible lanzamos una excepción
+        raise ValueError(f"No hay dígito en la posición {pos} de {num}")
 
-def posicion_de_digito(n, cifra):
+def posicion_de_digito(num, cifra):
     lanza_excepcion_si_digito_erroneo(cifra)
-    total_digitos = digitos(n)
+    total_digitos = digitos(num)
     for pos in range(total_digitos):  # podríamos haber usado digitos(), pero con la variable es más rápido
-        if digito_n(n, pos) == cifra:
+        if digito_n(num, pos) == cifra:
             return pos
     return -1  # si llegamos aquí es que cifra no está en n
 
-def pega_por_detras(n, cifra):
+def pega_por_detras(num, cifra):
     lanza_excepcion_si_digito_erroneo(cifra)
-    return n*10 + signo(n) * cifra
+    return num*10 + signo(num) * cifra
 
-def pega_por_delante(n, cifra):
+def pega_por_delante(num, cifra):
     lanza_excepcion_si_digito_erroneo(cifra)
-    num = signo(n) * cifra * 10 ** digitos(n) + n
+    num = signo(num) * cifra * 10 ** digitos(num) + num
     return num
 
-def signo(n):
-    if n == 0:
+def signo(num):
+    if num == 0:
         return 1
-    return abs(n)//n
+    return abs(num)//num
 
 def lanza_excepcion_si_digito_erroneo(cifra):
     if cifra < 0 or cifra > 9:
         raise ValueError("El dígito no está entre 0 y 9")
 
-def voltea(n):
-    n_volteado = digito_n(n, 0) * signo(n)
-    total_digitos = digitos(n)
+def voltea(num):
+    n_volteado = digito_n(num, 0) * signo(num)
+    total_digitos = digitos(num)
     for pos in range(1, total_digitos):
-        n_volteado = pega_por_delante(n_volteado, digito_n(n, pos))
+        n_volteado = pega_por_delante(n_volteado, digito_n(num, pos))
     return n_volteado
 
-def es_capicua(n):
-    return n == voltea(n)
+def es_capicua(num):
+    return num == voltea(num)
 
 def junta_numeros(n1, n2):
     num = n1
@@ -108,20 +108,20 @@ def junta_numeros(n1, n2):
         num = pega_por_detras(num, digito_n(n2, pos))
     return num
 
-def quita_por_detras(n, cifras):
-    lanza_excepcion_si_cifras_erroneas(n, cifras)
-    return int(n / 10 ** cifras)  # con // hay problemas con los números negativos: -15215//100 = -153
+def quita_por_detras(num, cifras):
+    lanza_excepcion_si_cifras_erroneas(num, cifras)
+    return int(num / 10 ** cifras)  # con // hay problemas con los números negativos: -15215//100 = -153
 
-def quita_por_delante(n, cifras):
-    lanza_excepcion_si_cifras_erroneas(n, cifras)
-    return signo(n) * (abs(n) % (10 ** (digitos(n) - cifras)))
+def quita_por_delante(num, cifras):
+    lanza_excepcion_si_cifras_erroneas(num, cifras)
+    return signo(num) * (abs(num) % (10 ** (digitos(num) - cifras)))
 
-def lanza_excepcion_si_cifras_erroneas(n, cifras):
-    if cifras < 0 or cifras > digitos(n):
-        raise ValueError(f"El número de dígitos a quitar ({cifras}) es erróneo para {n}")
+def lanza_excepcion_si_cifras_erroneas(num, cifras):
+    if cifras < 0 or cifras > digitos(num):
+        raise ValueError(f"El número de dígitos a quitar ({cifras}) es erróneo para {num}")
 
-def trozo_de_numero(n, pos_inicio, pos_fin):
-    n_sin_final = quita_por_detras(n, digitos(n) - pos_fin)
+def trozo_de_numero(num, pos_inicio, pos_fin):
+    n_sin_final = quita_por_detras(num, digitos(num) - pos_fin)
     return quita_por_delante(n_sin_final, pos_inicio)
 
 if __name__ == "__main__":  # test de las funciones
@@ -152,6 +152,7 @@ if __name__ == "__main__":  # test de las funciones
     assert digito_n(-12345, 2) == 3
     assert digito_n(12345, 3) == 4
     assert digito_n(12345, 4) == 5
+    # assert digito_n(12345, 10) == 5  # esto debe lanzar una excepción
 
     assert posicion_de_digito(12345, 0) == -1
     assert posicion_de_digito(12345, 1) == 0

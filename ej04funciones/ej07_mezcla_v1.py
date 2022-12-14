@@ -17,19 +17,22 @@ Si a = [ ] y b = [1, 2, 3], mezcla(a, b) devuelve [1, 2, 3]
 
 
 def mezcla(l1, l2):
-    lista_menor, lista_mayor = (l1, l2) if len(l1) <= len(l2) else (l2, l1)
-    lista_mezcla = []
+    lista_mezclada = []
+    if len(l1) <= len(l2):
+        lista_mas_corta, lista_mas_larga = l1, l2
+    else:
+        lista_mas_corta, lista_mas_larga = l2, l1
 
     # añadimos los números de forma alterna hasta que se acabe la lista más corta
-    for i in range(len(lista_menor)):
-        lista_mezcla.append(l1[i])
-        lista_mezcla.append(l2[i])
+    for i in range(len(lista_mas_corta)):
+        lista_mezclada.append(l1[i])
+        lista_mezclada.append(l2[i])
 
-    # añadimos los número restantes de la lista más larga
-    for i in range(len(lista_menor), len(lista_mayor)):
-        lista_mezcla.append(lista_mayor[i])
+    # añadimos los números restantes de la lista más larga
+    for i in range(len(lista_mas_corta), len(lista_mas_larga)):
+        lista_mezclada.append(lista_mas_larga[i])
 
-    return lista_mezcla
+    return lista_mezclada
 
 
 if __name__ == "__main__":
