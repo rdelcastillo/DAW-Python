@@ -83,7 +83,8 @@ def mode(*numbers):
     individual_numbers = []
     for n in numbers:
         if n in individual_numbers:
-            frequencies[individual_numbers.index(n)] += 1
+            index = individual_numbers.index(n)
+            frequencies[index] += 1
         else:
             individual_numbers.append(n)
             frequencies.append(1)

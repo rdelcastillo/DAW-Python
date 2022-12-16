@@ -54,19 +54,32 @@ def digitos(n):
         num //= 10
     return total_digitos
 
+def quita_por_detras(num, cifras):
+    lanza_excepcion_si_cifras_erroneas(num, cifras)
+    return int(num / 10 ** cifras)  # con // hay problemas con los números negativos: -15215//100 = -153
+
+def quita_por_delante(num, cifras):
+    lanza_excepcion_si_cifras_erroneas(num, cifras)
+    return signo(num) * (abs(num) % (10 ** (digitos(num) - cifras)))
+
+def lanza_excepcion_si_cifras_erroneas(num, cifras):
+    if cifras < 0 or cifras > digitos(num):
+        raise ValueError(f"El número de dígitos a quitar ({cifras}) es erróneo para {num}")
+
 def digito_n(num, pos_n):
     lanza_excepcion_si_posicion_erronea(num, pos_n)
-    num_hasta_pos_n = abs(num) // 10 ** (digitos(num) - pos_n - 1)
-    return num_hasta_pos_n % 10   # el último dígito está en pos
+    num_hasta_pos_n = quita_por_delante(num, pos_n)
+    digito_en_pos_n = abs(quita_por_detras(num_hasta_pos_n, digitos(num_hasta_pos_n) - 1))
+    return digito_en_pos_n
 
 def lanza_excepcion_si_posicion_erronea(num, pos):
     if pos < 0:
-        raise ValueError("La posición no puede ser negativa")
+        raise IndexError("La posición no puede ser negativa")
     if pos >= digitos(num):  # si la posición sobrepasa el número de dígitos posible lanzamos una excepción
-        raise ValueError(f"No hay dígito en la posición {pos} de {num}")
+        raise IndexError(f"No hay dígito en la posición {pos} de {num}")
 
 def posicion_de_digito(num, cifra):
-    lanza_excepcion_si_digito_erroneo(cifra)
+    lanza_excepcion_si_no_es_digito(cifra)
     total_digitos = digitos(num)
     for pos in range(total_digitos):  # podríamos haber usado digitos(), pero con la variable es más rápido
         if digito_n(num, pos) == cifra:
@@ -74,11 +87,11 @@ def posicion_de_digito(num, cifra):
     return -1  # si llegamos aquí es que cifra no está en n
 
 def pega_por_detras(num, cifra):
-    lanza_excepcion_si_digito_erroneo(cifra)
+    lanza_excepcion_si_no_es_digito(cifra)
     return num*10 + signo(num) * cifra
 
 def pega_por_delante(num, cifra):
-    lanza_excepcion_si_digito_erroneo(cifra)
+    lanza_excepcion_si_no_es_digito(cifra)
     num = signo(num) * cifra * 10 ** digitos(num) + num
     return num
 
@@ -87,7 +100,7 @@ def signo(num):
         return 1
     return abs(num)//num
 
-def lanza_excepcion_si_digito_erroneo(cifra):
+def lanza_excepcion_si_no_es_digito(cifra):
     if cifra < 0 or cifra > 9:
         raise ValueError("El dígito no está entre 0 y 9")
 
@@ -107,18 +120,6 @@ def junta_numeros(n1, n2):
     for pos in range(total_digitos_n2):
         num = pega_por_detras(num, digito_n(n2, pos))
     return num
-
-def quita_por_detras(num, cifras):
-    lanza_excepcion_si_cifras_erroneas(num, cifras)
-    return int(num / 10 ** cifras)  # con // hay problemas con los números negativos: -15215//100 = -153
-
-def quita_por_delante(num, cifras):
-    lanza_excepcion_si_cifras_erroneas(num, cifras)
-    return signo(num) * (abs(num) % (10 ** (digitos(num) - cifras)))
-
-def lanza_excepcion_si_cifras_erroneas(num, cifras):
-    if cifras < 0 or cifras > digitos(num):
-        raise ValueError(f"El número de dígitos a quitar ({cifras}) es erróneo para {num}")
 
 def trozo_de_numero(num, pos_inicio, pos_fin):
     n_sin_final = quita_por_detras(num, digitos(num) - pos_fin)
