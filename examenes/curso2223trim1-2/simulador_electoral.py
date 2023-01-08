@@ -55,7 +55,7 @@ def load_electoral_data_cordova():
 
 
 def input_electoral_data():
-    global city, valid_votes, seats, votes_parties
+    global city, valid_votes, seats
 
     def want_delete_data():
         resp = input("Esto implica borrar los datos ya introducidos. Responda 'Sí' para proceder: ")
@@ -66,7 +66,7 @@ def input_electoral_data():
     city = input("Municipio: ").upper()
     valid_votes = int(input("Votos válidos: "))
     seats = int(input("Número de ediles: "))
-    votes_parties = []
+    votes_parties.clear()
 
 
 def input_party_votes():
