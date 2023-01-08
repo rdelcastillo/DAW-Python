@@ -1,0 +1,81 @@
+"""
+En esta versión de la clase 'Gato Simple' sustituimos el uso de getters y setters por propiedades, que es la forma
+"pythonica" de hacerlo.
+
+Ejemplo sacado del libro "Aprende Java con Ejercicios" de Luis José Sánchez:
+https://github.com/LuisJoseSanchez/aprende-java-con-ejercicios
+
+Adaptado a Python por Rafael del Castillo Gomariz.
+
+Fecha: 7/01/2023.
+"""
+import datetime
+
+
+class PlainCat:
+
+    def __init__(self, name, sex, species='', birthday=datetime.date.today()):
+        """
+        Constructor de 'Gato Simple', necesita un nombre y un sexo, que no podrán ser modificados una vez creado el
+        objeto. Además, se puede especificar una raza y fecha de nacimiento que sí podrán ser modificadas.
+        """
+        if sex not in ['macho', 'hembra']:
+            raise ValueError(f"{sex} es un sexo incorrecto.")
+        self.__name = name
+        self.__sex = sex
+        self.species = species
+        self.birthday = birthday
+
+    @property
+    def name(self):
+        return self.__name
+
+    @property
+    def sex(self):
+        return self.__sex
+
+    @property
+    def species(self):
+        return self.__species
+
+    @species.setter
+    def species(self, value):
+        self.__species = value.upper()
+
+    @property
+    def birthday(self):
+        return self.__birthday
+
+    @birthday.setter
+    def birthday(self, value):
+        if not isinstance(value, datetime.date):
+            raise ValueError(f"{value} no es un objeto de clase datetime.date")
+        self.__birthday = value
+
+    def meow(self):
+        print(f"({self.name}) Miauuuu!!!")
+
+    def purr(self):
+        print(f"({self.name}) Mrrrrrr!!!")
+
+    def eat(self, food):
+        """
+        Hace que el gato coma. A los gatos les gusta el pescado, si le damos otra comida la rechazará.
+        """
+        print(f"({self.name}) ", end="")
+        if food == "pescado":
+            print("Hmmmm, gracias :-)")
+        else:
+            print("Lo siento, yo solo como pescado.")
+
+    def fight_with(self, opponent):
+        """
+        Pone a pelear dos gatos. Solo se van a pelear dos machos entre sí.
+        """
+        print(f"({self.name}) ", end="")
+        if self.sex == "hembra":
+            print("No me gusta pelear.")
+        elif opponent.sex == "hembra":
+            print("No peleo contra gatitas.")
+        else:
+            print(f"Ven aquí {opponent.name}, que te vas a enterar :-@")
