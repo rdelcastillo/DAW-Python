@@ -11,7 +11,7 @@ Fecha: 8/01/2023.
 import datetime
 from plain_cat import PlainCat
 
-garfield = PlainCat("Garfield", "macho", "siamés", datetime.date(2020, 10, 10))
+garfield = PlainCat("Garfield", "macho", "siamés", "10/10/2020")
 print("Hola gatito!!!")
 garfield.meow()
 print("Toma tarta.")
@@ -20,7 +20,7 @@ print("Toma pescado, a ver si esto te gusta.")
 garfield.eat("pescado")
 
 tom = PlainCat("Tom", "macho", "romano")
-tom.birthday = datetime.date(2018, 11, 2)
+tom.birth_day = datetime.date(2018, 11, 2)
 print(f"{tom.name}, toma sopita de verduras.")
 tom.eat("sopa de verduras")
 

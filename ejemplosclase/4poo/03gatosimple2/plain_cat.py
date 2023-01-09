@@ -17,7 +17,7 @@ import datetime
 
 class PlainCat:
 
-    def __init__(self, name, sex, species='', birthday=datetime.date.today()):
+    def __init__(self, name, sex, species='', birth_day=datetime.date.today()):
         """
         Constructor de 'Gato Simple', necesita un nombre y un sexo, que no podrán ser modificados una vez creado el
         objeto. Además, se puede especificar una raza y fecha de nacimiento que sí podrán ser modificadas.
@@ -27,7 +27,7 @@ class PlainCat:
         self.__name = name
         self.__sex = sex
         self.set_species(species)
-        self.set_birthday(birthday)
+        self.set_birth_day(birth_day)
 
     def get_name(self):
         return self.__name
@@ -41,13 +41,13 @@ class PlainCat:
     def set_species(self, value):
         self.__species = value.upper()
 
-    def get_birthday(self):
-        return self.__birthday
+    def get_birth_day(self):
+        return self.__birth_day
 
-    def set_birthday(self, value):
+    def set_birth_day(self, value):
         if not isinstance(value, datetime.date):
             raise ValueError(f"{value} no es un objeto de clase datetime.date")
-        self.__birthday = value
+        self.__birth_day = value
 
     def meow(self):
         print(f"({self.__name}) Miauuuu!!!")

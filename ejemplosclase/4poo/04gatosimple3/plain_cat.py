@@ -1,6 +1,6 @@
 """
 En esta versión de la clase 'Gato Simple' sustituimos el uso de getters y setters por propiedades, que es la forma
-"pythonica" de hacerlo.
+"pythonica" de hacerlo, y añadimos más funcionalidad a la propiedad 'fecha de nacimiento'.
 
 Ejemplo sacado del libro "Aprende Java con Ejercicios" de Luis José Sánchez:
 https://github.com/LuisJoseSanchez/aprende-java-con-ejercicios
@@ -14,7 +14,7 @@ import datetime
 
 class PlainCat:
 
-    def __init__(self, name, sex, species='', birthday=datetime.date.today()):
+    def __init__(self, name, sex, species='', birth_day=datetime.date.today()):
         """
         Constructor de 'Gato Simple', necesita un nombre y un sexo, que no podrán ser modificados una vez creado el
         objeto. Además, se puede especificar una raza y fecha de nacimiento que sí podrán ser modificadas.
@@ -24,7 +24,7 @@ class PlainCat:
         self.__name = name
         self.__sex = sex
         self.species = species
-        self.birthday = birthday
+        self.birth_day = birth_day
 
     @property
     def name(self):
@@ -43,14 +43,18 @@ class PlainCat:
         self.__species = value.upper()
 
     @property
-    def birthday(self):
+    def birth_day(self):
         return self.__birthday
 
-    @birthday.setter
-    def birthday(self, value):
-        if not isinstance(value, datetime.date):
+    @birth_day.setter
+    def birth_day(self, value):  # admitimos tanto una fecha como una cadena formateada como tal
+        if isinstance(value, datetime.date):
+            self.__birthday = value
+        elif isinstance(value, str):
+            self.__birthday = datetime.datetime.strptime(value, "%d/%m/%Y").date()
+        else:
             raise ValueError(f"{value} no es un objeto de clase datetime.date")
-        self.__birthday = value
+
 
     def meow(self):
         print(f"({self.name}) Miauuuu!!!")

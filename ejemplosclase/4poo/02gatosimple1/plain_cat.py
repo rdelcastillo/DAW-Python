@@ -32,7 +32,7 @@ class PlainCat:
         self.name = name
         self.sex = sex
         self.species = ''
-        self.birthday = datetime.date.today()
+        self.birth_day = datetime.date.today()
 
     def meow(self):
         """
