@@ -1,6 +1,7 @@
 """
 En esta versión de la clase 'Gato Simple' sustituimos el uso de getters y setters por propiedades, que es la forma
-"pythonica" de hacerlo, y añadimos más funcionalidad a la propiedad 'fecha de nacimiento'.
+"pythonica" de hacerlo, añadimos más funcionalidad a la propiedad 'fecha de nacimiento' y creamos una propiedad de solo
+lectura que nos da la edad del gato.
 
 Ejemplo sacado del libro "Aprende Java con Ejercicios" de Luis José Sánchez:
 https://github.com/LuisJoseSanchez/aprende-java-con-ejercicios
@@ -55,6 +56,20 @@ class PlainCat:
         else:
             raise ValueError(f"{value} no es un objeto de clase datetime.date")
 
+    @property
+    def age(self):
+        age_cat = datetime.date.today().year - self.birth_day.year
+        if not self.__has_a_birthday_this_year():
+            age_cat -= 1
+        return age_cat
+
+    def __has_a_birthday_this_year(self):
+        today = datetime.date.today()
+        if today.month > self.birth_day.month:
+            return True
+        if today.month == self.birth_day.month and today.day >= self.birth_day.day:
+            return True
+        return False
 
     def meow(self):
         print(f"({self.name}) Miauuuu!!!")
