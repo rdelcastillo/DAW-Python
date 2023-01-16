@@ -24,7 +24,7 @@ class PlainCat:
             raise ValueError(f"{sex} es un sexo incorrecto.")
         self.__name = name
         self.__sex = sex
-        self.species = species
+        self.species = species  # invocamos al setter a través de la propiedad
         self.birth_day = birth_day
 
     @property
