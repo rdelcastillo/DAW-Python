@@ -4,6 +4,6 @@ Implementación de la clase 'Cubo'. Para saber qué atributos deben definirse, n
 
 Por ahora, solo nos interesa saber la capacidad máxima (que no podrá cambiar) y los litros que contiene el cubo en cada momento, así que esos serán los atributos que tendremos en cuenta.
 
-En este ejemplo usamos el método mágico __str__() para pintar el cubo y __repr__() para la representación canónica del objeto.
+En este ejemplo usamos el método mágico `__str__()` para pintar el cubo y `__repr__()` para la representación canónica del objeto.
 
 Ejemplo sacado del [libro](https://github.com/LuisJoseSanchez/aprende-java-con-ejercicios) "Aprende Java con Ejercicios" de Luis José Sánchez.
