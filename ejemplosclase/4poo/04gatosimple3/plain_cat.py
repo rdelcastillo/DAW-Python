@@ -51,10 +51,10 @@ class PlainCat:
     def birth_day(self, value):  # admitimos tanto una fecha como una cadena formateada como tal
         if isinstance(value, datetime.date):
             self.__birthday = value
-        elif isinstance(value, str):
+        elif isinstance(value, str):  # cadena formateada como fecha que convertimos a datetime.date
             self.__birthday = datetime.datetime.strptime(value, "%d/%m/%Y").date()
         else:
-            raise ValueError(f"{value} no es un objeto de clase datetime.date")
+            raise TypeError(f"{value} no es un objeto de clase datetime.date")
 
     @property
     def age(self):

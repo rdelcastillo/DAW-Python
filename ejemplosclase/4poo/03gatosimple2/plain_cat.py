@@ -46,7 +46,7 @@ class PlainCat:
 
     def set_birth_day(self, value):
         if not isinstance(value, datetime.date):
-            raise ValueError(f"{value} no es un objeto de clase datetime.date")
+            raise TypeError(f"{value} no es un objeto de clase datetime.date")
         self.__birth_day = value
 
     def meow(self):

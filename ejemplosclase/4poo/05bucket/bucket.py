@@ -53,7 +53,7 @@ class Bucket:
         Vuelca el contenido de un cubo sobre otro. Antes de echar el agua se comprueba cuánto le cabe al cubo destino.
         """
         if not isinstance(destination, Bucket):
-            raise ValueError(f"Un cubo solo se puede volcar en otro cubo, recibido {destination}")
+            raise TypeError(f"Un cubo solo se puede volcar en otro cubo, recibido {destination}")
         free_capacity_at_destination = destination.capacity - destination.content
         if self.content <= free_capacity_at_destination:
             destination.content += self.content

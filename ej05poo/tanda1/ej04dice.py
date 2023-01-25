@@ -10,7 +10,6 @@ Fecha: 22/1/2023.
 """
 import random
 from typing import Optional
-
 from typeguard import typechecked
 
 DEFAULT_NUM_SIDES = 6
@@ -18,7 +17,7 @@ DEFAULT_NUM_SIDES = 6
 @typechecked
 class Dice:
 
-    def __init__(self, side: Optional[int] = None, num_sides = DEFAULT_NUM_SIDES):
+    def __init__(self, side: Optional[int] = None, num_sides: int = DEFAULT_NUM_SIDES):
         """
         Inicializa los valores del dado.
         :param side: Cara del dado, si no se pasa toma valor None, Optional[int] admite None e int
