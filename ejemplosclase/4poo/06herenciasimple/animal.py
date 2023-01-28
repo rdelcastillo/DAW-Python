@@ -1,7 +1,7 @@
 """
 Clase Animal, que será una clase abstracta, base de otras clases para mostrar el funcionamiento de la herencia.
 
-En Python se puede crear una clase abstracta usando la clase abc.ABC y el decorador @abstractmethod para indicar los
+En Python se puede crear una clase abstracta usando la clase abc. ABC y el decorador @abstractmethod para indicar los
 métodos abstractos. Las subclases de una clase abstracta deben implementar los métodos marcados como abstractos o de lo
 contrario se producirá un error.
 
@@ -31,14 +31,14 @@ class Animal(ABC):
 
     @property
     def sex(self):
-        return self.__sex.name
+        return self.__sex
 
     def __str__(self):
-        return f"Nombre: {self.name}, Sexo: {self.sex}\n"
+        return f"Nombre: {self.name}, Sexo: {self.sex.name}\n"
 
     def sleep(self):
         print(f"({self.name}) Zzzzzzz")
 
-    @abstractmethod  # debe ser implementado obligatoriamente en las clases derivadas
+    @abstractmethod  
     def eat(self, food: str):
         pass
