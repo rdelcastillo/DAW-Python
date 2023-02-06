@@ -37,4 +37,3 @@ class Point:
 
     def __repr__(self):
         return f"{self.__class__.__name__}({self.x}, {self.y})"
-
