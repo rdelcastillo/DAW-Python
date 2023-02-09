@@ -32,6 +32,9 @@ class Point:
     def __mul__(self, other: int):
         return Point(self.x * other, self.y * other)
 
+    def __rmul__(self, other: int):  # para casos donde el operando está a la izquierda (5 * p)
+        return self * other
+
     def __str__(self):
         return f"({self.x}, {self.y})"
 
