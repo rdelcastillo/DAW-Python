@@ -9,7 +9,7 @@ class Example:
 
     def __init__(self, value):
         self.__id = value
-        instance_attribute = f"Soy un ATRIBUTO (público) de INSTANCIA. Mi identificador es {value}"
+        self.instance_attribute = f"Soy un ATRIBUTO (público) de INSTANCIA. Mi identificador es {value}"
 
     def instance_method(self):
         print(f"Soy un método de instancia ({self.__id}), accedo a los atributos de mi clase", self.class_attribute)
