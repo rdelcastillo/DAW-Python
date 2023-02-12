@@ -1,4 +1,4 @@
-Realiza los siguientes ejercicios:
+# Ejercicios tanda 1
 
 1. Crea una clase "Dado" (`Dice`) que simule el funcionamiento de un dado con caras del 1 al 6 que tienen la misma probabilidad de salir y un programa de prueba.
 

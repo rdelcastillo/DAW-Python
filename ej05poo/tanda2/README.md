@@ -1,4 +1,4 @@
-Realiza los siguiente ejercicios:
+# Ejercicios tanda 2
 
 **5.** Crea una clase que represente una estructura de datos tipo [pila](https://es.wikipedia.org/wiki/Pila_\(informática\)) (stack) y otra tipo [cola](https://es.wikipedia.org/wiki/Cola_\(informática\)) (queue).
 
