@@ -48,3 +48,17 @@ class Stack:
 
     def top(self):
         return self.__values[0]
+
+if __name__ == '__main__':
+    stack1 = Stack(1,2,3,4,5)
+    stack2 = Stack.from_stack(stack1)
+    print(f"Creadas {stack1} y {stack2}")
+
+    print(f"Añado A y B a {stack1}")
+    stack1.push('A')
+    stack1.push('B')
+    print("Resultado:", stack1)
+
+    print(f"Quito dos elementos de {stack2}")
+    print(f"Quito {stack2.pop()}, {stack2.pop()}")
+    print("Resultado:", stack2)
