@@ -29,7 +29,7 @@ class GenericDice:
 
     @__init__.register(int)
     def _(self, values):
-        self.__init__(str(values))
+        self.sides = tuple([int(side) for side in str(values)])
 
     def roll(self):
         return random.choice(self.sides)
