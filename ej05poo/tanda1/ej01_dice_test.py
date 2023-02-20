@@ -1,7 +1,7 @@
 """
 Prueba de la clase "Dado".
 """
-from ej01dice import Dice
+from ej01_dice import Dice
 
 print("Diez tiradas de dos dados")
 print("-------------------------")

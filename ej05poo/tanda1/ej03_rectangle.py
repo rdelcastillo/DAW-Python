@@ -4,7 +4,7 @@ Clase "Rectángulo" determinada por dos puntos (clase Point). Tiene como propied
 Autor: Rafael del Castillo Gomariz.
 Fecha: 22/1/2023.
 """
-from ej02point import Point
+from ej02_point import Point
 from typeguard import typechecked
 
 @typechecked

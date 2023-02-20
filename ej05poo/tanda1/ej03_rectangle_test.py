@@ -1,8 +1,8 @@
 """
 Prueba de la clase "Rectángulo".
 """
-from ej02point import Point
-from ej03rectangle import Rectangle
+from ej02_point import Point
+from ej03_rectangle import Rectangle
 
 p1 = Point(2, 5)
 p2 = Point(5, 10)
