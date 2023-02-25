@@ -23,7 +23,7 @@ from typeguard import typechecked
 @typechecked
 class Date:
 
-    def __init__(self, day = None, month = None, year = None):
+    def __init__(self, day, month = None, year = None):
         if isinstance(day, Date) and month is None and year is None:
             date = day
             self.__day, self.__month, self.__year = date.__day, date.__month, date.__year
@@ -40,7 +40,7 @@ class Date:
 
     @day.setter
     def day(self, value: int):
-        if not Date.__is_ok(value, self.__month, self.__year):
+        if not self.__is_ok(value, self.__month, self.__year):
             raise ValueError(f"Día asignado {value} incorrecto")
         self.__day = value
 
@@ -50,7 +50,7 @@ class Date:
 
     @month.setter
     def month(self, value: int):
-        if not Date.__is_ok(self.__day, value, self.__year):
+        if not self.__is_ok(self.__day, value, self.__year):
             raise ValueError(f"Mes asignado {value} incorrecto")
         self.__month = value
 
@@ -66,7 +66,7 @@ class Date:
 
     @year.setter
     def year(self, value: int):
-        if not Date.__is_ok(self.__day, self.__month, value):
+        if not self.__is_ok(self.__day, self.__month, value):
             raise ValueError(f"Año asignado {value} incorrecto")
         self.__year = value
 
@@ -80,23 +80,20 @@ class Date:
         return self.__is_leap(self.year)
 
     def day_of_week(self):
-        first_date = self.__class__(1, 1, 1)  # ese día fue lunes
-        total_days = 0
-        while first_date != self:
-            total_days += 1
-            first_date += 1
+        """
+        TODO: De esta forma tarda mucho, mejor usar este algoritmo:
+        https://es.wikibooks.org/wiki/Algoritmia/Algoritmo_para_calcular_el_d%C3%ADa_de_la_semana
+        """
+        total_days = self - self.__class__(1, 1, 1)  # ese día fue lunes
         return total_days % 7
-
-    def copy(self):
-        return self.__class__(self.__day, self.__month, self.__year)
 
     def __add__(self, value: int):
         if value < 0:
             return self - abs(value)
-        f = self.copy()
+        new_date = Date(self)
         for _ in range(value):
-            f = f.__add_day()
-        return f
+            new_date = new_date.__add_day()
+        return new_date
 
     def __add_day(self):
         day, month, year = self.__day + 1, self.__month, self.__year
@@ -116,6 +113,10 @@ class Date:
         return self.__subtract_days(value)
 
     def __subtract_date(self, other: 'Date'):
+        """
+        TODO: Así puede tardar mucho si hay muchos días entre las dos fechas, una alternativa es usar este algoritmo:
+        https://acortar.link/OnVf5E
+        """
         if self < other:
             date1, date2 = self, other
             sign = -1
@@ -123,15 +124,16 @@ class Date:
             date1, date2 = other, self
             sign = 1
         days = 0
-        for _ in range(date1, date2):
+        while date1 < date2:
+            date1 += 1
             days += 1
         return sign * days
 
     def __subtract_days(self, n: int):
-        f = self.copy()
+        new_date = Date(self)
         for _ in range(n):
-            f = f.__subtract_day()
-        return f
+            new_date = new_date.__subtract_day()
+        return new_date
 
     def __subtract_day(self):
         day, month, year = self.__day - 1, self.__month, self.__year
@@ -182,4 +184,3 @@ class Date:
         if Date.__is_leap(year):
             month_days[1] = 29
         return month_days[month - 1]
-
