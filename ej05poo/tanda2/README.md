@@ -56,6 +56,7 @@ Consideraciones a tener en cuenta:
 **9.** Nos hemos enterado que la clase *datetime.date* ha sido comprometida y tenemos que crear una clase nueva para almacenar fechas locales (Date), en este caso la clase será mutable (los objetos pueden cambiar el día, mes o año). Los objetos de la clase Fecha son fechas de tiempo y se crean de la forma:
 
 f1 = Date(1, 10, 2020)  # almacena el 1 de Octubre de 2020
+
 f2 = Date(f1)  # almacena una copia de la fecha almacenada en f1
 
 Para simplificar consideraremos que las fechas son todas a partir del 1 de enero del año 1.
