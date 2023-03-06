@@ -32,10 +32,13 @@ class CardPlayer:
         self.__cards.extend(cards)
 
     def draws(self, deck: Deck):
-        self.__cards.append(deck.draw())
+        card = deck.draw()
+        self.__cards.append(card)
 
     def throws(self, card: Card):
+        if card not in self.__cards:
+            raise ValueError(f"El jugador no puede deshacerse de la carta {card}, no la tiene")
         self.__cards.remove(card)
 
     def __repr__(self):
-        return f"{self.__class__.__name__}(name=,{self.__name} cards={self.__cards})"
+        return f"{self.__class__.__name__}(name={self.__name}, cards={self.__cards})"

@@ -20,10 +20,11 @@ class Deck:
     def __init__(self, cards: List[Card]):
         self.__cards = list(cards)
 
+    @property
     def size(self):
         return len(self.__cards)
 
-    def deal(self, player: 'CardPlayer', number: int):
+    def deal(self, player, number: int):
         if number < 0:
             raise ValueError("El número de cartas a repartir tiene que ser positivo")
         if number > len(self.__cards):
@@ -34,6 +35,8 @@ class Deck:
         self.__cards = self.__cards[number:]
 
     def draw(self):
+        if self.size == 0:
+            raise ValueError("No quedan cartas en la baraja")
         return self.__cards.pop(0)
 
     def shuffle(self):
