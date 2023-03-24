@@ -11,7 +11,7 @@ Autor: Rafael del Castillo.
 import random
 from typing import List
 from typeguard import typechecked
-from card import Card
+from ej05poo.tanda3.ej14deck.card import Card
 
 
 @typechecked

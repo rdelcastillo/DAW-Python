@@ -3,8 +3,8 @@ Clase SpanishDeck. Simula una baraja española.
 
 Autor: Rafael del Castillo Gomariz.
 """
-from deck import Deck
-from card import Card
+from ej05poo.tanda3.ej14deck.card import Card
+from ej05poo.tanda3.ej14deck.deck import Deck
 
 
 class SpanishDeck(Deck):
