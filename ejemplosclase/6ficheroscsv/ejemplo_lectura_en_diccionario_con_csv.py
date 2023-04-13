@@ -13,7 +13,7 @@ if not os.path.exists(FILE):  # comprobamos que el fichero existe
     print(f"El fichero {FILE} no existe. Terminamos...", file=sys.stderr)
     exit(1)
 
-with open('datos.csv') as csv_file:  # si a open() no le decimos el modo asume que es de lectura
+with open(FILE) as csv_file:  # si a open() no le decimos el modo asume que es de lectura y texto
     csv_reader = csv.DictReader(csv_file)
     for row in csv_reader:
         print(f"{row['nombre']} trabaja como {row['puesto']} y nació en el mes de {row['mes de nacimiento']}.")
