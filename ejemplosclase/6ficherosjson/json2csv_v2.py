@@ -9,7 +9,7 @@ import os.path
 import sys
 
 FILE_JSON = "agenda.json"
-FILE_CSV = "agenda_desde_json.csv"
+FILE_CSV = "agenda.csv"
 
 if not os.path.exists(FILE_JSON):  # comprobamos que el fichero existe
     print(f"El fichero {FILE_JSON} no existe. Terminamos...", file=sys.stderr)
