@@ -5,7 +5,7 @@ tienen un equivalente JSON directo (diccionarios, listas, cadenas, números, etc
 
 Para resolver esto, necesitamos crear un codificador personalizado para que nuestra clase JSON sea serializable. Hay
 varias formas de hacer que una clase de Python JSON sea serializable, en este ejemplo vamos a ver una forma simple de
-hacerlo a través de agenda cuyos elementos son objetos de la clase Persona.
+hacerlo a través de una agenda cuyos elementos son objetos de la clase Persona.
 
 El módulo json tiene una clase JSONEncoder de la que podemos crear una subclase para implementar una serialización JSON
 personalizada. A los métodos json.dump() y json.dumps() podemos pasarle esta clase.
