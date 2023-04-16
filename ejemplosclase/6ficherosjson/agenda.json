@@ -3,30 +3,30 @@
         "name": "Juan",
         "address": "Calle Falsa 123, 14001 Córdoba",
         "email": "juan@example.com",
-        "phone": "555-1234"
+        "phone": "555 - 1234"
     },
     {
         "name": "María",
         "address": "Avenida Principal 456, 14002 Córdoba",
         "email": "maria@example.com",
-        "phone": "555-5678"
+        "phone": "555 - 5678"
     },
     {
         "name": "Pedro",
         "address": "Calle Secundaria 789, 14003 Córdoba",
         "email": "pedro@example.com",
-        "phone": "555-9012"
+        "phone": "555 - 9012"
     },
     {
         "name": "Ana",
         "address": "Plaza Central 321, 14001 Córdoba",
         "email": "ana@example.com",
-        "phone": "555-3456"
+        "phone": "555 - 3456"
     },
     {
         "name": "Luis",
         "address": "Calle Principal 654, 14001 Córdoba",
         "email": "luis@example.com",
-        "phone": "555-7890"
+        "phone": "555 - 7890"
     }
 ]

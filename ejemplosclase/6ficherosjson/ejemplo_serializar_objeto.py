@@ -19,6 +19,8 @@ from dataclasses import dataclass
 from json import JSONEncoder
 from typeguard import typechecked
 
+FILE_JSON = "agenda.json"
+
 @typechecked
 @dataclass(frozen=True)
 class Person:
@@ -32,7 +34,6 @@ class PersonEncoder(JSONEncoder):
         return o.__dict__
 
 if __name__ == '__main__':
-    FILE_JSON = "agenda.json"
     address_book = [
         Person("Juan", "Calle Falsa 123, 14001 Córdoba", "juan@example.com", "555 - 1234"),
         Person("María", "Avenida Principal 456, 14002 Córdoba", "maria@example.com", "555 - 5678"),
@@ -43,4 +44,5 @@ if __name__ == '__main__':
 
     with open(FILE_JSON, "wt") as json_file:
         json.dump(address_book, json_file, ensure_ascii=False, indent=4, cls=PersonEncoder)
+
     print(f"Creado {FILE_JSON}")
