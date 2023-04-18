@@ -31,7 +31,8 @@ class Person:
 
 class PersonEncoder(JSONEncoder):
     def default(self, o):
-        return o.__dict__
+        return {'name':o.name, 'address':o.address, 'email':o.email, 'phone':o.phone}
+        # mejor usar: return o.__dict__
 
 if __name__ == '__main__':
     address_book = [
