@@ -21,3 +21,7 @@ Guardaremos los movimientos de la cuenta en una lista de objetos que representen
 ## Versión 4
 
 Mejora de la versión anterior, donde la clase para el movimiento es abstracta y se crean clases especializadas para los distintos tipos de movimiento. 
+
+## Versión 5
+
+Ampliación de la versión anterior, donde añadimos un concepto (que por defecto será el texto del movimiento de la versión anterior) y una fecha/hora en la que se produce, además eliminamos la clase correspondiente al saldo inicial (InitialBalance) por considerarlo un ingreso. 
