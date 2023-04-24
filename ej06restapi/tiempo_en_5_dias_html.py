@@ -1,5 +1,5 @@
 """
-Usando la API de OpenWeather obtendremos el pronóstico del time de los próximos cinco días, para una ciudad que se le
+Usando la API de OpenWeather obtendremos el pronóstico del tiempo de los próximos cinco días, para una ciudad que se le
 pide al usuario, mostraremos:
 
 Temperatura media, mínima y máxima (en grados Celsius) para cada día y global.
@@ -20,7 +20,7 @@ Consideraciones:
   diciendo que la sintaxis es incorrecta.
 - Si el programa recibe un solo parámetro y este es "-h" el programa muestra un texto explicando qué hace.
 
-Versión 2.0. Modularizar el programa.
+Autor: Rafael del Castillo Gomariz
 """
 
 import requests
@@ -28,134 +28,134 @@ import sys
 import os
 
 
-def mostrar_ayuda():
+def show_help():
     """
     Muestra la sintaxis de este programa y su funcionalidad.
     """
     print("Este programa nos da el pronóstico del time de los próximos cinco días para una ciudad.\n")
-    print("Sintaxis: python3 ej01_tiempo_en_5_dias.py {CIUDAD} [{DIRECTORIO}]\n")
+    print("Sintaxis: python3 tiempo_en_5_dias_html.py {CIUDAD} [{DIRECTORIO}]\n")
     print("Si {DIRECTORIO} no se especifica la información se muestra por la pantalla, si se hace se genera un fichero "
           "html en DIRECTORIO con nombre {CIUDAD}_{FECHA-INICIO}_{FECHA_FIN}.\n")
     print("Si {DIRECTORIO} se especifica hay que añadir al final del nombre / (Unix/Linux) ó \\ (Windows).")
 
 
-def tiempo_en_5dias(ciudad):
+def time5days(city):
     """
     Consulta en la API de Open Weather el pronóstico del time para los próximos cinco días.
-    :param ciudad: Localidad para que la hacemos la consulta.
+    :param city: Localidad para que la hacemos la consulta.
     :return: JSON con las mediciones del time (40)
     """
     url = "https://api.openweathermap.org/data/2.5/forecast"
-    params = {"q": ciudad, "appid": os.environ["OPEN_WEATHER_KEY"], "units": "metric", "lang": "es"}
+    params = {"q": city, "appid": os.environ["OPEN_WEATHER_KEY"], "units": "metric", "lang": "es"}
     response = requests.get(url, params=params)
     if response.status_code != 200:
-        print("Error al hacer la petición o", ciudad, "no existe:", response.status_code, file=sys.stderr)
+        print("Error al hacer la petición o", city, "no existe:", response.status_code, file=sys.stderr)
         exit(2)
     return response.json()
 
 
-def calculos_temperatura(dias, totales, datos):
+def temperature_calculations(days, totals, data):
     """
     Calcula las temperaturas media, máxima y mínima diarias, y la global.
-    :param dias: lista donde guardamos los datos diarios.
-    :param totales: diccionario donde guardamos los datos globales.
-    :param datos: JSON con los datos devueltos con la API de OpenWeathers
+    :param days: lista donde guardamos los datos diarios.
+    :param totals: diccionario donde guardamos los datos globales.
+    :param data: JSON con los datos devueltos con la API de OpenWeathers
     """
-    for medicion in datos["list"]:
+    for measurement in data["list"]:
         # fecha y temperatura de la medición
-        dia = medicion["dt_txt"][:10]
-        temp = float(medicion["main"]["temp"])
-        temp_min = float(medicion["main"]["temp_min"])
-        temp_max = float(medicion["main"]["temp_max"])
+        day = measurement["dt_txt"][:10]
+        temp = float(measurement["main"]["temp"])
+        temp_min = float(measurement["main"]["temp_min"])
+        temp_max = float(measurement["main"]["temp_max"])
 
         # si no tenemos datos de ese día creamos una nueva entrada en el diccionario
-        if not dias.get(dia):
-            dias[dia] = {"temp": [], "temp_min": [], "temp_max": []}
+        if not days.get(day):
+            days[day] = {"temp": [], "temp_min": [], "temp_max": []}
         # añadimos medición
-        dias[dia]["temp"].append(temp)
-        dias[dia]["temp_min"].append(temp_min)
-        dias[dia]["temp_max"].append(temp_max)
-        totales["temp"].append(temp)
-        totales["temp_min"].append(temp_min)
-        totales["temp_max"].append(temp_max)
+        days[day]["temp"].append(temp)
+        days[day]["temp_min"].append(temp_min)
+        days[day]["temp_max"].append(temp_max)
+        totals["temp"].append(temp)
+        totals["temp_min"].append(temp_min)
+        totals["temp_max"].append(temp_max)
 
 
-def fichero_html(ciudad, datos_mediciones):
+def html_file(city, json_data):
     """
     Abre para escritura el fichero donde guardaremos la salida html.
-    :param ciudad: Localidad de la que hacemos las mediciones.
-    :param datos_mediciones: JSON con las mediciones de OpenWeathers
+    :param city: Localidad de la que hacemos las mediciones.
+    :param json_data: JSON con las mediciones de OpenWeathers
     :return: manejador del fichero
     """
     # nombre fichero: {CIUDAD}_{FECHA-INICIO}_{FECHA_FIN}
     # ejemplo: "Cordoba_2020-02-27-12.00.00_2020-03-03-09.00.00.html"
-    fecha_inicio = datos_mediciones["list"][0]["dt_txt"]  # fecha primera medición
-    fecha_fin = datos_mediciones["list"][-1]["dt_txt"]  # fecha última medición
-    nombre_fichero = directorio + ciudad + "_" + fecha_inicio + "_" + fecha_fin + ".html"
+    start_date = json_data["list"][0]["dt_txt"]  # fecha primera medición
+    end_date = json_data["list"][-1]["dt_txt"]  # fecha última medición
+    filename = directory + city + "_" + start_date + "_" + end_date + ".html"
     # sustituimos en el nombre ":" por "." y " " por "-"
-    nombre_fichero = nombre_fichero.replace(":", ".").replace(" ", "-")
+    filename = filename.replace(":", ".").replace(" ", "-")
     # abrimos fichero para escritura
     try:
-        fichero = open(nombre_fichero, "wt")
+        file = open(filename, "wt")
     except IOError:
-        print("No se puede crear el fichero html:", nombre_fichero)
+        print("No se puede crear el fichero html:", filename)
         exit(3)
-    return fichero
+    return file
 
 
 # Funciones para mostrar las temperaturas
-def escribe_valores_dia(dia, temps, fichero):
+def write_values_day(day, measurements, file):
     """
     Escribirá la temperatura media, mínima y máxima del día que hemos pasado como parámetro y el número de
     mediciones.
-    :param fichero: manejador de fichero donde se escribe el html. None si la salida es por pantalla.
-    :param dia: día en el que se han tomado los valores de la temperatura.
-    :param temps: mediciones del día.
+    :param file: manejador de fichero donde se escribe el html. None si la salida es por pantalla.
+    :param day: día en el que se han tomado los valores de la temperatura.
+    :param measurements: mediciones del día.
     :param salida_html: si es verdadero la salido es en un fichero
     """
 
     # cálculos y formateo del día
-    dia = f"{dia[8:]}-{dia[5:7]}-{dia[0:4]}"  # formato dd-mm-aaaa
-    temp_med = sum(temps['temp']) / len(temps['temp'])
-    temp_min = min(temps['temp_min'])
-    temp_max = max(temps['temp_max'])
+    day = f"{day[8:]}-{day[5:7]}-{day[0:4]}"  # formato dd-mm-aaaa
+    temp_med = sum(measurements['temp']) / len(measurements['temp'])
+    temp_min = min(measurements['temp_min'])
+    temp_max = max(measurements['temp_max'])
 
     # muestro la información o en el fichero html o en pantalla
-    if fichero:
-        fichero.write(fila_html(dia, temp_med, temp_min, temp_max, len(temps['temp'])))
+    if file:
+        file.write(html_row(day, temp_med, temp_min, temp_max, len(measurements['temp'])))
     else:
-        print(f"Día {dia}:\t"
+        print(f"Día {day}:\t"
               f"Temperatura media: {temp_med:.2f}º, "
               f"mínima: {temp_min}º y máxima: {temp_max}º. "
-              f"Mediciones: {len(temps['temp'])}")
+              f"Mediciones: {len(measurements['temp'])}")
 
 
-def escribe_valores_totales(totales, fichero, mediciones):
+def write_totals_values(totals, file, num_measurements):
     """
     Escribirá la temperatura media, mínima y máxima global que hemos pasado como parámetro y el número de
     mediciones.
-    :param mediciones: número total de mediciones realizadas,
-    :param totales: diccionario con los datos globales de las mediciones
-    :param fichero: manejador de fichero donde se escribe el html. None si la salida es por pantalla.
+    :param num_measurements: número total de mediciones realizadas,
+    :param totals: diccionario con los datos globales de las mediciones
+    :param file: manejador de fichero donde se escribe el html. None si la salida es por pantalla.
     """
 
     # cálculos
-    temp_med = sum(totales['temp']) / len(totales['temp'])
-    temp_min = min(totales['temp_min'])
-    temp_max = max(totales['temp_max'])
-    if fichero:
-        fichero.write(fin_html(temp_med, temp_min, temp_max, mediciones))
-        fichero.close()
-        print("Generado fichero", fichero.name, "con los datos.")
+    temp_med = sum(totals['temp']) / len(totals['temp'])
+    temp_min = min(totals['temp_min'])
+    temp_max = max(totals['temp_max'])
+    if file:
+        file.write(html_end(temp_med, temp_min, temp_max, num_measurements))
+        file.close()
+        print("Generado fichero", file.name, "con los datos.")
     else:
         print(f"\nTOTALES:\t\tTemperatura media: {temp_med:.2f}º, "
               f"mínima: {temp_min}º y máxima: {temp_max}º")
 
 
 # Funciones para manejar el html
-def inicio_html(ciudad):
+def html_init(city):
     """
-    :param ciudad:
+    :param city:
     :return: inicio del html del resumen del pronóstico del time.
     """
     return f"""<!DOCTYPE html>
@@ -163,10 +163,10 @@ def inicio_html(ciudad):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lectura de temperaturas en {ciudad}</title>
+    <title>Lectura de temperaturas en {city}</title>
 </head>
 <body>
-    <center><p>Este programa nos muestra los resultados de las mediciones para los próximos 5 días en {ciudad}</p>
+    <center><p>Este programa nos muestra los resultados de las mediciones para los próximos 5 días en {city}</p>
         <table border="1">
             <tr>
                 <th>Día</th>
@@ -177,7 +177,7 @@ def inicio_html(ciudad):
             </tr>"""
 
 
-def fila_html(dia, temp_med, temp_min, temp_max, mediciones):
+def html_row(dia, temp_med, temp_min, temp_max, mediciones):
     return f"""
             <tr>
                 <td><center>{dia}</center></td>
@@ -188,7 +188,7 @@ def fila_html(dia, temp_med, temp_min, temp_max, mediciones):
             </tr>"""
 
 
-def fin_html(temp_med, temp_min, temp_max, mediciones):
+def html_end(temp_med, temp_min, temp_max, mediciones):
     return f"""
             <tr>
                 <th><center>TOTALES</center></th>
@@ -214,39 +214,39 @@ if len(sys.argv) == 1 or len(sys.argv) > 3:
 
 # Comprobamos si la salida es por pantalla o a un archivo html o hay que mostrar la ayuda
 if len(sys.argv) == 3:
-    salida_html = True
-    directorio = sys.argv[2]
-    if directorio[-1] != "/" and directorio[-1] != "\\":
+    exit_html = True
+    directory = sys.argv[2]
+    if directory[-1] != "/" and directory[-1] != "\\":
         print("El nombre del directorio tiene que terminar en / ó en \\", file=sys.stderr)
         exit(3)
 elif sys.argv[1] == "-h":
-    mostrar_ayuda()
+    show_help()
     exit(0)
 else:
-    salida_html = False
+    exit_html = False
 
-ciudad = sys.argv[1]    # localidad de la que vamos a hacer el pronóstico
+city = sys.argv[1]    # localidad de la que vamos a hacer el pronóstico
 
 # petición GET a OpenWeather
-datos_mediciones = tiempo_en_5dias(ciudad)
+measurements_data = time5days(city)
 
 # cálculos
-dias = dict()  # diccionario con clave el día y valor la lista de mediciones del día
-totales = {"temp": [], "temp_min": [], "temp_max": []}  # lista de mediciones de todos los días
-calculos_temperatura(dias, totales, datos_mediciones)
+days = dict()  # diccionario con clave el día y valor la lista de mediciones del día
+totals = {"temp": [], "temp_min": [], "temp_max": []}  # lista de mediciones de todos los días
+temperature_calculations(days, totals, measurements_data)
 
 # Resultados
 # crear fichero html si es necesario
-if salida_html:
-    fichero = fichero_html(ciudad, datos_mediciones)
-    fichero.write(inicio_html(ciudad))  # escribimos inicio html
+if exit_html:
+    file = html_file(city, measurements_data)
+    file.write(html_init(city))  # escribimos inicio html
 else:
-    fichero = None
+    file = None
 
 # procesamos cada medición
-for dia, temps in dias.items():
-    escribe_valores_dia(dia, temps, fichero)    # diario
+for day, temps in days.items():
+    write_values_day(day, temps, file)    # diario
 
 # global
-escribe_valores_totales(totales, fichero, len(datos_mediciones["list"]))
+write_totals_values(totals, file, len(measurements_data["list"]))
 
