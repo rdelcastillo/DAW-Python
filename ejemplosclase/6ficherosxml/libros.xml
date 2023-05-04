@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" ?>
 <library>
-    <book category="NOVELA">
-        <title>El gran Gatsby</title>
-        <author>F. Scott Fitzgerald</author>
-        <isbn>9788418395185</isbn>
-    </book>
-    <book category="NOVELA">
-        <title>Cien años de soledad</title>
-        <author>Gabriel García Márquez</author>
-        <isbn>9788497592208</isbn>
-    </book>
-    <book category="CIENCIA">
-        <title>La sonrisa del átomo</title>
-        <author>Jorge Bolívar</author>
-        <isbn>9788415828594</isbn>
-    </book>
-    <book category="HISTORIA">
-        <title>Historia de España contada para escépticos</title>
-        <author>Juan Eslava Galán</author>
-        <isbn>9788408149699</isbn>
-    </book>
+	<book category="NOVELA">
+		<title>El gran Gatsby</title>
+		<author>F. Scott Fitzgerald</author>
+		<isbn>9788418395185</isbn>
+	</book>
+	<book category="NOVELA">
+		<title>Cien años de soledad</title>
+		<author>Gabriel García Márquez</author>
+		<isbn>9788497592208</isbn>
+	</book>
+	<book category="CIENCIA">
+		<title>La sonrisa del átomo</title>
+		<author>Jorge Bolívar</author>
+		<isbn>9788415828594</isbn>
+	</book>
+	<book category="HISTORIA">
+		<title>Historia de España contada para escépticos</title>
+		<author>Juan Eslava Galán</author>
+		<isbn>9788408149699</isbn>
+	</book>
 </library>

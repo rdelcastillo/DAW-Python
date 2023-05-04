@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<victories>
+    <victory choice="Scissors" against="Paper">
+            Scissors cuts Paper
+    </victory>
+    <victory choice="Scissors" against="Lizard">
+            Scissors decapites Lizard
+    </victory>
+    <victory choice="Rock" against="Scissors">
+            Rock smashes Scissors
+    </victory>
+    <victory choice="Rock" against="Lizard">
+            Rock crushes Lizard
+    </victory>
+    <victory choice="Paper" against="Rock">
+            Paper covers Rock
+    </victory>
+    <victory choice="Paper" against="Spock">
+            Paper disproves Spock
+    </victory>
+    <victory choice="Lizard" against="Spock">
+            Lizard poisons Spock
+    </victory>
+    <victory choice="Lizard" against="Paper">
+            Lizard eats Paper
+    </victory>
+    <victory choice="Spock" against="Scissors">
+            Spock smashes Scissors
+    </victory>
+    <victory choice="Spock" against="Rock">
+            Spock vaporizes Rock
+    </victory>
+</victories>

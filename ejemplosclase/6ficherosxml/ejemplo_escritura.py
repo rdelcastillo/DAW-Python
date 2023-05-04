@@ -24,7 +24,7 @@ isbn = input("ISBN del libro: ")
 # Creamos el libro y lo ponemos en el árbol xml
 book = ET.Element('book', {'category':genre})
 ET.SubElement(book, 'title').text = title
-ET.SubElement(book, 'author').text = title
+ET.SubElement(book, 'author').text = author
 ET.SubElement(book, 'isbn').text = isbn
 root.append(book)
 
@@ -33,6 +33,8 @@ tree.write(XML_FILE, encoding='unicode')
 
 """
 La salida del archivo no es "bonita", está sin formatear, podríamos solucionarlo con estas instrucciones:
+
+from xml.dom import minidom
 
 xml_minidom = minidom.parseString(ET.tostring(root))
 xml_str = xml_minidom.toprettyxml()

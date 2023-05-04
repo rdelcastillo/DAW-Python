@@ -15,7 +15,8 @@ with open(XML_FILE) as xml_file:  # Otra forma de obtener el nodo raíz, leer to
 root = ET.fromstring(xml_str)
 
 for i in range(len(root)):  # los hijos están anidados, y podemos acceder a nodos hijos específicos por el índice
-    print(f"Libro de género: {root[i].attrib['category']}")
-    for j in range(len(root[i])):
-        print(f"- {root[i][j].tag}: {root[i][j].text}")
+    book = root[i]
+    print(f"Libro de género: {book.attrib['category']}")
+    for j in range(len(book)):
+        print(f"- {book[j].tag}: {book[j].text}")
     print()
