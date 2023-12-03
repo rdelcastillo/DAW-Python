@@ -43,9 +43,14 @@ def menu(*options):
         print("Opción incorrecta.")
 
 def input_data():
-    a = int(input("Valor de A: "))
-    b = int(input("Valor de B: "))
-    return a, b
+    while True:
+        try:
+            a = int(input("Valor de A: "))
+            b = int(input("Valor de B: "))
+            return a, b
+        except ValueError:
+            print("ERROR: Los valores de A y B deben ser enteros.")
+
 
 def print_addition(n1, n2):
     print(f"La suma de {n1} y {n2} es {n1 + n2}")

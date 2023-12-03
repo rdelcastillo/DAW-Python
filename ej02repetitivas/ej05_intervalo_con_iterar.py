@@ -28,8 +28,10 @@ while True:
     print("VUELVE a introducir los límites.\n")
 
 # Proceso
-num = int(input("\nIntroduce un número (0, para salir): "))
-while num != 0:
+while True:
+    num = int(input("\nIntroduce un número (0, para salir): "))
+    if num == 0:
+        break
     if lower_range < num < upper_range:  # Pertenece al intervalo (num>lim_inf and num<lim_sup en otro lenguaje)
         sum_in_range += num
     else:  # No pertenece al intervalo
@@ -37,7 +39,6 @@ while num != 0:
         # Número igual a alguno de los límites
         if num == lower_range or num == upper_range:
             there_are_numbers_at_the_limits = True
-    num = int(input("Introduce un número (0, para salir): "))
 
 # Resultados
 print("\nRESULTADOS:")

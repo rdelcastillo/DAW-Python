@@ -11,7 +11,7 @@ print("-----------------------------------")
 
 # Pedimos el número a calcular su factorial
 num = int(input(f"Dame un número para que calcule su factorial: "))
-if num < 0:
+if num< 0:
     print("No se puede calcular el factorial de un número negativo.", file=sys.stderr)
     exit(1)
 

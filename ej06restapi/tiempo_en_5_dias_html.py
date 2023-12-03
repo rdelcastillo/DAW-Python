@@ -69,7 +69,7 @@ def temperature_calculations(days, totals, data):
         temp_max = float(measurement["main"]["temp_max"])
 
         # si no tenemos datos de ese día creamos una nueva entrada en el diccionario
-        if not days.get(day):
+        if not days.get_book(day):
             days[day] = {"temp": [], "temp_min": [], "temp_max": []}
         # añadimos medición
         days[day]["temp"].append(temp)

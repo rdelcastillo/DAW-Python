@@ -2,7 +2,6 @@
 Probamos el módulo 'estadística'.
 """
 import random
-
 import estadistica as st
 
 # Generamos una lista de números aleatorios

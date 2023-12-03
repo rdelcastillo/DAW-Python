@@ -2,7 +2,6 @@
 Funciones estadísticas.
 """
 
-
 def mean(numbers):
     addition = 0
     for n in numbers:

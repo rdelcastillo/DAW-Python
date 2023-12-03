@@ -4,15 +4,10 @@ Modificación del programa anterior con mejoras.
 import sys
 
 COST_FARE3 = 70
-
 STAGE3 = 10
-
 COST_FARE2 = 80
-
 STAGE2 = 8
-
 STAGE1 = 5
-
 COST_FARE1 = 100
 
 # Pedimos datos

@@ -49,27 +49,27 @@ FINAL_NUMBER = 100
 MAXIMUM_TRIES = 10
 
 # Inicializamos
-numero_a_adivinar = random.randint(STARTING_NUMBER, FINAL_NUMBER)
-intentos_que_quedan = MAXIMUM_TRIES
+number_to_guess = random.randint(STARTING_NUMBER, FINAL_NUMBER)
+remaining_tries = MAXIMUM_TRIES
 
 # Proceso
 while True:  # implementación ciclo postcondición REPETIR
-    numero_introducido = int(input(f"Te quedan {intentos_que_quedan} intentos. "
-                                   f"Introduce un número entre {STARTING_NUMBER} y {FINAL_NUMBER}: "))
-    intentos_que_quedan -= 1  # hemos consumido un intento
+    input_number = int(input(f"Te quedan {remaining_tries} intentos. "
+                             f"Introduce un número entre {STARTING_NUMBER} y {FINAL_NUMBER}: "))
+    remaining_tries -= 1  # hemos consumido un intento
 
     # pista (si no acierta) para que le sea más fácil adivinar
-    if numero_introducido < numero_a_adivinar:
-        print(f"{numero_introducido} es menor que el número a adivinar.")
-    elif numero_introducido > numero_a_adivinar:
-        print(f"{numero_introducido} es mayor que el número a adivinar.")
+    if input_number < number_to_guess:
+        print(f"{input_number} es menor que el número a adivinar.")
+    elif input_number > number_to_guess:
+        print(f"{input_number} es mayor que el número a adivinar.")
 
     # salida ciclo
-    if numero_introducido == numero_a_adivinar or intentos_que_quedan == 0:  # acabo si adivino o supero los intentos
+    if input_number == number_to_guess or remaining_tries == 0:  # acabo si adivino o supero los intentos
         break
 
 # Mostramos si acertó o no
-if numero_introducido == numero_a_adivinar:  # ha adivinado
-    print(f"Has adivinado el número en {MAXIMUM_TRIES - intentos_que_quedan} intentos")
+if input_number == number_to_guess:  # ha adivinado
+    print(f"Has adivinado el número en {MAXIMUM_TRIES - remaining_tries} intentos")
 else:
-    print(f"Has agotado el número máximo de intentos. El número a adivinar era {numero_a_adivinar}")
+    print(f"Has agotado el número máximo de intentos. El número a adivinar era {number_to_guess}")

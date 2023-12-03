@@ -19,7 +19,7 @@ SEP = " "
 
 def morse(n):
     if not isinstance(n, int | float):  # si no es un número lanzamos una excepción
-        raise ValueError(f"{n} no es un número.")
+        raise TypeError(f"{n} no es un número.")
 
     n_in_morse = "" if n >= 0 else MINUS + SEP  # empieza con signo - si es un número negativo
     n_to_convert = abs(n)
@@ -37,5 +37,3 @@ def morse(n):
 
     n_in_morse = n_in_morse[:-1]  # quitamos el separador final
     return n_in_morse
-
-

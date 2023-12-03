@@ -31,11 +31,11 @@ print("------------------------")
 # Datos de entrada
 value = float(input("Nota: "))
 age = float(input("Edad: "))
-sex = input("Nota: ")
+sex = input("Nota: ").upper()
 
 # Salida
 if value >= 5 and age >= 18:
-    if sex.upper() == "F":
+    if sex == "F":
         print("ACEPTADA")
     else:  # asumimos que no hay errores en la entrada, siempre es 'F' o 'M'
         print("POSIBLE")
