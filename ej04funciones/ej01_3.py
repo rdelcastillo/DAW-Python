@@ -9,15 +9,16 @@ Fecha: 7/12/2022.
 
 def main():
     a, b = 0, 0
-    data_has_been_entered = False
+    data_has_been_introduced = False
+
     while True:
         option = input_option()
         if option == 1:
             a, b = input_data()
-            data_has_been_entered = True
+            data_has_been_introduced = True
         elif option == 6:
             break
-        elif not data_has_been_entered:
+        elif not data_has_been_introduced:
             print("ERROR. Lo primero que debe hacer es introducir A y B.")
         elif option == 2:
             print_addition(a, b)
@@ -29,6 +30,7 @@ def main():
             print_division(a, b)
         else:
             print("Opción incorrecta.")
+
     print("¡Adiós! :-)")
 
 def input_option():

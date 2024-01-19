@@ -10,12 +10,15 @@ Fecha: 7/12/2022.
 def main():
     a, b = 0, 0
     data_has_been_entered = False
+
     while True:
         option = menu("Introducción de A y B", "Sumar A y B", "Restar A y B", "Multiplicar A y B", "Dividir A y B",
                       "Terminar")
         if option == 1:
             a, b = input_data()
             data_has_been_entered = True
+        elif option == 6:
+            break
         elif not data_has_been_entered:
             print("ERROR. Lo primero que debe hacer es introducir A y B.")
         elif option == 2:
@@ -26,8 +29,9 @@ def main():
             print_multiplication(a, b)
         elif option == 5:
             print_division(a, b)
-        else:   # solo puede ser la 6, la función menu() impide opciones incorrectas
-            break
+        else:   # la función menu() impide opciones incorrectas
+            print("Esta línea nunca se va ejecutar")
+
     print("¡Adiós! :-)")
 
 def menu(*options):

@@ -43,10 +43,10 @@ class Bucket:
         self.__content = value
 
     def empty(self):
-        self.content = 0
+        self.__content = 0
 
     def fill(self):
-        self.content = self.capacity
+        self.__content = self.capacity
 
     def dump_in(self, destination):
         """
@@ -54,12 +54,12 @@ class Bucket:
         """
         if not isinstance(destination, Bucket):
             raise TypeError(f"Un cubo solo se puede volcar en otro cubo, recibido {destination}")
-        free_capacity_at_destination = destination.capacity - destination.content
-        if self.content <= free_capacity_at_destination:
-            destination.content += self.content
+        free_capacity_at_destination = destination.__capacity - destination.__content
+        if self.__content <= free_capacity_at_destination:
+            destination.__content += self.__content
             self.empty()
         else:
-            self.content -= free_capacity_at_destination
+            self.__content -= free_capacity_at_destination
             destination.fill()
 
     def __str__(self):

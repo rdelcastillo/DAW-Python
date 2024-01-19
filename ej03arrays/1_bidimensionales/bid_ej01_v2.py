@@ -11,7 +11,7 @@ En esta versión mejoramos los siguientes aspectos:
 
 - El ancho de visualización de cada número lo calculamos automáticamente (no es 3 como antes).
 - A la hora de imprimir las casillas y calcular el sumatorio de las filas, contemplamos que un array bidimensional es
-  un array de arrays de una dimensión.
+  un array de arrays de una dimensión y usamos la función sum().
 
 @author Rafael del Castillo
 """
@@ -32,11 +32,9 @@ width_number = len(str(sum_total))  # ancho de visualización del número
 
 # Imprimir filas y sumatorio de cada fila
 for vector in array:  # array tiene en cada fila un vector de enteros
-    sum_row = 0
     for n in vector:
-        sum_row += n
         print(f"{n:{width_number}d} ", end="")
-    print(f"| {sum_row:{width_number}d}")
+    print(f"| {sum(vector):{width_number}d}")
 
 # Imprimir sumatorio de las columnas y sumatorio total
 print("-" * ((width_number+1)*(COLUMNS+1) + 1))  # separador

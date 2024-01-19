@@ -13,6 +13,7 @@ Fecha: 6/12/2022.
 def main():
     a = int(input("Valor de A: "))
     b = int(input("Valor de B: "))
+
     while True:
         option = input_option()
         if option == 1:
@@ -27,6 +28,7 @@ def main():
             break
         else:
             print("Opción incorrecta.")
+
     print("Adiós! :-)")
 
 def input_option():

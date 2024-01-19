@@ -9,6 +9,7 @@ Fecha: 7/12/2022.
 
 def main():
     a, b = 0, 0
+
     while True:
         option = input_option()
         if option == 1:
@@ -25,6 +26,7 @@ def main():
             break
         else:
             print("Opción incorrecta.")
+
     print("¡Adiós! :-)")
 
 def input_option():

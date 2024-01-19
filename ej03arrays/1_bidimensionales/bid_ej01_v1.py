@@ -7,6 +7,7 @@ Ejercicio del libro "Aprende Java con Ejercicios edición 2018" (https://leanpub
 
 @author Rafael del Castillo
 """
+import random
 
 ROWS = 4
 COLUMNS = 5
@@ -15,7 +16,8 @@ array = [[0] * COLUMNS for _ in range(ROWS)]  # inicializamos array (lista) a 0
 # Petición de datos
 for row in range(ROWS):
     for column in range(COLUMNS):
-        array[row][column] = int(input(f"Dame el valor del array de la posición {row},{column}: "))
+        #array[row][column] = int(input(f"Dame el valor del array de la posición {row},{column}: "))
+        array[row][column] = random.randint(1,100)  # a efectos de las pruebas
 
 # Imprimir filas y sumatorio de cada fila
 for row in range(ROWS):

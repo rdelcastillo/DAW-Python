@@ -9,22 +9,24 @@ Fecha: 7/12/2022.
 
 def main():
     a, b = 0, 0
-    data_has_been_entered = False
+    data_has_been_introduced = False
+
     while True:
         option = input_option()
-        if not data_has_been_entered and option != 1 and option != 6:
+        if not data_has_been_introduced and option != 1 and option != 6:
             print("ERROR. Lo primero que debe hacer es introducir A y B.")
             continue  # vuelve al principio del ciclo
         match option:
             case 1:
                 a, b = input_data()
-                data_has_been_entered = True
+                data_has_been_introduced = True
             case 2: print_addition(a, b)
             case 3: print_subtraction(a, b)
             case 4: print_multiplication(a, b)
             case 5: print_division(a, b)
             case 6: break
             case _: print("Opción incorrecta.")
+
     print("¡Adiós! :-)")
 
 def input_option():
