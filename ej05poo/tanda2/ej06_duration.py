@@ -16,6 +16,7 @@ los objetos de esta clase sobrecargando los métodos correspondientes.
 
 Autor: Rafael del Castillo Gomariz
 """
+from __future__ import annotations
 from typeguard import typechecked
 
 @typechecked
@@ -45,7 +46,7 @@ class Duration:
         self.__seconds = seconds % 3600 % 60
 
     def __total_seconds(self):
-        return self.hours * 3600 + self.minutes * 60 + self.seconds
+        return self.__hours * 3600 + self.__minutes * 60 + self.__seconds
 
     @property
     def hours(self):
@@ -53,8 +54,8 @@ class Duration:
 
     @hours.setter
     def hours(self, value: int):
-        new_duration = Duration(value, self.minutes, self.seconds)
-        self.__hours, self.__minutes, self.__seconds = new_duration.hours, new_duration.minutes, new_duration.seconds
+        aux = Duration(value, self.__minutes, self.__seconds)
+        self.__hours, self.__minutes, self.__seconds = aux.__hours, aux.__minutes, aux.__seconds
 
     @property
     def minutes(self):
@@ -62,8 +63,8 @@ class Duration:
 
     @minutes.setter
     def minutes(self, value: int):
-        new_duration = Duration(self.hours, value, self.seconds)
-        self.__hours, self.__minutes, self.__seconds = new_duration.hours, new_duration.minutes, new_duration.seconds
+        aux = Duration(self.__hours, value, self.__seconds)
+        self.__hours, self.__minutes, self.__seconds = aux.__hours, aux.__minutes, aux.__seconds
 
     @property
     def seconds(self):
@@ -71,8 +72,8 @@ class Duration:
 
     @seconds.setter
     def seconds(self, value: int):
-        new_duration = Duration(self.hours, self.minutes, value)
-        self.__hours, self.__minutes, self.__seconds = new_duration.hours, new_duration.minutes, new_duration.seconds
+        aux = Duration(self.hours, self.minutes, value)
+        self.__hours, self.__minutes, self.__seconds = aux.__hours, aux.__minutes, aux.__seconds
 
     def add_seconds(self, seconds: int):
         self.seconds += seconds
@@ -93,33 +94,35 @@ class Duration:
         self.hours -= hours
 
     def __str__(self):
-        return f"{self.hours}h {self.minutes}m {self.seconds}s"
+        return f"{self.__hours}h {self.__minutes}m {self.__seconds}s"
 
     def __repr__(self):
-        return f"{self.__class__.__name__}({self.hours}, {self.minutes}, {self.seconds})"
+        return f"{self.__class__.__name__}({self.__hours}, {self.__minutes}, {self.__seconds})"
 
     # Sobrecarga de operadores
 
-    def __add__(self, other: 'Duration'):
-        return Duration(self.hours + other.hours, self.minutes + other.minutes, self.seconds + other.seconds)
+    def __add__(self, other: Duration):
+        return Duration(self.__hours + other.__hours, self.__minutes + other.__minutes, 
+                        self.__seconds + other.__seconds)
 
-    def __sub__(self, other: 'Duration'):
-        return Duration(self.hours - other.hours, self.minutes - other.minutes, self.seconds - other.seconds)
+    def __sub__(self, other: Duration):
+        return Duration(self.__hours - other.__hours, self.__minutes - other.__minutes, 
+                        self.__seconds - other.__seconds)
 
-    def __eq__(self, other: 'Duration'):
-        return (self.hours, self.minutes, self.seconds) == (other.hours, other.minutes, other.seconds)
+    def __eq__(self, other: Duration):
+        return (self.__hours, self.__minutes, self.__seconds) == (other.__hours, other.__minutes, other.__seconds)
 
-    def __ne__(self, other: 'Duration'):
+    def __ne__(self, other: Duration):
         return not self == other
 
-    def __lt__(self, other: 'Duration'):
+    def __lt__(self, other: Duration):
         return self.__total_seconds() < other.__total_seconds()
 
-    def __le__(self, other: 'Duration'):
+    def __le__(self, other: Duration):
         return self.__total_seconds() <= other.__total_seconds()
 
-    def __gt__(self, other: 'Duration'):
+    def __gt__(self, other: Duration):
         return not self <= other
 
-    def __ge__(self, other: 'Duration'):
+    def __ge__(self, other: Duration):
         return not self < other

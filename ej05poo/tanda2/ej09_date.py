@@ -16,7 +16,7 @@ Tendremos métodos para:
 
 Autor: Rafael del Castillo Gomariz.
 """
-from typing import Optional
+from __future__ import annotations
 from typeguard import typechecked
 
 
@@ -105,14 +105,14 @@ class Date:
                 year += 1
         return Date(day, month, year)
 
-    def __sub__(self, value: (int, 'Date')):
+    def __sub__(self, value: (int, Date)):
         if isinstance(value, Date):
             return self.__subtract_date(value)
         if value < 0:
             return self + abs(value)
         return self.__subtract_days(value)
 
-    def __subtract_date(self, other: 'Date'):
+    def __subtract_date(self, other: Date):
         """
         TODO: Así puede tardar mucho si hay muchos días entre las dos fechas, una alternativa es usar este algoritmo:
         https://acortar.link/OnVf5E
@@ -148,19 +148,19 @@ class Date:
     def __radd__(self, n: int):
         return self + n
 
-    def __eq__(self, other: 'Date'):
+    def __eq__(self, other: Date):
         return (self.__day, self.__month, self.__year) == (other.__day, other.__month, other.__year)
 
-    def __ne__(self, other: 'Date'):
+    def __ne__(self, other: Date):
         return not self == other
 
-    def __gt__(self, other: 'Date'):
+    def __gt__(self, other: Date):
         return self.to_iso_format() > other.to_iso_format()
 
-    def __ge__(self, other: 'Date'):
+    def __ge__(self, other: Date):
         return self > other or self == other
 
-    def __lt__(self, other: 'Date'):
+    def __lt__(self, other: Date):
         return not self >= other
 
     def __le__(self, other):

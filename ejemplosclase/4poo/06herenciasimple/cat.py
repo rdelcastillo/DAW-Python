@@ -9,50 +9,50 @@ https://github.com/LuisJoseSanchez/aprende-java-con-ejercicios
 Adaptado a Python por Rafael del Castillo Gomariz.
 """
 import datetime
+from typing import Union
+
 from animal import Animal, Sex
 from typeguard import typechecked
 
 @typechecked
 class Cat(Animal):
 
-    def __init__(self, name: str, sex: Sex = Sex.HEMBRA, species: str = '', birth_day=datetime.date.today()):
+    def __init__(self, name: str, sex: Sex = Sex.HEMBRA, species: str = '', birthday=datetime.date.today()):
         super().__init__(name, sex)
         self.species = species
-        self.birth_day = birth_day
+        self.birthday = birthday
 
     @property
     def species(self):
         return self.__species
 
     @species.setter
-    def species(self, value):
-        self.__species = value
+    def species(self, value: str):
+        self.__species = value.upper()
 
     @property
-    def birth_day(self):
+    def birthday(self):
         return self.__birthday
 
-    @birth_day.setter
-    def birth_day(self, value):  # admitimos tanto una fecha como una cadena formateada como tal
+    @birthday.setter
+    def birthday(self, value: Union[datetime.date, str]):  # admitimos tanto una fecha como una cadena formateada
         if isinstance(value, datetime.date):
             self.__birthday = value
-        elif isinstance(value, str):  # cadena formateada como fecha que convertimos a datetime.date
+        else:  # cadena (sí o sí) formateada como fecha que convertimos a datetime.date
             self.__birthday = datetime.datetime.strptime(value, "%d/%m/%Y").date()
-        else:
-            raise TypeError(f"{value} no es un objeto de clase datetime.date")
 
     @property
     def age(self):
-        age_cat = datetime.date.today().year - self.birth_day.year
+        age_cat = datetime.date.today().year - self.birthday.year
         if not self.__has_a_birthday_this_year():
             age_cat -= 1
         return age_cat
 
-    def __has_a_birthday_this_year(self):
+    def __has_a_birthday_this_year(self):  # método privado
         today = datetime.date.today()
-        if today.month > self.birth_day.month:
+        if today.month > self.birthday.month:
             return True
-        if today.month == self.birth_day.month and today.day >= self.birth_day.day:
+        if today.month == self.birthday.month and today.day >= self.birthday.day:
             return True
         return False
 

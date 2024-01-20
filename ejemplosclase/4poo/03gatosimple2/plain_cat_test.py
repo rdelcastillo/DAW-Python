@@ -20,7 +20,7 @@ print("Toma pescado, a ver si esto te gusta.")
 garfield.eat("pescado")
 
 tom = PlainCat("Tom", "macho", "romano")
-tom.set_birth_day(datetime.date(2018, 11, 2))
+tom.set_birthday(datetime.date(2018, 11, 2))
 print(f"{tom.get_name()}, toma sopita de verduras.")
 tom.eat("sopa de verduras")
 

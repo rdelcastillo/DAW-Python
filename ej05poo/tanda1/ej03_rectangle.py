@@ -32,11 +32,11 @@ class Rectangle:
 
     @property
     def area(self):
-        return abs((self.p1.x - self.p2.x) * (self.p1.y - self.p2.y))
+        return abs((self.__p1.x - self.__p2.x) * (self.__p1.y - self.__p2.y))
 
     @property
     def perimeter(self):
-        return 2 * abs(self.p1.x - self.p2.x) + 2 * abs(self.p1.y - self.p2.y)
+        return 2 * abs(self.__p1.x - self.__p2.x) + 2 * abs(self.__p1.y - self.__p2.y)
 
     def __repr__(self):
-        return f"{self.__class__.__name__}({self.p1}, {self.p2})"
+        return f"{self.__class__.__name__}({self.__p1}, {self.__p2})"

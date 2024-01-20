@@ -26,11 +26,11 @@ class Rectangle:
 
     @property
     def area(self):
-        return self.width * self. height
+        return self.__width * self. __height
 
     @property
     def perimeter(self):
-        return 2 * (self.width + self.height)
+        return 2 * (self.__width + self.__height)
 
     def __repr__(self):
         return f"{self.__class__.__name__}({self.width}, {self.height})"

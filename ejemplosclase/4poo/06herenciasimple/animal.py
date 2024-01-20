@@ -18,7 +18,7 @@ from abc import ABC, abstractmethod
 
 Sex = Enum('Sex', 'MACHO HEMBRA')  # tipo enumerado, así el atributo sexo solo podrá tener los valores MACHO o HEMBRA
 
-@typechecked
+@typechecked  # con esta anotación Python chequeará (si se indican) los tipos de las funciones y sus parámetros
 class Animal(ABC):
 
     def __init__(self, name: str, sex: Sex = Sex.MACHO):

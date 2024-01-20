@@ -15,7 +15,7 @@ import datetime
 
 class PlainCat:
 
-    def __init__(self, name, sex, species='', birth_day=datetime.date.today()):
+    def __init__(self, name, sex, species='', birthday=datetime.date.today()):
         """
         Constructor de 'Gato Simple', necesita un nombre y un sexo, que no podrán ser modificados una vez creado el
         objeto. Además, se puede especificar una raza y fecha de nacimiento que sí podrán ser modificadas.
@@ -25,7 +25,7 @@ class PlainCat:
         self.__name = name
         self.__sex = sex
         self.species = species  # invocamos al setter a través de la propiedad
-        self.birth_day = birth_day
+        self.birthday = birthday
 
     @property
     def name(self):
@@ -44,11 +44,11 @@ class PlainCat:
         self.__species = value.upper()
 
     @property
-    def birth_day(self):
+    def birthday(self):
         return self.__birthday
 
-    @birth_day.setter
-    def birth_day(self, value):  # admitimos tanto una fecha como una cadena formateada como tal
+    @birthday.setter
+    def birthday(self, value):  # admitimos tanto una fecha como una cadena formateada como tal
         if isinstance(value, datetime.date):
             self.__birthday = value
         elif isinstance(value, str):  # cadena formateada como fecha que convertimos a datetime.date
@@ -58,16 +58,16 @@ class PlainCat:
 
     @property
     def age(self):
-        age_cat = datetime.date.today().year - self.birth_day.year
+        age_cat = datetime.date.today().year - self.birthday.year
         if not self.__has_a_birthday_this_year():
             age_cat -= 1
         return age_cat
 
     def __has_a_birthday_this_year(self):
         today = datetime.date.today()
-        if today.month > self.birth_day.month:
+        if today.month > self.birthday.month:
             return True
-        if today.month == self.birth_day.month and today.day >= self.birth_day.day:
+        if today.month == self.birthday.month and today.day >= self.birthday.day:
             return True
         return False
 
