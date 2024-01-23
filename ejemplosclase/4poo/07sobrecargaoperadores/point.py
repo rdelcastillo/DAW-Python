@@ -14,7 +14,7 @@ cambios que se introducirán en versiones posteriores.
 
 Autor: Rafael del Castillo Gomariz.
 """
-from __future__ import annotations
+from __future__ import annotations  # necesario para poder hacer anotaciones de tipo Point en parámetros de métodos
 from typeguard import typechecked
 
 @typechecked
