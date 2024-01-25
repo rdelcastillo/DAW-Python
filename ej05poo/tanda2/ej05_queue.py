@@ -19,14 +19,19 @@ from typeguard import typechecked
 class Queue:
 
     def __init__(self, *values):
-        if len(values) == 1 and isinstance(values[0], Queue):
-            other = values[0]
-            self.__values = list(other.__values)
+        if len(values) == 1 and isinstance(values[0], Queue):  # si hay que crear la cola a partir de otra
+            self.__values = values[0].__values.copy()  # si no es una copia desde la nueva cola podríamos cambiar la 1ª
         else:
+            for n in values:  # chequeamos que todos los valores de la cola son enteros
+                if not isinstance(n, int):
+                    raise TypeError("Todos los elementos de la cola deben ser enteros.")
             self.__values = list(values)
 
     def __repr__(self):
         return f"{self.__class__.__name__}(values={self.__values})"
+
+    def __str__(self):
+        return str(self.__values)
 
     @property
     def size(self):

@@ -8,9 +8,9 @@ https://github.com/LuisJoseSanchez/aprende-java-con-ejercicios
 
 Adaptado a Python por Rafael del Castillo Gomariz.
 """
+from __future__ import annotations  # para poder anotar el tipo Cat dentro de la clase sin que de error
 import datetime
 from typing import Union
-
 from animal import Animal, Sex
 from typeguard import typechecked
 
@@ -72,7 +72,7 @@ class Cat(Animal):
     def purr(self):
         print(f"({self.name}) Mrrrrrr!!!")
 
-    def fight_with(self, opponent):
+    def fight_with(self, opponent: Cat):
         """
         Pone a pelear dos gatos. Solo se van a pelear dos machos entre sí.
         """
@@ -85,4 +85,5 @@ class Cat(Animal):
             print(f"Ven aquí {opponent.name}, que te vas a enterar :-@")
 
     def __str__(self):  # redefinimos este método basándonos en la clase base
-        return super().__str__() + "Raza: " + self.species + "\n"
+        return (super().__str__() +
+                f"Raza: {self.__species} Nacimiento: {self.__birthday.strftime('%d/%m/%Y')}\n")

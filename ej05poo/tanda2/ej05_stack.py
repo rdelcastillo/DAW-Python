@@ -13,22 +13,29 @@ Permitirá estas operaciones:
 
 Autor: Rafael del Castillo Gomariz
 """
+from __future__ import annotations
 from typeguard import typechecked
 
 @typechecked
 class Stack:
 
-    def __init__(self, *values):
+    def __init__(self, *values: int):
         self.__values = list(values)
 
     @classmethod
-    def from_stack(cls, other: 'Stack'):
-        new_stack = cls()
-        new_stack.__values = list(other.__values)
+    def from_stack(cls, other: Stack):
+        new_stack = cls()  # o Stack()
+        new_stack.__values = other.__values.copy()  # si no es una copia desde la nueva pila podríamos cambiar la 1ª
         return new_stack
 
     def __repr__(self):
         return f"{self.__class__.__name__}(values={self.__values})"
+
+    def __str__(self):
+        str_ = ""
+        for n in self.__values:
+            str_ += f"{n}\n"
+        return str_
 
     @property
     def size(self):
