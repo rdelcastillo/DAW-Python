@@ -25,7 +25,7 @@ class Duration:
     def __init__(self, hours, minutes=None, seconds=None):
         if isinstance(hours, Duration) and (minutes, seconds) == (None, None):  # solo tiene que llegar un parámetro
             other = hours
-            self.__hours, self.__minutes, self.__seconds = other.hours, other.minutes, other.seconds
+            self.__hours, self.__minutes, self.__seconds = other.__hours, other.__minutes, other.__seconds
         elif isinstance(hours, int) and isinstance(minutes, int) and isinstance(seconds, int):
             self.__hours, self.__minutes, self.__seconds = hours, minutes, seconds
             self.__normalize()

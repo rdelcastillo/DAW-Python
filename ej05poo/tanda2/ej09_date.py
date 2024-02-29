@@ -23,6 +23,9 @@ from typeguard import typechecked
 @typechecked
 class Date:
 
+    __MONTH_NAMES = ("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
+                     "Octubre", "Noviembre", "Diciembre")
+
     def __init__(self, day, month = None, year = None):
         if isinstance(day, Date) and month is None and year is None:
             date = day
@@ -56,9 +59,7 @@ class Date:
 
     @property
     def month_name(self):
-        month_names = ("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
-                       "Octubre", "Noviembre", "Diciembre")
-        return month_names[self.__month - 1]
+        return self.__MONTH_NAMES[self.__month - 1]
 
     @property
     def year(self):
@@ -74,7 +75,7 @@ class Date:
         return f"{self.__day} de {self.month_name} de {self.__year}"
 
     def to_iso_format(self):
-        return f"{self.__year:04d}-{self.__month:04d}-{self.__day:04d}"
+        return f"{self.__year:04d}-{self.__month:02d}-{self.__day:02d}"
 
     def is_leap(self):
         return self.__is_leap(self.year)
@@ -90,47 +91,51 @@ class Date:
     def __add__(self, value: int):
         if value < 0:
             return self - abs(value)
-        new_date = Date(self)
+        new_date = Date(self)  # podríamos haber puesto self.__class__(self)
         for _ in range(value):
             new_date = new_date.__add_day()
         return new_date
 
     def __add_day(self):
         day, month, year = self.__day + 1, self.__month, self.__year
-        if day > Date.__month_days(month, year):  # mes siguiente
+        if day > Date.__month_days(month, year):  # hay que ir al mes siguiente (podría usar self.__month_days())
             day = 1
             month += 1
-            if month > 12:  # nos pasamos de diciembre, año siguiente
+            if month > 12:  # nos pasamos de diciembre, hay que ir al año siguiente
                 month = 1
                 year += 1
-        return Date(day, month, year)
+        return Date(day, month, year)  # podría usar self.__class__()
 
     def __sub__(self, value: (int, Date)):
         if isinstance(value, Date):
-            return self.__subtract_date(value)
+            return self.__subtract_date(value)  # devolvemos el número de días comprendidos entre ambas fechas
+        # Lo que nos ha llegado es un entero, devolvemos una fecha
         if value < 0:
             return self + abs(value)
         return self.__subtract_days(value)
 
     def __subtract_date(self, other: Date):
         """
+        Devuelve el número comprendidos entre ambas fechas, será negativo si la fecha actual es anterior a
+        la fecha que nos llega como parámetro.
+
         TODO: Así puede tardar mucho si hay muchos días entre las dos fechas, una alternativa es usar este algoritmo:
         https://acortar.link/OnVf5E
         """
-        if self < other:
+        if self < other:    # buscamos la fecha menor y se la asignamos a date1
             date1, date2 = self, other
             sign = -1
         else:
             date1, date2 = other, self
             sign = 1
-        days = 0
+        days = 0    # contamos el número de días comprendidos entre ambas fechas
         while date1 < date2:
             date1 += 1
             days += 1
         return sign * days
 
     def __subtract_days(self, n: int):
-        new_date = Date(self)
+        new_date = Date(self)    # podría usar self.__class__()
         for _ in range(n):
             new_date = new_date.__subtract_day()
         return new_date
@@ -142,7 +147,7 @@ class Date:
             if month == 0:  # nos vamos al año anterior
                 month = 12
                 year -= 1
-            day = Date.__month_days(month, year)
+            day = Date.__month_days(month, year)  # podría usar self.__class__()
         return Date(day, month, year)
 
     def __radd__(self, n: int):

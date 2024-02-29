@@ -24,6 +24,7 @@ class Stack:
 
     @classmethod
     def from_stack(cls, other: Stack):
+        # return Stack(*other.__values)  # alternativa
         new_stack = cls()  # o Stack()
         new_stack.__values = other.__values.copy()  # si no es una copia desde la nueva pila podríamos cambiar la 1ª
         return new_stack
@@ -59,13 +60,13 @@ class Stack:
 if __name__ == '__main__':
     stack1 = Stack(1,2,3,4,5)
     stack2 = Stack.from_stack(stack1)
-    print(f"Creadas {stack1} y {stack2}")
+    print(f"Creadas las pilas:\n\n{stack1}\ny\n\n{stack2}")
 
-    print(f"Añado A y B a {stack1}")
+    print(f"Añado A y B a la pila\n{stack1}")
     stack1.push('A')
     stack1.push('B')
-    print("Resultado:", stack1)
+    print("Resultado:\n", stack1)
 
-    print(f"Quito dos elementos de {stack2}")
+    print(f"Quito dos elementos de\n{stack2}")
     print(f"Quito {stack2.pop()}, {stack2.pop()}")
-    print("Resultado:", stack2)
+    print("Resultado:\n", stack2)
