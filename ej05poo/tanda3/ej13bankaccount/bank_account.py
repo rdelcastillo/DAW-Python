@@ -10,6 +10,7 @@ No se permite el saldo negativo.
 
 Autor: Rafael del Castillo Gomariz.
 """
+from __future__ import annotations
 import random
 from typeguard import typechecked
 
@@ -47,19 +48,27 @@ class BankAccount:
         self.__balance += money
 
     def withdraw(self, money: float):
+        self.__check_withdraw(money)
+        self.__balance -= money
+
+    def __check_withdraw(self, money):
         if money < 0:
             raise ValueError("Un cargo en cuenta no puede ser negativo")
         if self.__balance - money < 0:
             raise ValueError("El cargo no se puede hacer porque la cuenta quedaría con saldo negativo")
-        self.__balance -= money
 
-    def transfer(self, other: 'BankAccount', money: float):
+    def transfer(self, other: BankAccount, money: float):
+        self.__check_transfer(money, other)
+        self.__balance -= money
+        other.__balance += money
+
+    def __check_transfer(self, money, other):
+        if self.__number == other.__number:
+            raise ValueError("No se puede hacer transferencia entre la misma cuenta")
         if money < 0:
             raise ValueError("Una transferencia no puede ser negativa")
         if self.__balance - money < 0:
             raise ValueError("No hay saldo suficiente para hacer la transferencia")
-        self.__balance -= money
-        other.__balance += money
 
     def __str__(self):
         return f"Número de cuenta {self.__number:010d} Saldo: {self.__balance:.2f} €"

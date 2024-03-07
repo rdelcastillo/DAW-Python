@@ -9,6 +9,7 @@ longitud es de nueve dígitos) y no puede haber dos terminales con el mismo núm
 
 Autor: Rafael del Castillo Gomariz
 """
+from __future__ import annotations
 from typeguard import typechecked
 
 PHONE_NUMBER_LEN = 9
@@ -34,7 +35,7 @@ class Terminal:
     def talk_time(self):
         return self.__talk_time
 
-    def call(self, other: 'Terminal', seconds: int):
+    def call(self, other: Terminal, seconds: int):
         if seconds < 0:
             raise ValueError("El tiempo de conversación no puede ser negativo")
         if other.number == self.number:

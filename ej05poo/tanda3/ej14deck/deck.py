@@ -11,28 +11,29 @@ Autor: Rafael del Castillo.
 import random
 from typing import List
 from typeguard import typechecked
-from ej05poo.tanda3.ej14deck.card import Card
+from card import Card
 
 
 @typechecked
 class Deck:
 
     def __init__(self, cards: List[Card]):
-        self.__cards = list(cards)
-
+        self.__cards = cards.copy()
     @property
     def size(self):
         return len(self.__cards)
 
-    def deal(self, player, number: int):
+    def deal(self, player, num_cards: int):  # no ponemos tipo a player porque tendríamos un error de referencia cíclica
+        self.__check_deal(num_cards)
+        cards_to_deal = self.__cards[:num_cards]
+        player.receives(cards_to_deal)
+        self.__cards = self.__cards[num_cards:]
+
+    def __check_deal(self, number):
         if number < 0:
             raise ValueError("El número de cartas a repartir tiene que ser positivo")
         if number > len(self.__cards):
             raise ValueError("No hay cartas suficientes para repartir")
-
-        cards_to_deal = self.__cards[:number]
-        player.receives(cards_to_deal)
-        self.__cards = self.__cards[number:]
 
     def draw(self):
         if self.size == 0:

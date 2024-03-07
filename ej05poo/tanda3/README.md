@@ -2,7 +2,16 @@
 
 **10.** Crea la clase abstracta *Vehicle*, así como las clases *Bike* y *Car* como subclases de la primera. Para la clase *Vehicle*, crea los atributos de clase *vehicles_created* y *total_kilometers*, así como el atributo de instancia *kilometers_traveled*.
 
-En la clase *Vehicle* crea un método para viajar (*travel*) que incremente los kilómetros recorridos. En la clase *Bike* haz un método para hacer el caballito y en la clase *Car* otro para quemar rueda.
+En la clase *Vehicle* crea un método para viajar (*travel*) que incremente los kilómetros recorridos. 
+
+En la clase *Bike* haz un método para hacer el caballito y en la clase *Car* otro para quemar rueda.
+
+En la clase *Car*:
+
+- Tendremos una variable de instancia con los litros de combustible que quedan en el depósito, inicialmente cero.
+- Tendremos un método para quemar rueda y otro para llenar el depósito.
+- Cuando el coche viaje disminuirá el número de litros en el depósito en relación a los kilómetros viajados. Si no hay combustible suficiente, el coche recorrerá únicamente los kilómetros que pueda.
+- Para simplificar, cada kilómetro recorrido consumirá 0,1 litros de combustible, en un depósito caben 50 litros y quemar rueda consume 1 litro de combustible.
 
 Prueba las clases creadas mediante un programa con un menú (usando la clase de la tanda anterior) como el que se muestra a continuación:
 
@@ -13,10 +22,12 @@ VEHÍCULOS
 2. Haz el caballito con la bicicleta
 3. Anda con el coche
 4. Quema rueda con el coche
-5. Ver kilometraje de la bicicleta
-6. Ver kilometraje del coche
-7. Ver kilometraje total
-8. Salir
+5. Llena el depósito del coche
+6. Ver kilometraje de la bicicleta
+7. Ver kilometraje del coche
+8. Ver el combustible que queda en el depósito del coche
+9. Ver kilometraje total
+10. Salir
 
 Elige una opción (1-8):
 </pre>
@@ -114,6 +125,6 @@ Número de cta: 7396941518 Saldo: 6175,00 €
 **14.** Crea en Python las siguientes clases:
 
 - *Card* que simule una carta de naipes. Un naipe tiene un palo (de un conjunto de palos) y un valor (de un conjunto de valores).
-- *CardPlayer* que simule un jugador de naipes. Un jugador tiene un conjunto de naipes. Puede robar una carta de una baraja. Una vez robada el jugador tiene una carta más y la baraja una menos. Puede deshacerse de una carta. Puede recibir cartas.
+- *CardPlayer* que simule un jugador de naipes. Un jugador tiene un nombre y un conjunto de naipes. Puede robar una carta de una baraja. Una vez robada el jugador tiene una carta más y la baraja una menos. Puede deshacerse de una carta. Puede recibir cartas.
 - *Deck* que simula un conjunto de cartas de naipes. Inicialmente tiene las cartas que le llegan con el constructor. Puede repartir un conjunto de cartas a un jugador. En la baraja dejan de existir esas cartas. Le pueden quitar la primera carta (robar). Puede barajarse.
 - Baraja Española e Inglesa (*SpanishDeck* e *EnglishDeck*) que heredan de *Deck*.

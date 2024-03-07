@@ -14,13 +14,13 @@ from typeguard import typechecked
 @typechecked
 class Vehicle(ABC):
     __vehicles_created = 0
-    __total_kilometers = 0
+    __total_kilometers = 0.0
 
     def __init__(self):
-        self.__kilometers_traveled = 0
+        self.__kilometers_traveled = 0.0
         Vehicle.__vehicles_created += 1
 
-    def travel(self, kilometers_traveled: int):
+    def travel(self, kilometers_traveled: float):
         if kilometers_traveled < 0:
             raise ValueError("Los kilómetros a recorrer no pueden ser negativos.")
         self.__kilometers_traveled += kilometers_traveled

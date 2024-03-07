@@ -29,9 +29,9 @@ class Mobile(Terminal):
         self.__rate = Mobile.__Rate[rate.upper()]
         self.__price = 0
 
-    @staticmethod
-    def exists_rate(rate: str):
-        for r in Mobile.__Rate:
+    @classmethod
+    def exists_rate(cls, rate: str):
+        for r in cls.__Rate:
             if r.name == rate.upper():
                 return True
         return False
