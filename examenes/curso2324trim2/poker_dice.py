@@ -8,7 +8,7 @@ Clase que modela un dado de póker de manera que:
 from dice import Dice
 
 class PokerDice(Dice):
-    __SCORES = {'A':6, 'K':5,'Q':4, 'J':3, 'R':2, 'N':1}
+    __SCORES = {'A':6, 'K':5, 'Q':4, 'J':3, 'R':2, 'N':1}
 
     def __init__(self):
         super().__init__(*self.__SCORES.keys())
