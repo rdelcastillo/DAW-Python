@@ -19,6 +19,7 @@ class Deck:
 
     def __init__(self, cards: List[Card]):
         self.__cards = cards.copy()
+
     @property
     def size(self):
         return len(self.__cards)
