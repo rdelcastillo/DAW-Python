@@ -21,6 +21,7 @@ Crearemos un tipo enumerado con los tipos de movimiento bancario:
 
 Autor: Rafael del Castillo Gomariz.
 """
+from __future__ import annotations
 import random
 from enum import Enum
 from typeguard import typechecked
@@ -69,7 +70,7 @@ class BankAccount:
             raise ValueError("El cargo no se puede hacer porque la cuenta quedaría con saldo negativo")
         self.__movements.append({'type': MovementType.WD, 'amount': -money})
 
-    def transfer(self, other: 'BankAccount', money: float):
+    def transfer(self, other: BankAccount, money: float):
         if money < 0:
             raise ValueError("Una transferencia no puede ser negativa")
         if self.balance - money < 0:

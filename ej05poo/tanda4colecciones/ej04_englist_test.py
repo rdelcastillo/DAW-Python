@@ -27,7 +27,7 @@ while len(test_words) < NUM_QUESTIONS:
 num_answer_ok = 0
 for word in test_words:
     answer = input(f"Traducción de {word}: ").lower()
-    if answer == SPANISH_ENGLISH_DICT[word]:
+    if answer == SPANISH_ENGLISH_DICT[word].lower():
         num_answer_ok += 1
 
 # Resultados

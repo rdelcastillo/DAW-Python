@@ -31,14 +31,14 @@ capitals = {
 }
 
 while True:
-    country = input("Escribe el nombre de un país y te diré su capital: ")
-    if country == "salir":
+    country = input("Escribe el nombre de un país y te diré su capital: ").capitalize()
+    if country == "Salir":
         break
 
     if country in capitals:
         print("La capital de", country, "es", capitals[country])
     else:
-        capital = input(f"No conozco la respuesta ¿cuál es la capital de {country}: ")
+        capital = input(f"No conozco la respuesta ¿cuál es la capital de {country}: ").capitalize()
         capitals[country] = capital
 
 print("Adiós")

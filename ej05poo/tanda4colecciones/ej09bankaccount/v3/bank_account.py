@@ -13,6 +13,7 @@ como recibidas) en una lista de diccionarios.
 
 Autor: Rafael del Castillo Gomariz.
 """
+from __future__ import annotations
 import random
 from typeguard import typechecked
 from movement import MovementType, Movement
@@ -59,7 +60,7 @@ class BankAccount:
             raise ValueError("El cargo no se puede hacer porque la cuenta quedaría con saldo negativo")
         self.__movements.append(Movement(MovementType.WD, -money))
 
-    def transfer(self, other: 'BankAccount', money: float):
+    def transfer(self, other: BankAccount, money: float):
         if money < 0:
             raise ValueError("Una transferencia no puede ser negativa")
         if self.balance - money < 0:

@@ -13,9 +13,15 @@ como recibidas) en una lista de diccionarios.
 
 Autor: Rafael del Castillo Gomariz.
 """
+from __future__ import annotations
 import random
 from typeguard import typechecked
 from movement import Deposit, Withdraw, TransferIssued, TransferReceived, Movement
+
+class NegativeBalanceError(ValueError):
+
+    def __init__(self, message: str):
+        super().__init__(message)
 
 @typechecked
 class BankAccount:
@@ -23,7 +29,7 @@ class BankAccount:
 
     def __init__(self, balance: float = 0):
         if balance < 0:
-            raise ValueError("No puede crearse una cuenta bancaria con saldo negativo")
+            raise NegativeBalanceError("No puede crearse una cuenta bancaria con saldo negativo")
         self.__number = BankAccount.__create_number_account()
         if balance > 0:
             self.__movements = [Deposit(balance, f"Creación de la cuenta con ingreso de: {balance:.2f} €")]
@@ -50,23 +56,19 @@ class BankAccount:
     def number(self):
         return self.__number
 
+    def __check_balance(self, money: float, error_message: str):
+        if self.balance - money < 0:
+            raise NegativeBalanceError(error_message)
+
     def deposit(self, money: float):
-        if money < 0:
-            raise ValueError("Un depósito en cuenta no puede ser negativo")
         self.__append(Deposit(money))
 
     def withdraw(self, money: float):
-        if money < 0:
-            raise ValueError("Un cargo en cuenta no puede ser negativo")
-        if self.balance - money < 0:
-            raise ValueError("El cargo no se puede hacer porque la cuenta quedaría con saldo negativo")
+        self.__check_balance(money, "El cargo no se puede hacer porque la cuenta quedaría con saldo negativo")
         self.__append(Withdraw(money))
 
-    def transfer(self, other: 'BankAccount', money: float):
-        if money < 0:
-            raise ValueError("Una transferencia no puede ser negativa")
-        if self.balance - money < 0:
-            raise ValueError("No hay saldo suficiente para hacer la transferencia")
+    def transfer(self, other: BankAccount, money: float):
+        self.__check_balance(money, "No hay saldo suficiente para hacer la transferencia")
         self.__append(TransferIssued(money, other.__number))
         other.__append(TransferReceived(money, self.__number))
 

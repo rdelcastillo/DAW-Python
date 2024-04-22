@@ -64,7 +64,7 @@ class TransferIssued(Movement):
 class TransferReceived(Movement):
 
     def __init__(self, amount: float, account: int):
-        super().__init__(MovementType.TI, amount, account)
+        super().__init__(MovementType.TR, amount, account)
 
     def __str__(self):
         return f"Transferencia recibida de {self.amount:.2f} € de la cuenta {self.account:010d}"

@@ -13,6 +13,7 @@ como recibidas).
 
 Autor: Rafael del Castillo Gomariz.
 """
+from __future__ import annotations
 import random
 from typeguard import typechecked
 
@@ -59,7 +60,7 @@ class BankAccount:
         self.__balance -= money
         self.__movements.append(f"Cargo de {money:.2f} €. Saldo: {self.__balance:.2f} €")
 
-    def transfer(self, other: 'BankAccount', money: float):
+    def transfer(self, other: BankAccount, money: float):
         if money < 0:
             raise ValueError("Una transferencia no puede ser negativa")
         if self.__balance - money < 0:
