@@ -2,8 +2,8 @@
 Una vez que vemos la forma de ver si una cadena cumple el patrón, podemos querer extraer parte de ese patrón, por 
 ejemplo, las cifras de la fecha (día, mes y año). 
 
-Nuevamente, las expresiones regulares de java nos ayudan. Cambiemos el ejemplo. Queremos extraer los sumandos y el
-resultado de una cadena así "xxxx+yyyy=zzzzz" donde x, y y z representan dígitos y pueden ser en cualquier número.
+Nuevamente, las expresiones regularesnos ayudan. Cambiemos el ejemplo. Queremos extraer los sumandos y el resultado de
+una cadena así "xxxx+yyyy=zzzzz" donde x, y y z representan dígitos y pueden ser en cualquier número.
  
 Con \d+ indicamos uno o más dígitos. La expresión regular para ver si una cadena cumple ese patrón puede ser 
 "\d+\+\d+=\d+". 
