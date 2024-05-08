@@ -40,6 +40,6 @@ xml_minidom = minidom.parseString(ET.tostring(root))
 xml_str = xml_minidom.toprettyxml()
 
 # Escribir el XML formateado en un archivo
-with open(XML_FILE, 'w') as archivo:
-    archivo.write(xml_str)
+with open(XML_FILE, 'w') as xml_file:
+    xml_file.write(xml_str)
 """

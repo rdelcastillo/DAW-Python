@@ -20,4 +20,14 @@
 		<author>Juan Eslava Galán</author>
 		<isbn>9788408149699</isbn>
 	</book>
+	<book category="NOVELA">
+		<title>Ana Kerenina</title>
+		<author>León Tolstoi</author>
+		<isbn>1234567890</isbn>
+	</book>
+	<book category="HISTORIA">
+		<title>Trafalgar</title>
+		<author>Benito Pérez Galdós</author>
+		<isbn>2345678901</isbn>
+	</book>
 </library>
