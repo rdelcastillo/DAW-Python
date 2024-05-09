@@ -4,6 +4,7 @@ Genera el código QR de una página web.
 Fuente: https://youtu.be/0IVgFf9c7_w?si=X7MsTB0jCsynx1H4
 """
 URL = 'https://github.com/rdelcastillo/DAW-Python'
+FILE = 'img/url.png'
 
 import qrcode
 
@@ -12,4 +13,4 @@ qr.add_data(URL)
 qr.make(fit=True)
 
 img = qr.make_image(fill_color='black', back_color='white')
-img.save('url.png')
+img.save(FILE)

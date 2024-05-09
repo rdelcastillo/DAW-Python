@@ -3,7 +3,7 @@ Decodificamos QR.
 
 Sacado de https://youtu.be/WnhuWX0dwbA?si=v1MyYigopNBpSZ5_
 """
-IMG = 'url.png'
+IMG = 'img/url.png'
 
 import cv2
 from pyzbar.pyzbar import decode
