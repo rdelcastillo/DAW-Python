@@ -1,8 +1,8 @@
 """
-Programa que recibe una url y el nombre de una etiqueta html. Si la url es válida mouestra por la pantalla el contenido
+Programa que recibe una url y el nombre de una etiqueta html. Si la url es válida muestra por la pantalla el contenido
 de cada etiqueta y el número de ocurrencias de la misma.
 
-Ejemplo: si ejecuto python miprograma.py https://example.com/ p
+Ejemplo: si ejecuto python mi_programa.py https://example.com/ p
 
 La salida sería:
 ---------------------------------------------------------------------------------------------------------------------
@@ -32,10 +32,9 @@ def main():
 
 
 def check_args():
-    if len(sys.argv) == 3:
-        return
-    print("Error en el número de argumentos. La sintaxis correcta es <PROGRAMA> <URL> <ETIQUETA HTML>", file=sys.stderr)
-    exit(1)
+    if len(sys.argv) != 3:
+        print("Error en el número de argumentos. La sintaxis correcta es <PROGRAMA> <URL> <ETIQUETA HTML>", file=sys.stderr)
+        exit(1)
 
 
 def get_html(url):
