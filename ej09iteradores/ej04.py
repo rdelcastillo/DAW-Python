@@ -19,7 +19,7 @@ Usando reduce:
 import random
 from functools import reduce
 
-TOTAL_NUMBERS = 10
+TOTAL_NUMBERS = 100
 MIN_VALUE, MAX_VALUE = -5000, 5000
 
 
@@ -32,21 +32,23 @@ def main():
     multiples_of_3_list = list(filter(lambda n: n % 3 == 0, my_list))
     negatives_list = list(filter(lambda n: n < 0, my_list))
     primes_list = list(filter(lambda n: is_prime(n), my_list))
+    there_are_primes = len(primes_list) > 0
 
-    total_sum = reduce(lambda total, n: total + n, my_list, 0)
-    pairs_sum = reduce(lambda total, n: total + (n if n%2==0 else 0), my_list, 0)
+    total_sum = reduce(lambda total, n: total + n, my_list)
+    #pairs_sum = reduce(lambda total, n: total + (n if n%2==0 else 0), my_list, 0)
+    pairs_sum = reduce(lambda total, n: total + n, filter(lambda n: n%2 == 0, my_list))
     primes_multiplication = reduce(lambda total, n: total * n, primes_list, 1)
 
     print("Lista de números generada:", my_list)
     print("Lista elevada al cuadrado:", squared_list)
     print("Lista como texto:", text_list)
     print("Lista de números múltiplos de 3:", multiples_of_3_list)
-    print("Lista de números negativos:", negatives_list)
+    print("Total de números negativos:", len(negatives_list))
     print("Lista de números primos:", primes_list)
-    print("Máximo número primo:", max(primes_list) if len(primes_list) > 0 else None)
+    print("Máximo número primo:", max(primes_list) if there_are_primes else None)
     print("Suma de todos los números de la lista:", total_sum)
     print("Suma de los números pares de la lista:", pairs_sum)
-    print("Multiplicación de los números primos de la lista:", primes_multiplication if len(primes_list) > 0 else None)
+    print("Multiplicación de los números primos de la lista:", primes_multiplication if there_are_primes else None)
 
 
 def is_prime(n):
