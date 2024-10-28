@@ -6,7 +6,7 @@ Fecha: 12/10/2020
 -------------------------------------------------------------------------------------
 Análisis:
 -------------------------------------------------------------------------------------
-Tenemos que leer los catetos del triangulo y calcular su hipotenusa aplicando el teorema de Pitágoras.
+Tenemos que leer los catetos del triángulo y calcular su hipotenusa aplicando el teorema de Pitágoras.
 
 El teorema de Pitágoras dice que para un triángulo rectángulo: hipotenusa² = cateto1² + cateto2²
 

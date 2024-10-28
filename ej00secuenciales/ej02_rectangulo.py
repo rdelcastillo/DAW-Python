@@ -11,7 +11,7 @@ Tenemos que leer la base y la altura del rectángulo y calcular el perímetro y 
 Datos de entrada: base (número real), altura (número real).
 Información de salida: perímetro (real) y área (real).
 
-Variables: base, altura, perímetro y area (real).
+Variables: base, altura, perímetro y área (real).
 -------------------------------------------------------------------------------------
 Diseño:
 -------------------------------------------------------------------------------------

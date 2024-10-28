@@ -2,9 +2,9 @@
 El patrón de diseño DAO (Data Access Object) es un patrón estructural utilizado para abstraer y encapsular todos los
 accesos a una fuente de datos.
 
-El DAO maneja la conexión con la fuente de datos para obtener y almacenar datos, lo que
-permite separar la lógica de negocio de la interacción con la base de datos. Este patrón es muy útil en aplicaciones con
-estructuras complejas de bases de datos y puede aplicarse en cualquier lenguaje de programación.
+El DAO maneja la conexión con la fuente de datos para obtener y almacenar datos, lo que permite separar la lógica de
+negocio de la interacción con la base de datos. Este patrón es muy útil en aplicaciones con estructuras complejas de
+bases de datos y puede aplicarse en cualquier lenguaje de programación.
 
 Objetivos del patrón DAO:
 

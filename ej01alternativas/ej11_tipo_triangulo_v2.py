@@ -7,7 +7,7 @@ El programa debe determinar que tipo de triángulo es, teniendo en cuenta:
 - Si no se cumple ninguna de las condiciones anteriores, es escaleno.
 
 Autor: Clase 1ºDAW.
-Fecha: 29/10/2019.
+Fecha: 21/10/2024.
 
 Análisis
 --------
@@ -37,14 +37,15 @@ side_c = float(input("Introduce longitud lado C: "))
 # Comprobamos si es equilátero, este caso es excluyente
 if side_a == side_b and side_b == side_c:  # Python permitiría side_a == side_b == side_c
     print("El triángulo es EQUILÁTERO")
+    exit(0)  # el programa acaba, no hace falta else
+
+# Comprobamos si es rectángulo (puede ser rectángulo y isósceles o escaleno)
+if side_a ** 2 == (side_b ** 2 + side_c ** 2) \
+        or side_b ** 2 == (side_a ** 2 + side_c ** 2) \
+        or side_c ** 2 == (side_b ** 2 + side_a ** 2):
+    print("El triángulo es RECTÁNGULO")
+# Comprobamos si es isósceles o escaleno (equilátero no es)
+if side_a == side_b or side_a == side_c or side_b == side_c:
+    print("El triángulo es ISÓSCELES")
 else:
-    # Comprobamos si es rectángulo (puede ser rectángulo y isósceles o escaleno)
-    if side_a ** 2 == (side_b ** 2 + side_c ** 2) \
-            or side_b ** 2 == (side_a ** 2 + side_c ** 2) \
-            or side_c ** 2 == (side_b ** 2 + side_a ** 2):
-        print("El triángulo es RECTÁNGULO")
-    # Comprobamos si es isósceles o escaleno (equilátero no es)
-    if side_a == side_b or side_a == side_c or side_b == side_c:
-        print("El triángulo es ISÓSCELES")
-    else:
-        print("El triángulo es ESCALENO")
+    print("El triángulo es ESCALENO")

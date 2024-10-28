@@ -26,7 +26,6 @@ Algoritmo:
 4. Mostrar comisión
 5. Mostrar sueldo total: base_salary + comisión
 """
-
 COMMISSION_SALE = 0.1
 
 print("Cálculo de la comisión y sueldo de un vendedor")
@@ -39,8 +38,10 @@ sale2 = float(input("Dime precio de la venta 2: "))
 sale3 = float(input("Dime precio de la venta 3: "))
 
 # Cálculos
-commission_salary = COMMISSION_SALE * (sale1 + sale2 + sale3)     # 10% de las ventas
+total_sales = sale1 + sale2 + sale3
+commission_salary = COMMISSION_SALE * total_sales  # 10% de las ventas
+total_salary = base_salary + commission_salary
 
 # Salida
 print(f"Comisión por ventas: {commission_salary}")
-print(f"Sueldo total: {base_salary + commission_salary}")
+print(f"Sueldo total: {total_salary}")

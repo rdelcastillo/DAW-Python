@@ -28,7 +28,8 @@ SI LONGITUD(ch) == 1
         ESCRIBIR "Otro carácter"
     FIN-SI
 SINO
-    ESCRIBIR "No es un carácter"FIN-SI
+    ESCRIBIR "No es un carácter"
+FIN-SI
 """
 PUNCTUATION_MARKS = ".:!¡?¿\"',;-^(){}[]“”«»"
 
