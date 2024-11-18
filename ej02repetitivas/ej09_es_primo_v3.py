@@ -23,16 +23,13 @@ Diseño
 ------
 1.- Supongo que el número es primo -> creo_que_es_primo<-Verdadero
 2.- Leer num_es_primo
-3.- Desde num = 2 hasta raíz(numero_es_primo)
-4.- Si num_a_comprobar es divisible entre num -> creo_que_es_primo<-Falso
+3.- Desde num = 2 hasta raíz(numero_a_comprobar)
+    4.- Si num_a_comprobar es divisible entre num -> creo_que_es_primo<-Falso
 5.- Si creo_que_es_primo -> Mostrar "Es primo"
 6.- Si no -> Mostrar "No es primo"
 """
 import math
 import sys
-
-# Inicialización
-is_prime = True
 
 # Pedimos datos
 num_to_check = int(input("Introduce un número (>=2) para comprobar si es primo: "))
@@ -41,11 +38,11 @@ if num_to_check < 2:
     exit(1)
 
 # Proceso
-num = 2
-while num <= math.sqrt(num_to_check) and is_prime:
+is_prime = True
+for num in range(2, int(math.sqrt(num_to_check))+1):
     if num_to_check % num == 0:
         is_prime = False
-    num += 1
+        break
 
 # Mostramos resultado    
 if is_prime:
