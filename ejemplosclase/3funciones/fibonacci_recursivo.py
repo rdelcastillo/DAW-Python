@@ -10,7 +10,10 @@ def main():
     Función principal del programa.
     """
     n = int(input("Introduce el término de la serie de Fibonacci a calcular: "))
-    print(f"El término {n} de la serie de Fibonacci es {fibonacci(n)}")
+    if n > 0:
+        print(f"El término {n} de la serie de Fibonacci es {fibonacci(n)}.")
+    else:
+        print("Solo funciona con valores positivos.")
 
 
 def fibonacci(n):
