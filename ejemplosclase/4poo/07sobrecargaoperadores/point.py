@@ -32,23 +32,25 @@ class Point:
     def y(self):
         return self.__y
 
-    def __add__(self, other: Point):
-        return Point(self.__x + other.__x, self.__y + other.__y)
-
-    def __sub__(self, other: Point):
-        return Point(self.__x - other.__x, self.__y - other.__y)
-
-    def __neg__(self):
-        return Point(-self.__x, -self.__y)
-
-    def __mul__(self, other: int):
-        return Point(self.__x * other, self.__y * other)
-
-    def __rmul__(self, other: int):  # para casos donde el operando está a la izquierda (5 * p)
-        return self * other
-
     def __str__(self):
         return f"({self.__x}, {self.__y})"
 
     def __repr__(self):
         return f"{self.__class__.__name__}({self.__x}, {self.__y})"
+
+    """
+        def __add__(self, other: Point):
+            return Point(self.__x + other.__x, self.__y + other.__y)
+
+        def __sub__(self, other: Point):
+            return Point(self.__x - other.__x, self.__y - other.__y)
+
+        def __neg__(self):
+            return Point(-self.__x, -self.__y)
+
+        def __mul__(self, other: int):
+            return Point(self.__x * other, self.__y * other)
+
+        def __rmul__(self, other: int):  # para casos donde el operando está a la izquierda (5 * p)
+            return self * other
+    """

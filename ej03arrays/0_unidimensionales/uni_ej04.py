@@ -22,10 +22,11 @@ max_number = max(numbers)
 min_number = min(numbers)
 
 # Mostramos resultado
-print()
+print("\nNúmeros introducidos:")
 for i in range(TOTAL_NUMBERS):
     print(numbers[i], end=" ")
     if numbers[i] == max_number:
         print("máximo ", end=" ")
     if numbers[i] == min_number:
         print("mínimo ", end=" ")
+    print()
