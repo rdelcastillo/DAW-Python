@@ -62,7 +62,7 @@ cuando nos permita poner el valor que queramos en la cara del dado
 -   Dispondremos de un método para quitar un dado (*remove*) pasándole
     el dado concreto que queremos quitar.
 
--   Debe estar creado el método mágico* \_\_str\_\_()*.
+-   Debe estar creado el método mágico *\_\_str\_\_()*.
 
 6. (1 PUNTO) Crea una clase que modele un cubilete de dados de póker
 (*PokerDiceCup*) que derive de la clase anterior de manera que tenga una
