@@ -1,31 +1,36 @@
 [
     {
+        "py/object": "ejemplo_serializar_objeto.Person",
         "name": "Juan",
-        "address": "Calle Falsa 123, 14001 Córdoba",
+        "address": "Calle Falsa 123, 14001 C\u00f3rdoba",
         "email": "juan@example.com",
         "phone": "555 - 1234"
     },
     {
-        "name": "María",
-        "address": "Avenida Principal 456, 14002 Córdoba",
+        "py/object": "ejemplo_serializar_objeto.Person",
+        "name": "Mar\u00eda",
+        "address": "Avenida Principal 456, 14002 C\u00f3rdoba",
         "email": "maria@example.com",
         "phone": "555 - 5678"
     },
     {
+        "py/object": "ejemplo_serializar_objeto.Person",
         "name": "Pedro",
-        "address": "Calle Secundaria 789, 14003 Córdoba",
+        "address": "Calle Secundaria 789, 14003 C\u00f3rdoba",
         "email": "pedro@example.com",
         "phone": "555 - 9012"
     },
     {
+        "py/object": "ejemplo_serializar_objeto.Person",
         "name": "Ana",
-        "address": "Plaza Central 321, 14001 Córdoba",
+        "address": "Plaza Central 321, 14001 C\u00f3rdoba",
         "email": "ana@example.com",
         "phone": "555 - 3456"
     },
     {
+        "py/object": "ejemplo_serializar_objeto.Person",
         "name": "Luis",
-        "address": "Calle Principal 654, 14001 Córdoba",
+        "address": "Calle Principal 654, 14001 C\u00f3rdoba",
         "email": "luis@example.com",
         "phone": "555 - 7890"
     }
