@@ -17,15 +17,19 @@ from rates import Rates
 class Mobile(Terminal):
 
     def __init__(self, number: str, rate: str):
-        if not Rates.exists(rate):
-            raise ValueError("La tarifa indicada es errónea")
         super().__init__(number)
-        self.__rate = rate.upper()
+        self.rate = rate
         self.__price = 0
 
     @property
     def rate(self):
         return self.__rate
+
+    @rate.setter
+    def rate(self, rate: str):
+        if not Rates.exists(rate):
+            raise ValueError("La tarifa indicada es errónea")
+        self.__rate = rate.upper()
 
     @property
     def price(self):

@@ -18,12 +18,16 @@ class Mobile(Terminal):
 
     def __init__(self, number: str, rate: str):
         super().__init__(number)
-        self.__rate = Rate(rate)
+        self.rate = rate
         self.__price = 0
 
     @property
     def rate(self):
         return self.__rate.name
+
+    @rate.setter
+    def rate(self, rate: str):
+        self.__rate = Rate(rate)
 
     @property
     def price(self):

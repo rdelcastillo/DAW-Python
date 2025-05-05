@@ -7,11 +7,11 @@ Esta versión crea la clase *Mobile* de la manera más intuitiva para quienes ti
   * La gestión de llamadas del móvil.
   * La gestión de las tarifas.
 
-Incumple el primero de los [principios de SOLID](https://gustavopeiretti.com/principios-solid-con-ejemplos/), el de "responsabilidad única".
+Incumple el primero de los [principios de SOLID](https://gustavopeiretti.com/principios-solid-con-ejemplos/), el de "responsabilidad única" y el segundo, el de "abierto/cerrado".
 
 ## Versión 2
 
-Esta versión delega la responsabilidad de las tarifas a la clase Rates donde estas se guardan en un diccionario.
+Esta versión delega la responsabilidad de las tarifas a la clase *Rates* donde estas se guardan en un diccionario. Incumple el principio SOLID abierto/cerrado.
 
 ## Versión 3
 

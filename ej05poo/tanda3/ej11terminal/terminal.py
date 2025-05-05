@@ -4,7 +4,7 @@ Clase Terminal.
 Un terminal tiene asociado un número de teléfono. Los terminales se pueden llamar unos a otros y el tiempo de
 conversación corre para ambos.
 
-Los números de teléfono tienen que validarse como tales al crear el objeto (solo dígitos, empiezan por 9, 6 ó 7, su
+Los números de teléfono tienen que validarse como tales al crear el objeto (solo dígitos, empiezan por 9, 6 o 7, su
 longitud es de nueve dígitos) y no puede haber dos terminales con el mismo número.
 
 Autor: Rafael del Castillo Gomariz
@@ -19,11 +19,11 @@ class Terminal:
     __registered_numbers = []
 
     def __init__(self, number: str):
-        if not Terminal.__is_phone_number(number):
+        if not Terminal.__is_phone_number(number):  # en vez de Terminal podría poner self
             raise ValueError("El número de teléfono es erróneo")
         if number in Terminal.__registered_numbers:
             raise ValueError("El número de teléfono ya ha sido dado de alta")
-        Terminal.__registered_numbers.append(number)
+        self.__registered_numbers.append(number)
         self.__number = number
         self.__talk_time = 0
 

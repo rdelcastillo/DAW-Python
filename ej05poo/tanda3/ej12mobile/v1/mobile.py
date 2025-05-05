@@ -6,7 +6,7 @@ céntimos respectivamente. Se tarifican los segundos exactos. La tarifa se puede
 
 Obviamente, cuando un móvil llama a otro, se le cobra al que llama, no al que recibe la llamada.
 
-No cumple con el principio SOLID de responsabilidad única.
+No cumple con los principios SOLID de responsabilidad única ni de abierto/cerrado.
 
 Autor: Rafael del Castillo Gomariz
 """
@@ -23,11 +23,19 @@ class Mobile(Terminal):
     __BISONTE_PRICE = 0.30
 
     def __init__(self, number: str, rate: str):
+        super().__init__(number)
+        self.rate = rate
+        self.__price = 0
+
+    @property
+    def rate(self):
+        return self.__rate.name
+
+    @rate.setter
+    def rate(self, rate: str):
         if not Mobile.exists_rate(rate):
             raise ValueError("La tarifa indicada es errónea")
-        super().__init__(number)
         self.__rate = Mobile.__Rate[rate.upper()]
-        self.__price = 0
 
     @classmethod
     def exists_rate(cls, rate: str):
@@ -35,10 +43,6 @@ class Mobile(Terminal):
             if r.name == rate.upper():
                 return True
         return False
-
-    @property
-    def rate(self):
-        return self.__rate.name
 
     @property
     def price(self):

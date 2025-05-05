@@ -14,29 +14,32 @@ class Car(Vehicle):
     __FUEL_TANK_CAPACITY = 50.0
     __FUEL_CONSUMED_PER_KM = 0.1
     __FUEL_CONSUMED_BY_BURNOUT = 1
-
-    def __init__(self):
-        super().__init__()
-        self.__fuel = 0.0
-        self.__burnout = "  _    _             /'_'_/.-''/                             _______\n" \
+    __BURNOUT = "  _    _             /'_'_/.-''/                             _______\n" \
             + "  \\`../ |o_..__     / /__   / /  -= WORLD CHAMPIONSHIP =-   _\\=.o.=/_\n" \
             + "`.,(_)______(_).>  / ___/  / /                             |_|_____|_|\n" \
             + "~~~~~~~~~~~~~~~~~~/_/~~~~~/_/~~~~~~~~~~~~~~1DAW~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
 
+    def __init__(self):
+        super().__init__()
+        self.__fuel = 0.0
+
+    @property
+    def fuel(self):
+        return self.__fuel
+
     def do_burnout(self):
-        if self.__fuel >= self.__FUEL_CONSUMED_BY_BURNOUT:
-            print(self.__burnout)
-            self.__fuel -= self.__FUEL_CONSUMED_BY_BURNOUT
-        else:
-            print("Necesito al menos 1L de combustible para quemar rueda")  # podríamos lanzar una excepción
+        if self.__fuel < self.__FUEL_CONSUMED_BY_BURNOUT:
+            raise ValueError("No hay combustible para quemar rueda")
+        print(self.__BURNOUT)
+        self.__fuel -= self.__FUEL_CONSUMED_BY_BURNOUT
 
     def fill_tank(self):
         self.__fuel = self.__FUEL_TANK_CAPACITY
 
     def travel(self, kilometers_traveled: float):
         fuel_consumed = self.__FUEL_CONSUMED_PER_KM * kilometers_traveled
-        self.__fuel -= fuel_consumed
-        if self.__fuel < 0:
+        if self.__fuel - fuel_consumed < 0:
             kilometers_traveled = self.__fuel / self.__FUEL_CONSUMED_PER_KM
-            self.__fuel = 0.0
+            fuel_consumed = self.__fuel
+        self.__fuel -= fuel_consumed
         super().travel(kilometers_traveled)

@@ -1,5 +1,7 @@
 """
 Clase para manejo de las tarifas de la clase Mobile.
+
+Incumple el principio SOLID abierto/cerrado.
 """
 from typeguard import typechecked
 

@@ -11,15 +11,14 @@ from vehicle import Vehicle
 
 
 class Bike(Vehicle):
+    __WHEELIE = "            o       _      _          _\n" \
+                + "   _o      /\\_    _ \\\\o   (_)\\__/o   (_)\n" \
+                + " _< \\_    _>(_)  (_)/<_     \\_| \\    _|/' \\/\n" \
+                + "(_)>(_)  (_)         (_)    (_)     (_)'  _\\o_\n" \
+                + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~1DAW~~\n"
 
-    def __init__(self):
-        super().__init__()
-        self.__wheelie = "            o       _      _          _\n" \
-            + "   _o      /\\_    _ \\\\o   (_)\\__/o   (_)\n" \
-            + " _< \\_    _>(_)  (_)/<_     \\_| \\    _|/' \\/\n" \
-            + "(_)>(_)  (_)         (_)    (_)     (_)'  _\\o_\n" \
-            + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~1DAW~~\n"
 
-    def do_wheelie(self):
-        print(self.__wheelie)
+    @classmethod
+    def do_wheelie(cls):
+        print(cls.__WHEELIE)
         
