@@ -16,14 +16,10 @@ def main():
 
     with open(file_csv) as csv_file:
         csv_reader = csv.DictReader(csv_file)
-        record_list = []
-        # Añadimos cada persona del csv a address_book, mejor sería hacerlo con:
-        # address_book = [record for record in csv_reader]
-        for record in csv_reader:
-            record_list.append(record)
+        address_book = list(csv_reader)
 
     with open(file_json, "wt") as json_file:
-        json.dump(record_list, json_file, ensure_ascii=False, indent=4)
+        json.dump(address_book, json_file, ensure_ascii=False, indent=4)
 
     print(f"Exportado {file_csv} a {file_json}")
 
