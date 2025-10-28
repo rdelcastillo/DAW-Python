@@ -9,7 +9,7 @@ En una cuenta se pueden hacer ingresos y gastos. También es posible hacer una t
 No se permite el saldo negativo.
 
 Cada cuenta lleva un registro de todos los movimientos realizados: ingresos, cargos y transferencias (tanto enviadas
-como recibidas) en una lista de diccionarios.
+como recibidas) en una lista de objetos de tipo movimiento.
 
 Autor: Rafael del Castillo Gomariz.
 """

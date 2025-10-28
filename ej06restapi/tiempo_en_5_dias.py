@@ -1,5 +1,5 @@
 """
-Usando la API de OpenWeather obtendremos el pronóstico del time para una ciudad que se le pide al usuario de los
+Usando la API de OpenWeather obtendremos el pronóstico del tiempo para una ciudad que se le pide al usuario de los
 próximos cinco días, mostraremos:
 
 Temperatura media, mínima y máxima (en grados Celsius) para cada día y global.

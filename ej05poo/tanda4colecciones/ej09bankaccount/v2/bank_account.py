@@ -59,19 +59,19 @@ class BankAccount:
         return self.__number
 
     def deposit(self, money: float):
-        if money < 0:
+        if money <= 0:
             raise ValueError("Un depósito en cuenta no puede ser negativo")
         self.__movements.append({'type': MovementType.DP, 'amount': money})
 
     def withdraw(self, money: float):
-        if money < 0:
+        if money <= 0:
             raise ValueError("Un cargo en cuenta no puede ser negativo")
         if self.balance - money < 0:
             raise ValueError("El cargo no se puede hacer porque la cuenta quedaría con saldo negativo")
         self.__movements.append({'type': MovementType.WD, 'amount': -money})
 
     def transfer(self, other: BankAccount, money: float):
-        if money < 0:
+        if money <= 0:
             raise ValueError("Una transferencia no puede ser negativa")
         if self.balance - money < 0:
             raise ValueError("No hay saldo suficiente para hacer la transferencia")

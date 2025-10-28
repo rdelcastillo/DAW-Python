@@ -2,6 +2,7 @@
 Funciones estadísticas.
 """
 
+
 def mean(numbers):
     addition = 0
     for n in numbers:
@@ -19,6 +20,7 @@ def variance(numbers):
 
 def dev(numbers):
     return variance(numbers) ** 0.5
+
 
 def mode(*numbers):
     if len(numbers) == 1 and isinstance(numbers[0], (list, tuple)):
@@ -46,6 +48,7 @@ def mode(*numbers):
 
 
 def main():
+    print("Estoy probando la biblioteca de estadística.")
     numbers = [3, 7, 7, 1, 4, 1, 7, 1]
     print(f"La media de {numbers} es {mean(numbers)}")
     print(f"La varianza de {numbers} es {variance(numbers)}")

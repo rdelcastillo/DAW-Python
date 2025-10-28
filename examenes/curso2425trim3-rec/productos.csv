@@ -1,0 +1,5 @@
+código,nombre,precio,stock_actual,stock_mínimo
+P001,Lápiz,0.5,24,10
+P002,Cuaderno,2.0,5,10
+P003,Goma,0.3,12,5
+P004,Bolígrafo,1.0,3,8

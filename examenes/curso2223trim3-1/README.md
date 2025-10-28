@@ -21,7 +21,7 @@ Esta clase tiene que tener, al menos, los siguientes métodos:
   - lanza **excepción personalizada** si no hay movimientos.
 - save(filename)
   - guarda los movimientos de la caja en un fichero csv (*filename*), en caso de no indicar nombre de fichero este será:
-    - cash\_register\_<fecha actual en formato aaaa-mm-dd>.csv
+    - cash\_register\_*\<fecha actual en formato aaaa-mm-dd>*.csv
 - \_\_str\_\_()
   - devuelve una cadena con todos los movimientos y su saldo al final, si se imprime tiene que ser visualmente aceptable.
 - balance()
@@ -54,6 +54,7 @@ Por último hay que hacer un programa con un menú (usando la clase realizada en
 1. Borrado del último movimiento de la caja.
 1. Impresión de la caja.
 1. Guardar la caja. Si el fichero en el que se guarda existe hay que confirmar.
+1. Cargar los movimientos desde un fichero CSV.
 1. Salir.
 
 P.D.- Ejemplo de fichero CSV:

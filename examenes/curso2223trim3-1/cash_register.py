@@ -4,8 +4,6 @@ from typing import Optional
 from typeguard import typechecked
 from movement import Movement
 
-DATE_FORMAT = "%H:%M:%S %d/%m/%Y"
-
 class CashRegisterError(Exception):
 
     def __init__(self, message):
@@ -24,7 +22,7 @@ class CashRegister:
             with open(csv_filename) as csv_file:
                 csv_reader = csv.reader(csv_file)
                 for m in csv_reader:
-                    movement = Movement(float(m[1]), m[2], datetime.strptime(m[3], DATE_FORMAT), int(m[0]))
+                    movement = Movement(float(m[1]), m[2], datetime.strptime(m[3], "%H:%M:%S %d/%m/%Y"), int(m[0]))
                     self.__raise_if_movement_is_wrong(movement)
                     self.__movements.append(movement)
         except FileNotFoundError as e:
@@ -46,10 +44,10 @@ class CashRegister:
         if len(self.__movements) == 0:  # no hay movimientos, nada más que comprobar
             return
         if movement.number <= self.__movements[-1].number:  # identificador correcto
-            raise CashRegisterError(f"No se puede añadir un movimiento con fecha anterior al "
+            raise CashRegisterError(f"No se puede añadir un movimiento con identificador anterior al "
                                     f"último: {self.__movements[-1].date_time}")
         if movement.date_time < self.__movements[-1].date_time:  # fecha correcta
-            raise CashRegisterError(f"No se puede añadir un movimiento con fecha anterior al "
+            raise CashRegisterError(f"No se puede añadir un movimiento con fecha y hora anterior al "
                                     f"último: {self.__movements[-1].date_time}")
 
     def delete_last(self):

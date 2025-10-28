@@ -64,9 +64,9 @@ def input_amount(prompt):
 
 def load_movements():
     global cash
-    filename = input("\nNombre del fichero: ")
-    if cash.size > 0 and not is_ok("La caja tiene movimientos, esta operación hará que se pierdan ¿está seguro?"):
+    if cash.size > 0 and not is_ok("\nLa caja tiene movimientos, esta operación hará que se pierdan ¿está seguro?"):
         return
+    filename = input("Nombre del fichero: ")
     try:
         new_cash = CashRegister(filename)
         cash = new_cash

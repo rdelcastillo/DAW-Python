@@ -9,7 +9,7 @@ En una cuenta se pueden hacer ingresos y gastos. También es posible hacer una t
 No se permite el saldo negativo.
 
 Cada cuenta lleva un registro de todos los movimientos realizados: ingresos, cargos y transferencias (tanto enviadas
-como recibidas) en una lista de diccionarios.
+como recibidas) en una lista de objetos de tipo movimiento.
 
 Autor: Rafael del Castillo Gomariz.
 """
@@ -49,19 +49,19 @@ class BankAccount:
         return self.__number
 
     def deposit(self, money: float):
-        if money < 0:
+        if money <= 0:
             raise ValueError("Un depósito en cuenta no puede ser negativo")
         self.__movements.append(Movement(MovementType.DP, money))
 
     def withdraw(self, money: float):
-        if money < 0:
+        if money <= 0:
             raise ValueError("Un cargo en cuenta no puede ser negativo")
         if self.balance - money < 0:
             raise ValueError("El cargo no se puede hacer porque la cuenta quedaría con saldo negativo")
         self.__movements.append(Movement(MovementType.WD, -money))
 
     def transfer(self, other: BankAccount, money: float):
-        if money < 0:
+        if money <= 0:
             raise ValueError("Una transferencia no puede ser negativa")
         if self.balance - money < 0:
             raise ValueError("No hay saldo suficiente para hacer la transferencia")
